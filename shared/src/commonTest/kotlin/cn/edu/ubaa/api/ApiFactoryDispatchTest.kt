@@ -355,7 +355,7 @@ private class FakeGradeApiBackend : GradeApiBackend {
 }
 
 private class FakeSigninApiBackend : SigninApiBackend {
-  override suspend fun getTodayClasses() = error("unused")
+  override suspend fun getClasses(date: String) = error("unused")
 
   override suspend fun performSignin(courseId: String) = error("unused")
 }

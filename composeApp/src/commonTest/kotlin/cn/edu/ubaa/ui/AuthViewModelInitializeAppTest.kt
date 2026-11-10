@@ -36,6 +36,8 @@ import kotlinx.coroutines.test.setMain
 class AuthViewModelInitializeAppTest {
   @BeforeTest
   fun setup() {
+    cn.edu.ubaa.api.local.LocalAuthSessionStore.settings = com.russhwolf.settings.MapSettings()
+    cn.edu.ubaa.api.storage.AccountStore.settings = com.russhwolf.settings.MapSettings()
     AuthTokensStore.clear()
     ClientIdStore.clear()
     CredentialStore.clear()

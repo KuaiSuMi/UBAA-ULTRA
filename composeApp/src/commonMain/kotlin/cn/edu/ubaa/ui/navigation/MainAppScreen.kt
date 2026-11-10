@@ -585,7 +585,10 @@ fun MainAppScreen(
     // 刷新当前页面数据
     when (currentScreen) {
       AppScreen.HOME -> startHomeBootstrap(forceRefresh = true)
-      AppScreen.SCHEDULE -> scheduleViewModel.ensureScheduleLoaded(forceRefresh = true)
+      AppScreen.SCHEDULE -> {
+        scheduleViewModel.ensureScheduleLoaded(forceRefresh = true)
+        signinViewModel.ensureTodayLoaded(forceRefresh = true)
+      }
       AppScreen.EXAM -> examViewModel?.ensureLoaded(forceRefresh = true)
       AppScreen.GRADE -> gradeViewModel?.ensureLoaded(forceRefresh = true)
       AppScreen.BYKC_COURSES -> {
@@ -641,7 +644,10 @@ fun MainAppScreen(
     }
     when (currentScreen) {
       AppScreen.HOME -> startHomeBootstrap()
-      AppScreen.SCHEDULE -> scheduleViewModel.ensureScheduleLoaded()
+      AppScreen.SCHEDULE -> {
+        scheduleViewModel.ensureScheduleLoaded()
+        signinViewModel.ensureTodayLoaded(forceRefresh = true)
+      }
       AppScreen.EXAM -> examViewModel?.ensureLoaded()
       AppScreen.GRADE -> gradeViewModel?.ensureLoaded()
       AppScreen.BYKC_COURSES -> {
@@ -675,6 +681,12 @@ fun MainAppScreen(
       AppScreen.YGDK_HOME,
       AppScreen.YGDK_FORM -> ygdkViewModel?.ensureLoaded()
       else -> Unit
+    }
+  }
+
+  LaunchedEffect(currentScreen, scheduleUiState.selectedWeek) {
+    if (currentScreen == AppScreen.SCHEDULE) {
+      scheduleUiState.selectedWeek?.let { signinViewModel.loadWeekRecords(it) }
     }
   }
 
@@ -863,8 +875,15 @@ fun MainAppScreen(
                   isUpdating = scheduleUiState.isUpdating,
                   updatedAt = scheduleUiState.updatedAt,
                   diagnosticResponse = scheduleUiState.diagnosticResponse,
+                  attendanceError = signinUiState.historyError,
                   onUpdate = { scheduleViewModel.updateSchedule() },
-                  onRefresh = { scheduleViewModel.ensureScheduleLoaded(forceRefresh = true) },
+                  onRefresh = {
+                    scheduleViewModel.ensureScheduleLoaded(forceRefresh = true)
+                    signinViewModel.ensureTodayLoaded(forceRefresh = true)
+                    scheduleUiState.selectedWeek?.let {
+                      signinViewModel.loadWeekRecords(it, forceRefresh = true)
+                    }
+                  },
                   onImportCurrentTerm = { scheduleViewModel.updateSchedule(currentTerm = true) },
                   onTermSelected = { scheduleViewModel.selectTerm(it) },
                   onWeekSelected = { scheduleViewModel.selectWeek(it) },

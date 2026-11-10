@@ -64,8 +64,9 @@ class LocalSigninApiBackendTest {
   }
 
   @Test
-  fun `signin api uses direct upstream backend to fetch today classes`() = runTest {
-    val expectedDate = currentSigninDate()
+  fun `signin api queries today's and historical classes by date`() = runTest {
+    var expectedDate = currentSigninDate()
+    val queriedDates = mutableListOf<String>()
     val loginName = "Rjc1QkJDMUMxNzVENkY0NkZCNzFDMEM5RjYwNzg4RDg="
     val engine = MockEngine { request ->
       when {
@@ -99,6 +100,7 @@ class LocalSigninApiBackendTest {
         request.url.toString() ==
             "https://iclass.buaa.edu.cn:8347/app/course/get_stu_course_sched.action?id=user-1&dateStr=$expectedDate" -> {
           assertEquals("session-1", request.headers["sessionId"])
+          queriedDates += request.url.parameters["dateStr"]!!
           respond(
               content =
                   ByteReadChannel(
@@ -127,11 +129,14 @@ class LocalSigninApiBackendTest {
     }
     useMockUpstream(engine)
 
-    val result = SigninApi().getTodayClasses()
+    val result = SigninApi().getClasses()
 
     assertTrue(result.isSuccess)
     assertEquals("course-1", result.getOrNull()?.data?.singleOrNull()?.courseId)
     assertEquals("软件工程", result.getOrNull()?.data?.singleOrNull()?.courseName)
+    expectedDate = "20260112"
+    assertTrue(SigninApi().getClasses("2026-01-12").isSuccess)
+    assertEquals(listOf(currentSigninDate(), "20260112"), queriedDates)
   }
 
   @Test
@@ -214,7 +219,7 @@ class LocalSigninApiBackendTest {
     }
     useMockUpstream(engine)
 
-    val result = SigninApi().getTodayClasses()
+    val result = SigninApi().getClasses()
 
     assertTrue(result.isSuccess, result.exceptionOrNull()?.message.orEmpty())
     assertEquals(2, visitedJumpUrls.size)
@@ -349,7 +354,7 @@ class LocalSigninApiBackendTest {
     useMockUpstream(engine)
 
     val api = SigninApi()
-    val classes = api.getTodayClasses()
+    val classes = api.getClasses()
     val signin = api.performSignin("course-1")
 
     assertTrue(classes.isSuccess, classes.exceptionOrNull()?.message.orEmpty())
@@ -403,7 +408,7 @@ class LocalSigninApiBackendTest {
     }
     useMockUpstream(engine)
 
-    val result = SigninApi().getTodayClasses()
+    val result = SigninApi().getClasses()
 
     assertTrue(result.isSuccess, result.exceptionOrNull()?.message.orEmpty())
     val course = result.getOrNull()?.data?.singleOrNull()

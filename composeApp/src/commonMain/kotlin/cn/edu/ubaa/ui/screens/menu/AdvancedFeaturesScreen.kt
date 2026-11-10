@@ -25,12 +25,15 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+
+val LocalTdLauncher = staticCompositionLocalOf<(() -> Unit)?> { null }
 
 internal data class AdvancedFeatureItem(
     val id: String,
@@ -81,7 +84,14 @@ fun AdvancedFeaturesScreen(
     onIhomeClick: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
-  val features = advancedFeatureItems()
+  val launchTd = LocalTdLauncher.current
+  val features =
+      advancedFeatureItems().let { items ->
+        if (launchTd == null) items
+        else
+            items.filterNot { it.id == "more" } +
+                AdvancedFeatureItem("td", "TD 打卡", "入口、出口打卡与执行记录", Icons.Default.AssignmentTurnedIn)
+      }
 
   Column(modifier = modifier.fillMaxSize().padding(16.dp)) {
     LazyVerticalGrid(
@@ -94,6 +104,7 @@ fun AdvancedFeaturesScreen(
             feature = feature,
             onClick = {
               when (feature.id) {
+                "td" -> launchTd?.invoke()
                 "ihome" -> onIhomeClick()
                 "cgyy" -> onCgyyClick()
                 "ygdk" -> onYgdkClick()

@@ -1,14 +1,16 @@
 package cn.edu.ubaa.api.feature
 
 import cn.edu.ubaa.api.ConnectionRuntime
+import cn.edu.ubaa.api.auth.ApiCallException
 import cn.edu.ubaa.api.auth.ApiClientProvider
 import cn.edu.ubaa.api.auth.safeApiCall
 import cn.edu.ubaa.api.core.ApiClient
+import cn.edu.ubaa.attendance.beijingDate
 import cn.edu.ubaa.model.dto.*
 import io.ktor.client.request.*
 
 interface SigninApiBackend {
-  suspend fun getTodayClasses(): Result<SigninStatusResponse>
+  suspend fun getClasses(date: String): Result<SigninStatusResponse>
 
   suspend fun performSignin(courseId: String): Result<SigninActionResponse>
 }
@@ -26,12 +28,12 @@ class SigninApi(
   private fun currentBackend(): SigninApiBackend = backendProvider()
 
   /**
-   * 获取今日所有有签到任务的课堂列表。
+   * 按日期获取课堂签到状态。
    *
    * @return 签到状态响应，包含课堂列表。
    */
-  suspend fun getTodayClasses(): Result<SigninStatusResponse> {
-    return currentBackend().getTodayClasses()
+  suspend fun getClasses(date: String = beijingDate()): Result<SigninStatusResponse> {
+    return currentBackend().getClasses(date)
   }
 
   /**
@@ -47,7 +49,8 @@ class SigninApi(
 
 internal class RelaySigninApiBackend(private val apiClient: ApiClient = ApiClientProvider.shared) :
     SigninApiBackend {
-  override suspend fun getTodayClasses(): Result<SigninStatusResponse> {
+  override suspend fun getClasses(date: String): Result<SigninStatusResponse> {
+    if (date != beijingDate()) return Result.failure(ApiCallException("历史签到请使用直连或 WebVPN 模式"))
     return safeApiCall { apiClient.getClient().get("api/v1/signin/today") }
   }
 

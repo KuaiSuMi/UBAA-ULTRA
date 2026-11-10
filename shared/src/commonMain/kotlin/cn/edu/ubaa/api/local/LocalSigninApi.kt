@@ -4,6 +4,8 @@ import cn.edu.ubaa.api.ConnectionMode
 import cn.edu.ubaa.api.ConnectionRuntime
 import cn.edu.ubaa.api.SIGNIN_LOGIN_REDIRECT_LIMIT
 import cn.edu.ubaa.api.SIGNIN_MY_CENTER_URL
+import cn.edu.ubaa.api.auth.ApiCallException
+import cn.edu.ubaa.api.auth.toUserFacingApiException
 import cn.edu.ubaa.api.extractSigninLoginNameFromUrl
 import cn.edu.ubaa.api.feature.SigninApiBackend
 import cn.edu.ubaa.api.resolveSigninRedirectUrl
@@ -18,11 +20,9 @@ import io.ktor.client.statement.bodyAsText
 import io.ktor.http.HttpHeaders
 import io.ktor.http.HttpStatusCode
 import io.ktor.http.Parameters
-import kotlin.time.Clock
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
-import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toLocalDateTime
+import kotlinx.datetime.LocalDate
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
@@ -64,16 +64,16 @@ internal class LocalSigninApiBackend : SigninApiBackend {
     return status == "0" || status == "200" || status == "success"
   }
 
-  override suspend fun getTodayClasses(): Result<SigninStatusResponse> {
-    return getTodayClasses(allowRetry = true)
+  override suspend fun getClasses(date: String): Result<SigninStatusResponse> {
+    return getClasses(LocalDate.parse(date).toString(), allowRetry = true)
   }
 
-  private suspend fun getTodayClasses(allowRetry: Boolean): Result<SigninStatusResponse> {
+  private suspend fun getClasses(date: String, allowRetry: Boolean): Result<SigninStatusResponse> {
     val authSession =
         LocalAuthSessionStore.get() ?: return Result.failure(localUnauthenticatedApiException())
     val signinSession = runCatching { currentSession(authSession.studentId()) }.getOrNull()
     if (signinSession == null) {
-      return Result.success(SigninStatusResponse(code = 200, message = "获取成功"))
+      return Result.failure(ApiCallException("签到信息获取失败，请重试", code = "signin_load_failed"))
     }
 
     return try {
@@ -85,24 +85,24 @@ internal class LocalSigninApiBackend : SigninApiBackend {
           ) {
             header("sessionId", signinSession.sessionId)
             parameter("id", signinSession.userId)
-            parameter("dateStr", currentSigninDate())
+            parameter("dateStr", date.replace("-", ""))
           }
       if (response.status != HttpStatusCode.OK) {
-        return Result.success(SigninStatusResponse(code = 200, message = "获取成功"))
+        return Result.failure(ApiCallException("签到信息获取失败，请重试", code = "signin_load_failed"))
       }
       val payload = json.parseToJsonElement(response.bodyAsText()).jsonObject
       if (payload.containsKey("STATUS") && !isStatusSuccess(payload)) {
         if (allowRetry) {
           invalidateSession(authSession.studentId())
           val refreshed = runCatching { currentSession(authSession.studentId()) }.getOrNull()
-          if (refreshed != null) return getTodayClasses(allowRetry = false)
+          if (refreshed != null) return getClasses(date, allowRetry = false)
         }
-        return Result.success(SigninStatusResponse(code = 200, message = "获取成功"))
+        return Result.failure(ApiCallException("签到信息获取失败，请重试", code = "signin_load_failed"))
       }
       val classes = payload["result"]?.jsonArray?.map(::mapSigninClass).orEmpty()
       Result.success(SigninStatusResponse(code = 200, message = "获取成功", data = classes))
-    } catch (_: Exception) {
-      Result.success(SigninStatusResponse(code = 200, message = "获取成功"))
+    } catch (e: Exception) {
+      Result.failure(e.toUserFacingApiException("签到信息获取失败，请重试"))
     }
   }
 
@@ -294,15 +294,6 @@ private fun flexibleIntValue(obj: JsonObject, key: String): Int {
 }
 
 private fun LocalAuthSession.studentId(): String = user.schoolid.ifBlank { username }
-
-private fun currentSigninDate(): String {
-  val date = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date
-  return buildString {
-    append(date.year)
-    append(date.month.ordinal.plus(1).toString().padStart(2, '0'))
-    append(date.day.toString().padStart(2, '0'))
-  }
-}
 
 internal fun sanitizeLocalSigninMessage(success: Boolean, rawMessage: String?): String {
   if (success) return rawMessage?.takeIf { it.isNotBlank() } ?: "签到成功"

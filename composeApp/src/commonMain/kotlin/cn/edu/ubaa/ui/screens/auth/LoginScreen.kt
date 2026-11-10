@@ -110,6 +110,7 @@ fun LoginScreen(
           style = MaterialTheme.typography.headlineMedium,
           modifier = Modifier.padding(bottom = 32.dp),
       )
+      AccountManagerButton()
       if (onOfflineSchedule != null) {
         FilledTonalButton(
             onClick = onOfflineSchedule,

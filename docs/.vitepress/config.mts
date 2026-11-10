@@ -34,6 +34,7 @@ export default defineConfig({
             { text: '课程签到', link: '/features/signin' },
             { text: '研讨室预约', link: '/features/cgyy' },
             { text: '阳光打卡', link: '/features/ygdk' },
+              { text: 'TD 打卡（Android）', link: '/features/td' },
             { text: '自动评教', link: '/features/evaluation' },
           ],
         },

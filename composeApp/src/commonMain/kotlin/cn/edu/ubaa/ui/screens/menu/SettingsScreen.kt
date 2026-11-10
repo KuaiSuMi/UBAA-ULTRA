@@ -26,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import cn.edu.ubaa.api.ConnectionMode
+import cn.edu.ubaa.ui.screens.auth.AccountManagerButton
 
 @Composable
 fun SettingsScreen(
@@ -37,6 +38,7 @@ fun SettingsScreen(
   var pendingMode by remember { mutableStateOf<ConnectionMode?>(null) }
 
   Column(modifier = modifier.fillMaxSize().padding(16.dp)) {
+    AccountManagerButton()
     Text(
         text = "连接模式",
         style = MaterialTheme.typography.titleLarge,
@@ -97,7 +99,7 @@ fun SettingsScreen(
     AlertDialog(
         onDismissRequest = { pendingMode = null },
         title = { Text("切换连接模式") },
-        text = { Text("将退出当前登录并清除本模式会话，需重新登录。") },
+        text = { Text("将重新建立此连接模式的会话，保存的账号和课表不受影响。") },
         confirmButton = {
           TextButton(
               onClick = {

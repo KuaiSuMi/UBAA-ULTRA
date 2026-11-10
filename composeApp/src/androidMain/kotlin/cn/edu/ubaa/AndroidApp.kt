@@ -1,15 +1,22 @@
 package cn.edu.ubaa
 
+import android.content.Intent
 import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.platform.LocalContext
+import cn.edu.ubaa.api.storage.AccountStore
+import cn.edu.ubaa.attendance.AttendanceSettings
 import cn.edu.ubaa.repository.ScheduleStore
+import cn.edu.ubaa.td.TdActivity
+import cn.edu.ubaa.ui.screens.menu.LocalAttendanceSettings
+import cn.edu.ubaa.ui.screens.menu.LocalTdLauncher
 import cn.edu.ubaa.ui.screens.schedule.LocalScheduleResponseExporter
 import cn.edu.ubaa.widget.ScheduleWidgetProvider
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.merge
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -19,7 +26,9 @@ fun AndroidApp() {
   val context = LocalContext.current
   val scope = rememberCoroutineScope()
   LaunchedEffect(Unit) {
-    ScheduleStore.changes.collect { ScheduleWidgetProvider.requestRefresh(context) }
+    merge(ScheduleStore.changes, AccountStore.changes).collect {
+      ScheduleWidgetProvider.requestRefresh(context)
+    }
   }
   var pendingResponse by rememberSaveable { mutableStateOf<String?>(null) }
   val launcher =
@@ -54,11 +63,13 @@ fun AndroidApp() {
         }
       }
   CompositionLocalProvider(
+      LocalAttendanceSettings provides { AttendanceSettings() },
+      LocalTdLauncher provides { context.startActivity(Intent(context, TdActivity::class.java)) },
       LocalScheduleResponseExporter provides
           { response ->
             pendingResponse = response
             launcher.launch("UBAA-课表响应.txt")
-          }
+          },
   ) {
     App()
   }

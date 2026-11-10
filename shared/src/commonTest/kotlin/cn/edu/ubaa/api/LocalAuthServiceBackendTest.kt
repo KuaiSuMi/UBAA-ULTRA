@@ -63,6 +63,23 @@ class LocalAuthServiceBackendTest {
   }
 
   @Test
+  fun captchaSubmissionKeepsTheDisplayedExecutionWithoutReloadingLoginPage() = runTest {
+    var posts = 0
+    val engine = MockEngine { request ->
+      assertEquals(io.ktor.http.HttpMethod.Post, request.method)
+      val text = request.bodyText()
+      assertTrue(text.contains("execution=displayed-execution"))
+      assertTrue(text.contains("captcha=1234"))
+      posts++
+      respond("""<div class="errors">账号或密码错误</div>""", HttpStatusCode.OK)
+    }
+    useMockUpstream(engine)
+    val result = LocalAuthServiceBackend().login("111", "password", "1234", "displayed-execution")
+    assertTrue(result.isFailure)
+    assertEquals(1, posts)
+  }
+
+  @Test
   fun `直连预登录完成 UC 票据交换`() = runTest {
     verifyUcTicketExchange(ConnectionMode.DIRECT, preload = true)
   }
@@ -184,7 +201,8 @@ class LocalAuthServiceBackendTest {
           assertTrue(result.isSuccess)
           result.getOrNull()?.userData?.schoolid
         } else {
-          val result = LocalAuthServiceBackend().login("test-user", "test-password", null, null)
+          val result =
+              LocalAuthServiceBackend().login("test-user", "test-password", null, "stale-execution")
           assertTrue(result.isSuccess)
           result.getOrNull()?.user?.schoolid
         }

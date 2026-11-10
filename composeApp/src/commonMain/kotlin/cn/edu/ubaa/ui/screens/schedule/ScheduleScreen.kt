@@ -36,6 +36,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import cn.edu.ubaa.attendance.*
 import cn.edu.ubaa.model.dto.*
 import cn.edu.ubaa.repository.ScheduleStore
 import cn.edu.ubaa.ui.common.util.BackHandlerCompat
@@ -159,6 +160,7 @@ fun ScheduleScreen(
     onRefresh: (() -> Unit)? = null,
     onImportCurrentTerm: (() -> Unit)? = null,
     diagnosticResponse: String? = null,
+    attendanceError: String? = null,
     weekSchedules: Map<Int, WeeklySchedule> = emptyMap(),
 ) {
   val clipboard = LocalClipboardManager.current
@@ -243,6 +245,14 @@ fun ScheduleScreen(
               style = MaterialTheme.typography.bodySmall,
               modifier = Modifier.padding(12.dp),
           )
+      attendanceError?.let {
+        Text(
+            "签到记录：$it",
+            color = MaterialTheme.colorScheme.error,
+            style = MaterialTheme.typography.bodySmall,
+            modifier = Modifier.padding(horizontal = 12.dp),
+        )
+      }
       if (error != null && diagnosticResponse != null) {
         if (exportResponse != null) {
           Button(
@@ -260,11 +270,6 @@ fun ScheduleScreen(
         ) {
           Text(if (responseCopied) "已复制响应，可粘贴给排查人员" else "复制本次课表响应")
         }
-        Text(
-            "响应可能包含姓名、学号及课程信息，请勿公开发布。不会复制请求 Cookie 或密码。",
-            style = MaterialTheme.typography.labelSmall,
-            modifier = Modifier.padding(horizontal = 12.dp),
-        )
       }
       Box(modifier = Modifier.weight(1f)) {
         when {
@@ -354,8 +359,7 @@ internal fun ScheduleWeekPager(
   ) { page ->
     val week = weeks[page]
     val schedule = schedules[week.serialNumber]
-    if (schedule != null)
-        WeeklyScheduleView(schedule, week.headerDayLabels(), onCourseClick, times = times)
+    if (schedule != null) WeeklyScheduleView(schedule, week, onCourseClick, times = times)
     else Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) { Text("此周课表尚未加载") }
   }
 }
@@ -450,7 +454,7 @@ private fun WeekSelectionSheet(
 @Composable
 private fun WeeklyScheduleView(
     schedule: WeeklySchedule,
-    headerDayLabels: List<ScheduleHeaderDayLabel>,
+    week: Week,
     onCourseClick: (CourseClass) -> Unit,
     modifier: Modifier = Modifier,
     times: List<SectionTime> = scheduleSectionTimes(listOf(schedule)),
@@ -458,9 +462,11 @@ private fun WeeklyScheduleView(
   val totalPeriods = times.size
   val rowHeight: Dp = 64.dp
   val scrollState = rememberScrollState()
+  val records =
+      rememberAttendanceRecords((1..7).mapNotNull { attendanceDate(week, it)?.toString() })
 
   Column(modifier = modifier.padding(horizontal = 8.dp)) {
-    HeaderRow(headerDayLabels)
+    HeaderRow(week.headerDayLabels())
     Spacer(modifier = Modifier.height(4.dp))
     Row(
         modifier =
@@ -472,7 +478,15 @@ private fun WeeklyScheduleView(
                 )
     ) {
       TimeColumn(times, rowHeight, Modifier.width(52.dp))
-      WeeklyScheduleGrid(schedule, onCourseClick, totalPeriods, rowHeight, Modifier.weight(1f))
+      WeeklyScheduleGrid(
+          schedule,
+          week,
+          records,
+          onCourseClick,
+          totalPeriods,
+          rowHeight,
+          Modifier.weight(1f),
+      )
     }
   }
 }
@@ -537,6 +551,8 @@ private fun TimeColumn(
 @Composable
 private fun WeeklyScheduleGrid(
     schedule: WeeklySchedule,
+    week: Week,
+    records: List<AttendanceRecord>,
     onCourseClick: (CourseClass) -> Unit,
     totalPeriods: Int,
     rowHeight: Dp,
@@ -571,7 +587,18 @@ private fun WeeklyScheduleGrid(
             { onCourseClick(course) },
             Modifier.offset(cellWidth * dayIndex, rowHeight * startIdx)
                 .size(cellWidth, rowHeight * span)
-                .padding(1.dp),
+                .padding(1.dp)
+                .testTag(
+                    "course-${attendanceDate(week, course.dayOfWeek)}-${course.courseCode}-${course.beginTime}"
+                ),
+            attendanceStatus =
+                findAttendanceRecord(
+                        records,
+                        attendanceDate(week, course.dayOfWeek)?.toString(),
+                        course.courseName,
+                        course.beginTime,
+                    )
+                    ?.status,
         )
       }
     }
@@ -580,7 +607,13 @@ private fun WeeklyScheduleGrid(
 
 /** 单个课程卡片组件。 */
 @Composable
-private fun CourseCell(course: CourseClass, onClick: () -> Unit, modifier: Modifier = Modifier) {
+private fun CourseCell(
+    course: CourseClass,
+    onClick: () -> Unit,
+    modifier: Modifier = Modifier,
+    attendanceStatus: String?,
+) {
+  val compact = course.beginSection == course.endSection
   val isDark = isSystemInDarkTheme()
   val parsedColor = remember(course.color) { parseColor(course.color) }
   val containerColor =
@@ -607,7 +640,7 @@ private fun CourseCell(course: CourseClass, onClick: () -> Unit, modifier: Modif
           fontWeight = FontWeight.Bold,
           textAlign = TextAlign.Center,
           lineHeight = 14.sp,
-          maxLines = 4,
+          maxLines = if (compact) 1 else 3,
           overflow = TextOverflow.Ellipsis,
       )
       course.placeName?.let {
@@ -617,10 +650,12 @@ private fun CourseCell(course: CourseClass, onClick: () -> Unit, modifier: Modif
             textAlign = TextAlign.Center,
             lineHeight = 13.sp,
             color = contentColor.copy(0.8f),
-            maxLines = 2,
+            maxLines = if (compact) 1 else 2,
             overflow = TextOverflow.Ellipsis,
         )
       }
+      Spacer(Modifier.height(4.dp))
+      CourseAttendanceBadge(attendanceStatus, onColor = contentColor)
     }
   }
 }

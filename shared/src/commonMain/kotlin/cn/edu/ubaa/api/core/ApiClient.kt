@@ -1,6 +1,7 @@
 package cn.edu.ubaa.api.core
 
 import cn.edu.ubaa.BuildKonfig
+import cn.edu.ubaa.api.auth.toApiCallException
 import cn.edu.ubaa.api.storage.AuthTokensStore
 import cn.edu.ubaa.api.storage.StoredAuthTokens
 import cn.edu.ubaa.model.dto.TokenRefreshRequest
@@ -55,12 +56,13 @@ class ApiClient(private val engine: HttpClientEngine? = null) {
       install(Auth) {
         bearer {
           loadTokens { cachedTokens }
+          sendWithoutRequest { it.url.host == Url(BuildKonfig.API_ENDPOINT).host }
           refreshTokens {
             val expiredTokens = oldTokens ?: return@refreshTokens null
             val refreshToken = expiredTokens.refreshToken ?: return@refreshTokens null
             refreshMutex.withLock {
               val latestTokens = cachedTokens
-              if (latestTokens != null && latestTokens.refreshToken != expiredTokens.refreshToken) {
+              if (latestTokens == null || latestTokens.refreshToken != expiredTokens.refreshToken) {
                 return@withLock latestTokens
               }
 
@@ -70,9 +72,15 @@ class ApiClient(private val engine: HttpClientEngine? = null) {
                     contentType(ContentType.Application.Json)
                     setBody(TokenRefreshRequest(refreshToken))
                   }
+              // 请求期间可能退出或切换了账号，旧响应不能覆盖新会话。
+              if (cachedTokens?.refreshToken != expiredTokens.refreshToken)
+                  return@withLock cachedTokens
               if (refreshResponse.status != HttpStatusCode.OK) {
-                clearAuthTokens()
-                return@withLock null
+                if (refreshResponse.status == HttpStatusCode.Unauthorized) {
+                  clearAuthTokens()
+                  return@withLock null
+                }
+                throw refreshResponse.toApiCallException()
               }
 
               val refreshedTokens =
@@ -111,6 +119,7 @@ class ApiClient(private val engine: HttpClientEngine? = null) {
   /** 从持久化存储重新加载令牌到当前客户端。 */
   fun applyStoredTokens() {
     cachedTokens = AuthTokensStore.get()?.toBearerTokens()
+    httpClient?.authProvider<BearerAuthProvider>()?.clearToken()
   }
 
   /**
@@ -121,12 +130,14 @@ class ApiClient(private val engine: HttpClientEngine? = null) {
   fun updateTokens(tokens: StoredAuthTokens) {
     AuthTokensStore.save(tokens)
     cachedTokens = tokens.toBearerTokens()
+    httpClient?.authProvider<BearerAuthProvider>()?.clearToken()
   }
 
   /** 清理当前认证令牌。 */
   fun clearAuthTokens() {
     AuthTokensStore.clear()
     cachedTokens = null
+    httpClient?.authProvider<BearerAuthProvider>()?.clearToken()
   }
 
   /** 关闭并释放 HttpClient 资源。 */

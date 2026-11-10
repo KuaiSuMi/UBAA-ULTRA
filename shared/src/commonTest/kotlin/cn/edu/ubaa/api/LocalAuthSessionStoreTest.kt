@@ -10,6 +10,16 @@ import kotlin.test.assertEquals
 import kotlin.test.assertNull
 
 class LocalAuthSessionStoreTest {
+  @Test
+  fun corruptSessionIsDiscardedWithoutDeletingOtherSettings() {
+    ConnectionModeStore.save(ConnectionMode.DIRECT)
+    LocalAuthSessionStore.settings.putString("mode_direct_local_auth_session", "broken json")
+    LocalAuthSessionStore.settings.putString("unrelated", "keep")
+    assertNull(LocalAuthSessionStore.get())
+    assertNull(LocalAuthSessionStore.get())
+    assertEquals("keep", LocalAuthSessionStore.settings.getStringOrNull("unrelated"))
+  }
+
   @BeforeTest
   fun setup() {
     ConnectionModeStore.settings = MapSettings()

@@ -17,7 +17,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.ViewModelStore
+import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import cn.edu.ubaa.api.ConnectionMode
 import cn.edu.ubaa.api.ConnectionRuntime
@@ -29,8 +32,10 @@ import cn.edu.ubaa.api.storage.AnnouncementReadStore
 import cn.edu.ubaa.repository.ScheduleStore
 import cn.edu.ubaa.ui.common.components.ReleaseNotesText
 import cn.edu.ubaa.ui.navigation.MainAppScreen
+import cn.edu.ubaa.ui.screens.auth.AccountManagerDialog
 import cn.edu.ubaa.ui.screens.auth.AuthViewModel
 import cn.edu.ubaa.ui.screens.auth.ConnectionModeSelectionScreen
+import cn.edu.ubaa.ui.screens.auth.LocalManageAccounts
 import cn.edu.ubaa.ui.screens.auth.LoginScreen
 import cn.edu.ubaa.ui.screens.schedule.OfflineScheduleScreen
 import cn.edu.ubaa.ui.screens.splash.SplashScreen
@@ -123,29 +128,7 @@ fun App() {
       }
     }
 
-    // 根据认证状态和加载进度决定何时隐藏 Splash 界面
-    LaunchedEffect(
-        uiState.isLoggedIn,
-        uiState.error,
-        uiState.isLoading,
-        uiState.isPreloading,
-        uiState.isRefreshingCaptcha,
-    ) {
-      val shouldEndSplash =
-          (uiState.isLoggedIn && uiState.userData != null) ||
-              (uiState.error != null &&
-                  !uiState.isLoading &&
-                  !uiState.isPreloading &&
-                  !uiState.isRefreshingCaptcha) ||
-              (!uiState.isLoading &&
-                  !uiState.isPreloading &&
-                  !uiState.isRefreshingCaptcha &&
-                  !uiState.isLoggedIn &&
-                  uiState.error == null &&
-                  !loginForm.autoLogin)
-
-      if (shouldEndSplash) isSplashFinished = true
-    }
+    LaunchedEffect(uiState.isInitialized) { if (uiState.isInitialized) isSplashFinished = true }
 
     // 版本更新对话框
     if (updateInfo != null) {
@@ -210,62 +193,88 @@ fun App() {
       )
     }
 
-    // 视图切换状态机
-    when {
-      !modeResolved -> SplashScreen(modifier = Modifier.fillMaxSize())
-      selectedConnectionMode == null ->
-          ConnectionModeSelectionScreen(
-              availableModes = availableConnectionModes,
-              onConfirm = { mode ->
-                appScope.launch { bootstrapForMode(mode.also(ConnectionRuntime::switchMode)) }
+    var showAccounts by remember { mutableStateOf(false) }
+    LaunchedEffect(Unit) {
+      ConnectionRuntime.currentModeFlow.collect { if (it != null) selectedConnectionMode = it }
+    }
+    if (showAccounts)
+        AccountManagerDialog(
+            uiState.userData?.schoolid,
+            onSelect = {
+              showAccounts = false
+              authViewModel.selectAccount(it)
+            },
+            onRemove = authViewModel::removeAccount,
+            onDismiss = { showAccounts = false },
+        )
+    CompositionLocalProvider(LocalManageAccounts provides { showAccounts = true }) {
+      // 视图切换状态机
+      when {
+        !modeResolved -> SplashScreen(modifier = Modifier.fillMaxSize())
+        selectedConnectionMode == null ->
+            ConnectionModeSelectionScreen(
+                availableModes = availableConnectionModes,
+                onConfirm = { mode ->
+                  appScope.launch { bootstrapForMode(mode.also(ConnectionRuntime::switchMode)) }
+                },
+                modifier = Modifier.fillMaxSize(),
+            )
+        !isSplashFinished -> SplashScreen(modifier = Modifier.fillMaxSize())
+        showOfflineSchedule -> OfflineScheduleScreen(onBack = { showOfflineSchedule = false })
+        uiState.isLoggedIn && uiState.userData != null -> {
+          val userData = uiState.userData!!
+          key(userData.schoolid, selectedConnectionMode) {
+            val accountOwner = remember {
+              object : ViewModelStoreOwner {
+                override val viewModelStore = ViewModelStore()
+              }
+            }
+            DisposableEffect(accountOwner) { onDispose { accountOwner.viewModelStore.clear() } }
+            CompositionLocalProvider(LocalViewModelStoreOwner provides accountOwner) {
+              MainAppScreen(
+                  userData = userData,
+                  userInfo = uiState.userInfo,
+                  connectionMode = requireNotNull(selectedConnectionMode),
+                  availableConnectionModes = availableConnectionModes,
+                  onEnsureUserInfo = { authViewModel.ensureUserInfoLoaded() },
+                  onConnectionModeSelected = { mode ->
+                    selectedConnectionMode = mode
+                    authViewModel.switchConnectionMode(mode)
+                    appScope.launch { checkStartupPrompts() }
+                  },
+                  onLogoutClick = { authViewModel.logout() },
+                  modifier = Modifier.fillMaxSize(),
+              )
+            }
+          }
+        }
+        else -> {
+          LoginScreen(
+              loginFormState = loginForm,
+              currentConnectionMode = requireNotNull(selectedConnectionMode),
+              availableConnectionModes = availableConnectionModes,
+              onUsernameChange = { authViewModel.updateUsername(it) },
+              onPasswordChange = { authViewModel.updatePassword(it) },
+              onCaptchaChange = { authViewModel.updateCaptcha(it) },
+              onRememberPasswordChange = { authViewModel.updateRememberPassword(it) },
+              onAutoLoginChange = { authViewModel.updateAutoLogin(it) },
+              onConnectionModeSelected = { mode ->
+                selectedConnectionMode = mode
+                authViewModel.switchConnectionMode(mode)
+                appScope.launch { checkStartupPrompts() }
               },
-              modifier = Modifier.fillMaxSize(),
+              onLoginClick = { authViewModel.login() },
+              onRefreshCaptcha = { authViewModel.refreshCaptcha() },
+              isLoading = uiState.isLoading,
+              isRefreshingCaptcha = uiState.isRefreshingCaptcha,
+              captchaRequired = uiState.captchaRequired,
+              captchaInfo = uiState.captchaInfo,
+              error = uiState.error,
+              onOfflineSchedule =
+                  if (ScheduleStore.hasSavedSchedule()) ({ showOfflineSchedule = true }) else null,
+              modifier = Modifier.background(MaterialTheme.colorScheme.background).fillMaxSize(),
           )
-      !isSplashFinished -> SplashScreen(modifier = Modifier.fillMaxSize())
-      showOfflineSchedule -> OfflineScheduleScreen(onBack = { showOfflineSchedule = false })
-      uiState.isLoggedIn && uiState.userData != null -> {
-        val userData = uiState.userData!!
-        MainAppScreen(
-            userData = userData,
-            userInfo = uiState.userInfo,
-            connectionMode = requireNotNull(selectedConnectionMode),
-            availableConnectionModes = availableConnectionModes,
-            onEnsureUserInfo = { authViewModel.ensureUserInfoLoaded() },
-            onConnectionModeSelected = { mode ->
-              selectedConnectionMode = mode
-              authViewModel.switchConnectionMode(mode)
-              appScope.launch { checkStartupPrompts() }
-            },
-            onLogoutClick = { authViewModel.logout() },
-            modifier = Modifier.fillMaxSize(),
-        )
-      }
-      else -> {
-        LoginScreen(
-            loginFormState = loginForm,
-            currentConnectionMode = requireNotNull(selectedConnectionMode),
-            availableConnectionModes = availableConnectionModes,
-            onUsernameChange = { authViewModel.updateUsername(it) },
-            onPasswordChange = { authViewModel.updatePassword(it) },
-            onCaptchaChange = { authViewModel.updateCaptcha(it) },
-            onRememberPasswordChange = { authViewModel.updateRememberPassword(it) },
-            onAutoLoginChange = { authViewModel.updateAutoLogin(it) },
-            onConnectionModeSelected = { mode ->
-              selectedConnectionMode = mode
-              authViewModel.switchConnectionMode(mode)
-              appScope.launch { checkStartupPrompts() }
-            },
-            onLoginClick = { authViewModel.login() },
-            onRefreshCaptcha = { authViewModel.refreshCaptcha() },
-            isLoading = uiState.isLoading,
-            isRefreshingCaptcha = uiState.isRefreshingCaptcha,
-            captchaRequired = uiState.captchaRequired,
-            captchaInfo = uiState.captchaInfo,
-            error = uiState.error,
-            onOfflineSchedule =
-                if (ScheduleStore.hasSavedSchedule()) ({ showOfflineSchedule = true }) else null,
-            modifier = Modifier.background(MaterialTheme.colorScheme.background).fillMaxSize(),
-        )
+        }
       }
     }
 

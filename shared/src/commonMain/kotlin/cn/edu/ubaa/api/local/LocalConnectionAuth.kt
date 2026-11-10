@@ -82,7 +82,13 @@ object LocalAuthSessionStore {
 
   fun get(): LocalAuthSession? {
     val stored = settings.getStringOrNull(ModeScopedSessionStore.scopedKey(KEY_LOCAL_AUTH_SESSION))
-    return stored?.let { json.decodeFromString<LocalAuthSession>(it) }
+    return stored?.let {
+      runCatching { json.decodeFromString<LocalAuthSession>(it) }
+          .getOrElse {
+            clear()
+            null
+          }
+    }
   }
 
   fun clear() {
@@ -457,52 +463,64 @@ internal class LocalAuthServiceBackend : AuthServiceBackend {
   ): Result<LoginResponse> {
     val noRedirectClient = LocalUpstreamClientProvider.newNoRedirectClient()
     return try {
-      val loginPageResponse = noRedirectClient.get(loginUrl())
-      if (
-          loginPageResponse.status != HttpStatusCode.OK &&
-              loginPageResponse.status.value !in 300..399
-      ) {
-        return Result.failure(ApiCallException("登录失败，请稍后重试"))
-      }
-
-      if (loginPageResponse.status.value in 300..399) {
+      if (!captcha.isNullOrBlank() && !execution.isNullOrBlank()) {
+        val request = LoginRequest(username, password, captcha, execution)
+        val response =
+            noRedirectClient.post(loginUrl()) {
+              setBody(FormDataContent(LocalCasParser.buildCaptchaLoginParameters(request)))
+            }
+        followRedirectsAndCheckError(response, noRedirectClient)
         activateUcLogin()
       } else {
-        val loginPageHtml = loginPageResponse.bodyAsText()
-        LocalCasParser.extractTipText(loginPageHtml)?.let { tip ->
-          return Result.failure(ApiCallException(tip))
+        val loginPageResponse = noRedirectClient.get(loginUrl())
+        if (
+            loginPageResponse.status != HttpStatusCode.OK &&
+                loginPageResponse.status.value !in 300..399
+        ) {
+          return Result.failure(ApiCallException("登录失败，请稍后重试"))
         }
 
-        val actualExecution =
-            execution?.takeIf { it.isNotBlank() } ?: LocalCasParser.extractExecution(loginPageHtml)
-        val request =
-            LoginRequest(
-                username = username,
-                password = password,
-                captcha = captcha,
-                execution = actualExecution,
-            )
-        val captchaInfo = LocalCasParser.detectCaptcha(loginPageHtml, captchaUrl())
-        if (captchaInfo != null && captcha.isNullOrBlank()) {
-          return Result.failure(
-              CaptchaRequiredClientException(
-                  captchaInfo.withBase64Image(fetchCaptchaImage(captchaInfo.id)),
-                  actualExecution,
-                  "需要验证码验证",
+        if (loginPageResponse.status.value in 300..399) {
+          activateUcLogin()
+        } else {
+          val loginPageHtml = loginPageResponse.bodyAsText()
+          LocalCasParser.extractTipText(loginPageHtml)?.let { tip ->
+            return Result.failure(ApiCallException(tip))
+          }
+
+          val actualExecution =
+              LocalCasParser.extractExecution(loginPageHtml).also {
+                require(it.isNotBlank()) { "登录页面已失效，请刷新重试" }
+              }
+          val request =
+              LoginRequest(
+                  username = username,
+                  password = password,
+                  captcha = captcha,
+                  execution = actualExecution,
               )
-          )
-        }
+          val captchaInfo = LocalCasParser.detectCaptcha(loginPageHtml, captchaUrl())
+          if (captchaInfo != null && captcha.isNullOrBlank()) {
+            return Result.failure(
+                CaptchaRequiredClientException(
+                    captchaInfo.withBase64Image(fetchCaptchaImage(captchaInfo.id)),
+                    actualExecution,
+                    "需要验证码验证",
+                )
+            )
+          }
 
-        val parameters =
-            if (captchaInfo != null || !captcha.isNullOrBlank()) {
-              LocalCasParser.buildCaptchaLoginParameters(request, actualExecution)
-            } else {
-              LocalCasParser.buildCasLoginParameters(loginPageHtml, request)
-            }
-        val submitResponse =
-            noRedirectClient.post(loginUrl()) { setBody(FormDataContent(parameters)) }
-        followRedirectsAndCheckError(submitResponse, noRedirectClient)
-        activateUcLogin()
+          val parameters =
+              if (captchaInfo != null || !captcha.isNullOrBlank()) {
+                LocalCasParser.buildCaptchaLoginParameters(request, actualExecution)
+              } else {
+                LocalCasParser.buildCasLoginParameters(loginPageHtml, request)
+              }
+          val submitResponse =
+              noRedirectClient.post(loginUrl()) { setBody(FormDataContent(parameters)) }
+          followRedirectsAndCheckError(submitResponse, noRedirectClient)
+          activateUcLogin()
+        }
       }
 
       when (val validation = validateLocalConnectionSession()) {
@@ -832,6 +850,8 @@ internal fun clearLocalConnectionSession() {
   LocalAuthSessionStore.clear()
   LocalCookieStore.clear()
   LocalUpstreamClientProvider.reset()
+  cn.edu.ubaa.api.core.DefaultApiFactory.clearCachedBackends()
+  cn.edu.ubaa.repository.GlobalTermRepository.instance.clear()
 }
 
 internal fun localUnauthenticatedApiException(): ApiCallException =

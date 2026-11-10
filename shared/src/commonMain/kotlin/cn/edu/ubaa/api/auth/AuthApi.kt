@@ -147,7 +147,6 @@ internal class RelayAuthServiceBackend(
 
   override fun clearStoredSession() {
     apiClient.clearAuthTokens()
-    apiClient.close()
   }
 
   override suspend fun preloadLoginState(): Result<LoginPreloadResponse> {

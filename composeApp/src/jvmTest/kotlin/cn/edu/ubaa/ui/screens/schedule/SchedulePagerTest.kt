@@ -9,13 +9,77 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.test.*
 import androidx.compose.ui.test.junit4.createComposeRule
 import androidx.compose.ui.unit.dp
+import cn.edu.ubaa.attendance.AttendanceRecord
+import cn.edu.ubaa.attendance.AttendanceStore
 import cn.edu.ubaa.model.dto.*
+import cn.edu.ubaa.repository.ScheduleStore
+import com.russhwolf.settings.MapSettings
 import kotlin.test.assertEquals
+import kotlinx.coroutines.runBlocking
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 
 class SchedulePagerTest {
   @get:Rule val compose = createComposeRule()
+
+  @Before
+  fun prepareAccount() {
+    ScheduleStore.settings = MapSettings()
+    AttendanceStore.settings = MapSettings()
+    ScheduleStore.useAccount("111")
+  }
+
+  @Test
+  fun attendanceAppearsOnItsCourseAndUpdatesWithoutOpeningADialog() {
+    val weeks =
+        listOf(
+            Week("2026-11-09", "2026-11-15", "term", true, 1, "第1周"),
+            Week("2026-11-16", "2026-11-22", "term", false, 2, "第2周"),
+        )
+    val morning =
+        CourseClass("CS", "软件工程", null, null, "08:00", "09:40", 1, 2, "主楼", null, null, null, 2)
+    val later =
+        morning.copy(beginTime = "10:00", endTime = "11:40", beginSection = 3, endSection = 4)
+    val schedule = WeeklySchedule(listOf(morning, later), "term", "term")
+    val record = AttendanceRecord("server-id", "软件工程", "2026-11-10", "08:00", "success", "", 1)
+    runBlocking {
+      AttendanceStore.save("111", record)
+      AttendanceStore.save(
+          "111",
+          record.copy(courseId = "later", beginTime = "10:00", status = "pending"),
+      )
+      AttendanceStore.save("111", record.copy(date = "2026-11-17", status = "failed"))
+    }
+    var selected by mutableStateOf(weeks[0])
+    compose.setContent {
+      MaterialTheme {
+        Box(Modifier.size(420.dp, 700.dp)) {
+          ScheduleWeekPager(
+              weeks,
+              selected,
+              mapOf(1 to schedule, 2 to schedule),
+              { selected = it },
+              {},
+          )
+        }
+      }
+    }
+    compose.onNodeWithTag("course-2026-11-10-CS-08:00").assertTextContains("已签到")
+    compose.onNodeWithTag("course-2026-11-10-CS-10:00").assertTextContains("待签到")
+    compose.runOnIdle {
+      runBlocking {
+        AttendanceStore.save(
+            "111",
+            record.copy(courseId = "later", beginTime = "10:00", status = "success"),
+        )
+      }
+    }
+    compose.onNodeWithTag("course-2026-11-10-CS-10:00").assertTextContains("已签到")
+    compose.runOnIdle { selected = weeks[1] }
+    compose.waitForIdle()
+    compose.onNodeWithTag("course-2026-11-17-CS-08:00").assertTextContains("签到失败")
+  }
 
   @Test
   fun dragShowsTwoDifferentWeeksThenSettlesAndButtonsAnimate() {

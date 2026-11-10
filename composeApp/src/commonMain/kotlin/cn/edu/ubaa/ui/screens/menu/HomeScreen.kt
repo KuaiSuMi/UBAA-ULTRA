@@ -36,6 +36,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -43,12 +44,17 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import cn.edu.ubaa.attendance.findAttendanceRecord
 import cn.edu.ubaa.model.dto.TodayClass
 import cn.edu.ubaa.ui.screens.grade.GradeScoreUpdateNotice
+import cn.edu.ubaa.ui.screens.schedule.CourseAttendanceBadge
+import cn.edu.ubaa.ui.screens.schedule.rememberAttendanceRecords
 import kotlin.time.Clock
 import kotlin.time.ExperimentalTime
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
+
+val LocalAttendanceSettings = staticCompositionLocalOf<(@Composable () -> Unit)?> { null }
 
 @OptIn(ExperimentalTime::class, ExperimentalMaterialApi::class)
 @Composable
@@ -71,7 +77,9 @@ internal fun HomeScreen(
     onSigninTodoClick: (String) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-  val today = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date
+  val today = Clock.System.now().toLocalDateTime(TimeZone.of("Asia/Shanghai")).date
+  val attendance = rememberAttendanceRecords(listOf(today.toString()))
+  val attendanceSettings = LocalAttendanceSettings.current
   val pullRefreshState = rememberPullRefreshState(refreshing = isRefreshing, onRefresh = onRefresh)
   val todoLoadingSummary = todoLoadingSources.joinToString("、") { it.label }
   val sortedClasses =
@@ -108,6 +116,8 @@ internal fun HomeScreen(
         }
       }
 
+      if (attendanceSettings != null) item { attendanceSettings() }
+
       if (scoreUpdateNotice != null) {
         item {
           HomeScoreUpdateBanner(
@@ -125,12 +135,25 @@ internal fun HomeScreen(
             item {
               HomeLoadingCard(
                   title = "今日课表正在后台加载",
-                  subtitle = "课程安排会在这里补齐，不影响先浏览首页其他内容。",
+                  subtitle = "正在同步今日课程",
               )
             }
         sortedClasses.isEmpty() && !isLoading ->
             item { HomeEmptyCard(title = "今天没有课程安排", subtitle = "今天可以安心处理其他事项。") }
-        else -> items(sortedClasses) { todayClass -> TodayClassCard(todayClass = todayClass) }
+        else ->
+            items(sortedClasses) { todayClass ->
+              TodayClassCard(
+                  todayClass = todayClass,
+                  attendanceStatus =
+                      findAttendanceRecord(
+                              attendance,
+                              today.toString(),
+                              todayClass.bizName,
+                              todayClass.time?.substringBefore('-'),
+                          )
+                          ?.status,
+              )
+            }
       }
 
       item {
@@ -170,7 +193,7 @@ internal fun HomeScreen(
       if (todoFailedSources.isNotEmpty()) {
         item {
           HomeInfoBanner(
-              message = "部分内容加载失败：${todoFailedSources.joinToString("、") { it.label }}，已显示其余待办。",
+              message = "加载失败：${todoFailedSources.joinToString("、") { it.label }}",
           )
         }
       }
@@ -258,17 +281,28 @@ private fun HomeLoadingCard(title: String, subtitle: String) {
 }
 
 @Composable
-private fun TodayClassCard(todayClass: TodayClass, modifier: Modifier = Modifier) {
+private fun TodayClassCard(
+    todayClass: TodayClass,
+    attendanceStatus: String?,
+    modifier: Modifier = Modifier,
+) {
   Card(
       modifier = modifier.fillMaxWidth(),
       colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant),
   ) {
     Column(modifier = Modifier.fillMaxWidth().padding(16.dp)) {
-      Text(
-          text = todayClass.bizName,
-          style = MaterialTheme.typography.titleMedium,
-          fontWeight = FontWeight.Bold,
-      )
+      Row(
+          verticalAlignment = Alignment.CenterVertically,
+          horizontalArrangement = Arrangement.spacedBy(8.dp),
+      ) {
+        Text(
+            text = todayClass.bizName,
+            modifier = Modifier.weight(1f),
+            style = MaterialTheme.typography.titleMedium,
+            fontWeight = FontWeight.Bold,
+        )
+        CourseAttendanceBadge(attendanceStatus)
+      }
 
       Spacer(modifier = Modifier.height(8.dp))
 

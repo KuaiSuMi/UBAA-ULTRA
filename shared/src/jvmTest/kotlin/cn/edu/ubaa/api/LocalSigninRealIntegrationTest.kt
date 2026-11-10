@@ -71,7 +71,7 @@ class LocalSigninRealIntegrationTest {
         "REAL_LOCAL_SIGNIN appLoginUserIdLength=${userId.length} sessionIdLength=${sessionId.length}"
     )
 
-    val classesResult = SigninApi().getTodayClasses()
+    val classesResult = SigninApi().getClasses()
     assertTrue(classesResult.isSuccess, classesResult.exceptionOrNull()?.message.orEmpty())
     println("REAL_LOCAL_SIGNIN todayClasses=${classesResult.getOrThrow().data.size}")
   }
@@ -114,7 +114,7 @@ class LocalSigninRealIntegrationTest {
     )
 
     // Test SigninApi which creates its own internal session via resolveLoginName
-    val classesResult = SigninApi().getTodayClasses()
+    val classesResult = SigninApi().getClasses()
     assertTrue(classesResult.isSuccess, classesResult.exceptionOrNull()?.message.orEmpty())
     println("REAL_WEBVPN_SIGNIN todayClasses=${classesResult.getOrThrow().data.size}")
     assertTrue(

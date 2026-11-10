@@ -50,6 +50,8 @@ kotlin {
     androidMain.dependencies {
       implementation("org.jetbrains.compose.ui:ui-tooling-preview:$composeVersion")
       implementation(libs.androidx.activity.compose)
+      implementation(libs.androidx.core.ktx)
+      implementation("androidx.work:work-runtime-ktx:2.12.0")
     }
     commonMain.dependencies {
       implementation("org.jetbrains.compose.runtime:runtime:$composeVersion")
@@ -76,6 +78,8 @@ kotlin {
     }
 
     commonTest.dependencies {
+      implementation(libs.multiplatform.settings)
+      implementation(libs.multiplatform.settings.test)
       implementation(libs.kotlin.test)
       implementation(libs.kotlinx.coroutines.test)
     }
