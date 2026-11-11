@@ -1,147 +1,118 @@
 package cn.edu.ubaa.api
 
-import cn.edu.ubaa.BuildKonfig
-import cn.edu.ubaa.api.auth.AppUpdateStatus
-import cn.edu.ubaa.api.auth.AppVersionCheckResponse
-import cn.edu.ubaa.api.auth.UpdateService
-import cn.edu.ubaa.api.core.ApiClient
+import cn.edu.ubaa.api.auth.*
+import io.ktor.client.HttpClient
 import io.ktor.client.engine.mock.MockEngine
 import io.ktor.client.engine.mock.respond
-import io.ktor.http.HttpHeaders
-import io.ktor.http.HttpStatusCode
-import io.ktor.http.headersOf
-import io.ktor.utils.io.ByteReadChannel
-import kotlin.test.Test
-import kotlin.test.assertEquals
-import kotlin.test.assertNull
+import io.ktor.http.*
+import kotlin.test.*
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
 
 class UpdateServiceTest {
-  private val json = Json { ignoreUnknownKeys = true }
+  private fun release(
+      version: String = "1.10.0",
+      url: String =
+          "https://github.com/KuaiSuMi/UBAA-ULTRA/releases/download/v$version/UBAA-Android-v$version.apk",
+      digest: String? = "sha256:" + "a".repeat(64),
+  ) =
+      GithubRelease(
+          "v$version",
+          "新增健康云",
+          assets = listOf(GithubAsset("UBAA-Android-v$version.apk", url, 1000, digest)),
+      )
+
+  private fun service(release: GithubRelease): UpdateService =
+      UpdateService(
+          HttpClient(
+              MockEngine { request ->
+                assertEquals(
+                    "https://api.github.com/repos/KuaiSuMi/UBAA-ULTRA/releases/latest",
+                    request.url.toString(),
+                )
+                assertNull(request.headers[HttpHeaders.Authorization])
+                assertNull(request.headers[HttpHeaders.Cookie])
+                respond(Json.encodeToString(release), HttpStatusCode.OK)
+              }
+          )
+      )
 
   @Test
-  fun returnsNullWhenClientAndServerVersionsAreAligned() = runTest {
-    val mockEngine = MockEngine { request ->
-      assertEquals("/api/v1/app/version", request.url.encodedPath)
-      assertEquals(BuildKonfig.VERSION, request.url.parameters["clientVersion"])
-
-      respond(
-          content =
-              ByteReadChannel(
-                  json.encodeToString(
-                      AppVersionCheckResponse(
-                          latestVersion = BuildKonfig.VERSION,
-                          status = AppUpdateStatus.UP_TO_DATE,
-                          updateAvailable = false,
-                          downloadUrl = "https://github.com/BUAASubnet/UBAA/releases",
-                      )
-                  )
-              ),
-          status = HttpStatusCode.OK,
-          headers = headersOf(HttpHeaders.ContentType, "application/json"),
-      )
+  fun selectsAndroidAssetAndComparesNumericVersions() = runTest {
+    val service = service(release())
+    try {
+      val result = service.checkUpdate("1.9.1").getOrThrow()
+      assertEquals("1.10.0", result?.version)
+      assertEquals(1000L, result?.bytes)
+      assertEquals("a".repeat(64), result?.sha256)
+      assertEquals("新增健康云", result?.notes)
+    } finally {
+      service.close()
     }
-
-    val updateInfo = UpdateService(ApiClient(mockEngine)).checkUpdate()
-
-    assertNull(updateInfo)
   }
 
   @Test
-  fun returnsVersionInfoWhenClientAndServerVersionsAreNotAligned() = runTest {
-    val mockEngine = MockEngine { request ->
-      assertEquals("/api/v1/app/version", request.url.encodedPath)
-      assertEquals("1.4.0", request.url.parameters["clientVersion"])
-
-      respond(
-          content =
-              ByteReadChannel(
-                  json.encodeToString(
-                      AppVersionCheckResponse(
-                          latestVersion = "1.5.0",
-                          status = AppUpdateStatus.UPDATE_AVAILABLE,
-                          updateAvailable = true,
-                          downloadUrl = "https://download.example.com",
-                          releaseNotes = "修复登录问题",
-                      )
-                  )
-              ),
-          status = HttpStatusCode.OK,
-          headers = headersOf(HttpHeaders.ContentType, "application/json"),
-      )
+  fun sameAndOlderVersionsDoNotOfferDowngrade() = runTest {
+    val service = service(release("1.9.1"))
+    try {
+      assertNull(service.checkUpdate("1.9.1").getOrThrow())
+      assertNull(service.checkUpdate("1.10.0").getOrThrow())
+    } finally {
+      service.close()
     }
-
-    val updateInfo = UpdateService(ApiClient(mockEngine)).checkUpdate("1.4.0")
-
-    assertEquals("1.5.0", updateInfo?.latestVersion)
-    assertEquals("https://download.example.com", updateInfo?.downloadUrl)
-    assertEquals("修复登录问题", updateInfo?.releaseNotes)
   }
 
   @Test
-  fun returnsNullWhenVersionRequestFailsWithNonExceptionThrowable() = runTest {
-    val mockEngine = MockEngine { throw Error("fetch failed") }
-
-    val updateInfo = UpdateService(ApiClient(mockEngine)).checkUpdate("1.4.0")
-
-    assertNull(updateInfo)
+  fun previewAndDraftReleasesAreNotInstalled() = runTest {
+    for (release in listOf(release().copy(draft = true), release().copy(prerelease = true))) {
+      val service = service(release)
+      try {
+        assertNull(service.checkUpdate("1.9.1").getOrThrow())
+      } finally {
+        service.close()
+      }
+    }
   }
 
   @Test
-  fun reusesCurrentApiClientProviderAfterPreviousClientIsClosed() = runTest {
-    val firstEngine = MockEngine {
-      respond(
-          content =
-              ByteReadChannel(
-                  json.encodeToString(
-                      AppVersionCheckResponse(
-                          latestVersion = BuildKonfig.VERSION,
-                          status = AppUpdateStatus.UP_TO_DATE,
-                          updateAvailable = false,
-                          downloadUrl = "https://github.com/BUAASubnet/UBAA/releases",
-                      )
-                  )
-              ),
-          status = HttpStatusCode.OK,
-          headers = headersOf(HttpHeaders.ContentType, "application/json"),
-      )
+  fun missingApkOrIntegrityAndExternalDownloadsAreReported() = runTest {
+    for (release in
+        listOf(
+            release().copy(assets = emptyList()),
+            release(digest = null),
+            release(digest = "md5:abc"),
+            release(url = "https://other.example/update.apk"),
+        )) {
+      val service = service(release)
+      try {
+        assertTrue(service.checkUpdate("1.9.1").isFailure)
+      } finally {
+        service.close()
+      }
     }
-    val secondEngine = MockEngine { request ->
-      assertEquals("/api/v1/app/version", request.url.encodedPath)
-      assertEquals("1.4.0", request.url.parameters["clientVersion"])
-      respond(
-          content =
-              ByteReadChannel(
-                  json.encodeToString(
-                      AppVersionCheckResponse(
-                          latestVersion = "1.5.0",
-                          status = AppUpdateStatus.UPDATE_AVAILABLE,
-                          updateAvailable = true,
-                          downloadUrl = "https://download.example.com",
-                          releaseNotes = "修复登录问题",
-                      )
-                  )
-              ),
-          status = HttpStatusCode.OK,
-          headers = headersOf(HttpHeaders.ContentType, "application/json"),
-      )
+  }
+
+  @Test
+  fun networkFailureIsDifferentFromNoUpdate() = runTest {
+    val service =
+        UpdateService(
+            HttpClient(MockEngine { respond("unavailable", HttpStatusCode.ServiceUnavailable) })
+        )
+    try {
+      assertTrue(service.checkUpdate().isFailure)
+    } finally {
+      service.close()
     }
+  }
 
-    val firstClient = ApiClient(firstEngine)
-    val secondClient = ApiClient(secondEngine)
-    var currentClient = firstClient
-    val updateService = UpdateService { currentClient }
-
-    assertNull(updateService.checkUpdate())
-
-    firstClient.close()
-    currentClient = secondClient
-
-    val updateInfo = updateService.checkUpdate("1.4.0")
-
-    assertEquals("1.5.0", updateInfo?.latestVersion)
-    assertEquals("https://download.example.com", updateInfo?.downloadUrl)
-    assertEquals("修复登录问题", updateInfo?.releaseNotes)
+  @Test
+  fun cancelledCheckStaysCancelled() = runTest {
+    val service = UpdateService(HttpClient(MockEngine { throw CancellationException("cancelled") }))
+    try {
+      assertFailsWith<CancellationException> { service.checkUpdate() }
+    } finally {
+      service.close()
+    }
   }
 }

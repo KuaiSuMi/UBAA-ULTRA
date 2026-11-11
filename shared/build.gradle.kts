@@ -88,6 +88,12 @@ kotlin {
   @OptIn(ExperimentalWasmDsl::class) wasmJs { browser() }
 
   sourceSets {
+    val jvmAndAndroidMain by creating {
+      dependsOn(commonMain.get())
+      dependencies { implementation(libs.jsoup) }
+    }
+    androidMain.get().dependsOn(jvmAndAndroidMain)
+    jvmMain.get().dependsOn(jvmAndAndroidMain)
     // 公共源码集依赖
     commonMain.dependencies {
       implementation(libs.kotlinx.serialization.json)

@@ -735,7 +735,7 @@ internal class LocalAuthServiceBackend : AuthServiceBackend {
   }
 
   /** WEBVPN 模式下额外建立直连 SSO 会话，供 CGYY 等可直连的子系统使用。 */
-  private suspend fun establishDirectSsoSession(username: String, password: String) {
+  internal suspend fun establishDirectSsoSession(username: String, password: String) {
     val directClient =
         LocalUpstreamClientProvider.newClient(
             cookieStorage = LocalCookieStore.storage(ConnectionMode.DIRECT),

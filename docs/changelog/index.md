@@ -1,12 +1,27 @@
 # 更新日志
 
-UBAA 的版本号由 `gradle.properties` 管理，发布资产通过 GitHub Release 工作流生成。客户端版本检查接口为 `GET /api/v1/app/version`。
+UBAA 的版本号由 `gradle.properties` 管理。Android 直接查询本仓库的 GitHub Release，并在应用内下载更新。
 
-所有版本的完整发布说明和下载资产请参见 [GitHub Releases](https://github.com/BUAASubnet/UBAA/releases)。
+当前安卓版的发布说明和下载资产请参见 [GitHub Releases](https://github.com/KuaiSuMi/UBAA-ULTRA/releases)。
 
 ---
 
-## v1.8.2 <Badge type="tip" text="最新" />
+## v1.9.1 <Badge type="tip" text="最新" />
+
+**发布日期：** 2026-11-11
+
+- Android 应用内更新：自动检查、手动检查、下载进度和系统安装。
+- 健康云：复用北航统一认证，自动查询各学期 TD 次数和体测成绩。
+- TD 打卡页面显示校方统计次数及获取时间。
+
+## v1.9.0
+
+- 保持登录、启动异常恢复和多账号管理。
+- TD 使用内置图片打卡。
+- 主页自动签到设置，课前 10 分钟通知，课前 4–6 分钟随机签到。
+- 后台任务持久保存，历史签到直接显示在课程卡片上。
+
+## v1.8.2
 
 **发布日期：** 2026-10-21
 

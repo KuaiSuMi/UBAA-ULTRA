@@ -35,6 +35,8 @@ export default defineConfig({
             { text: '研讨室预约', link: '/features/cgyy' },
             { text: '阳光打卡', link: '/features/ygdk' },
               { text: 'TD 打卡（Android）', link: '/features/td' },
+                { text: '健康云（Android）', link: '/features/health-cloud' },
+                { text: '应用内更新（Android）', link: '/features/app-update' },
             { text: '自动评教', link: '/features/evaluation' },
           ],
         },

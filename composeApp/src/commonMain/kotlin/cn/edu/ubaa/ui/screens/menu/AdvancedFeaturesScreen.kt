@@ -34,6 +34,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 
 val LocalTdLauncher = staticCompositionLocalOf<(() -> Unit)?> { null }
+val LocalHealthCloudLauncher = staticCompositionLocalOf<(() -> Unit)?> { null }
 
 internal data class AdvancedFeatureItem(
     val id: String,
@@ -85,6 +86,7 @@ fun AdvancedFeaturesScreen(
     modifier: Modifier = Modifier,
 ) {
   val launchTd = LocalTdLauncher.current
+  val launchHealth = LocalHealthCloudLauncher.current
   val features =
       advancedFeatureItems().let { items ->
         if (launchTd == null) items
@@ -93,18 +95,24 @@ fun AdvancedFeaturesScreen(
                 AdvancedFeatureItem("td", "TD 打卡", "入口、出口打卡与执行记录", Icons.Default.AssignmentTurnedIn)
       }
 
+  val allFeatures =
+      if (launchHealth == null) features
+      else
+          features +
+              AdvancedFeatureItem("health", "健康云", "TD 次数与体测成绩", Icons.Default.AssignmentTurnedIn)
   Column(modifier = modifier.fillMaxSize().padding(16.dp)) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-      items(features) { feature ->
+      items(allFeatures) { feature ->
         AdvancedFeatureCard(
             feature = feature,
             onClick = {
               when (feature.id) {
                 "td" -> launchTd?.invoke()
+                "health" -> launchHealth?.invoke()
                 "ihome" -> onIhomeClick()
                 "cgyy" -> onCgyyClick()
                 "ygdk" -> onYgdkClick()

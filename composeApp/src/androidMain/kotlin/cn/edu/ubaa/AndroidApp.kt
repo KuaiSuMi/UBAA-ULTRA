@@ -9,11 +9,15 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.platform.LocalContext
 import cn.edu.ubaa.api.storage.AccountStore
 import cn.edu.ubaa.attendance.AttendanceSettings
+import cn.edu.ubaa.health.HealthCloudActivity
 import cn.edu.ubaa.repository.ScheduleStore
 import cn.edu.ubaa.td.TdActivity
 import cn.edu.ubaa.ui.screens.menu.LocalAttendanceSettings
+import cn.edu.ubaa.ui.screens.menu.LocalHealthCloudLauncher
 import cn.edu.ubaa.ui.screens.menu.LocalTdLauncher
+import cn.edu.ubaa.ui.screens.menu.LocalUpdateInstaller
 import cn.edu.ubaa.ui.screens.schedule.LocalScheduleResponseExporter
+import cn.edu.ubaa.update.AndroidUpdateDialog
 import cn.edu.ubaa.widget.ScheduleWidgetProvider
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.merge
@@ -63,6 +67,11 @@ fun AndroidApp() {
         }
       }
   CompositionLocalProvider(
+      LocalUpdateInstaller provides { release, dismiss -> AndroidUpdateDialog(release, dismiss) },
+      LocalHealthCloudLauncher provides
+          {
+            context.startActivity(Intent(context, HealthCloudActivity::class.java))
+          },
       LocalAttendanceSettings provides { AttendanceSettings() },
       LocalTdLauncher provides { context.startActivity(Intent(context, TdActivity::class.java)) },
       LocalScheduleResponseExporter provides

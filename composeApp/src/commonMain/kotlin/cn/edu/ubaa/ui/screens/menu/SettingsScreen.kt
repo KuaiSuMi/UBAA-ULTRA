@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
+import cn.edu.ubaa.AppInfo
 import cn.edu.ubaa.api.ConnectionMode
 import cn.edu.ubaa.ui.screens.auth.AccountManagerButton
 
@@ -39,6 +40,9 @@ fun SettingsScreen(
 
   Column(modifier = modifier.fillMaxSize().padding(16.dp)) {
     AccountManagerButton()
+    LocalCheckForUpdates.current?.let { check ->
+      TextButton(onClick = check) { Text("检查更新 · ${AppInfo.version}") }
+    }
     Text(
         text = "连接模式",
         style = MaterialTheme.typography.titleLarge,

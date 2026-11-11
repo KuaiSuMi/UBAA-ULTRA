@@ -1,8 +1,7 @@
 package cn.edu.ubaa
 
+import cn.edu.ubaa.api.auth.AndroidRelease
 import cn.edu.ubaa.api.auth.AppAnnouncement
-import cn.edu.ubaa.api.auth.AppUpdateStatus
-import cn.edu.ubaa.api.auth.AppVersionCheckResponse
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertFalse
@@ -46,12 +45,7 @@ class AppStartupDialogStateTest {
             content = "公告正文",
         )
     val update =
-        AppVersionCheckResponse(
-            latestVersion = "1.5.0",
-            status = AppUpdateStatus.UPDATE_AVAILABLE,
-            updateAvailable = true,
-            downloadUrl = "https://download.example.com",
-        )
+        AndroidRelease("1.9.1", "", "https://github.com/KuaiSuMi/UBAA-ULTRA", 1, "0".repeat(64))
 
     assertFalse(shouldShowAnnouncementDialog(update, announcement))
     assertTrue(shouldShowAnnouncementDialog(null, announcement))

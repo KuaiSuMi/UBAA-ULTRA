@@ -1,6 +1,7 @@
 package cn.edu.ubaa.td
 
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -17,6 +18,8 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.work.*
 import cn.edu.ubaa.api.storage.AccountStore
+import cn.edu.ubaa.health.HealthCloudActivity
+import cn.edu.ubaa.health.TdCountCard
 import cn.edu.ubaa.ui.theme.UBAATheme
 import java.util.UUID
 import java.util.concurrent.TimeUnit
@@ -130,6 +133,9 @@ private fun TdScreen(owner: String, onBack: () -> Unit) {
   ) {
     TextButton(onClick = onBack) { Text("返回") }
     Text("TD 打卡", style = MaterialTheme.typography.headlineSmall)
+    TdCountCard(owner, status) {
+      context.startActivity(Intent(context, HealthCloudActivity::class.java))
+    }
     Text("账号：$owner")
     Text(
         "需要连接校园网。北京时间 07:30–10:00、11:30–14:00、15:30–20:00 开放。",

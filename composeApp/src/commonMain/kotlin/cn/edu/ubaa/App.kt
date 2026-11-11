@@ -24,19 +24,20 @@ import androidx.lifecycle.viewmodel.compose.LocalViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import cn.edu.ubaa.api.ConnectionMode
 import cn.edu.ubaa.api.ConnectionRuntime
+import cn.edu.ubaa.api.auth.AndroidRelease
 import cn.edu.ubaa.api.auth.AnnouncementService
 import cn.edu.ubaa.api.auth.AppAnnouncement
-import cn.edu.ubaa.api.auth.AppVersionCheckResponse
 import cn.edu.ubaa.api.auth.UpdateService
 import cn.edu.ubaa.api.storage.AnnouncementReadStore
 import cn.edu.ubaa.repository.ScheduleStore
-import cn.edu.ubaa.ui.common.components.ReleaseNotesText
 import cn.edu.ubaa.ui.navigation.MainAppScreen
 import cn.edu.ubaa.ui.screens.auth.AccountManagerDialog
 import cn.edu.ubaa.ui.screens.auth.AuthViewModel
 import cn.edu.ubaa.ui.screens.auth.ConnectionModeSelectionScreen
 import cn.edu.ubaa.ui.screens.auth.LocalManageAccounts
 import cn.edu.ubaa.ui.screens.auth.LoginScreen
+import cn.edu.ubaa.ui.screens.menu.LocalCheckForUpdates
+import cn.edu.ubaa.ui.screens.menu.LocalUpdateInstaller
 import cn.edu.ubaa.ui.screens.schedule.OfflineScheduleScreen
 import cn.edu.ubaa.ui.screens.splash.SplashScreen
 import cn.edu.ubaa.ui.theme.PreloadFonts
@@ -76,12 +77,34 @@ fun App() {
     // 更新检测逻辑
     val updateService = remember { UpdateService() }
     val announcementService = remember { AnnouncementService() }
-    var updateInfo by remember { mutableStateOf<AppVersionCheckResponse?>(null) }
+    var updateInfo by remember { mutableStateOf<AndroidRelease?>(null) }
+    val updateInstaller = LocalUpdateInstaller.current
+    var updateMessage by remember { mutableStateOf<String?>(null) }
+    var checkingUpdate by remember { mutableStateOf(false) }
+    DisposableEffect(updateService) { onDispose { updateService.close() } }
     var announcementInfo by remember { mutableStateOf<AppAnnouncement?>(null) }
     val uriHandler = LocalUriHandler.current
 
+    suspend fun checkForUpdates(manual: Boolean) {
+      if (updateInstaller == null || checkingUpdate) return
+      checkingUpdate = true
+      if (manual) updateMessage = "正在检查更新…"
+      try {
+        updateService
+            .checkUpdate()
+            .onSuccess {
+              updateInfo = it
+              updateMessage = if (manual && it == null) "已是最新版本 ${AppInfo.version}" else null
+            }
+            .onFailure { if (manual) updateMessage = it.message ?: "检查更新失败，请重试" }
+      } finally {
+        checkingUpdate = false
+      }
+    }
+
+    LaunchedEffect(Unit) { checkForUpdates(false) }
+
     suspend fun checkStartupPrompts() {
-      updateInfo = updateService.checkUpdate()
       announcementInfo =
           announcementService.checkAnnouncement()?.takeUnless {
             AnnouncementReadStore.isRead(it.id)
@@ -130,39 +153,13 @@ fun App() {
 
     LaunchedEffect(uiState.isInitialized) { if (uiState.isInitialized) isSplashFinished = true }
 
-    // 版本更新对话框
-    if (updateInfo != null) {
-      val release = updateInfo!!
-      val releaseNotes = release.releaseNotes?.takeIf { it.isNotBlank() } ?: "点击下方按钮下载最新客户端。"
-      val updateMessage = buildString {
-        append("当前客户端版本：")
-        append(AppInfo.version)
-        append('\n')
-        append("最新客户端版本：")
-        append(release.latestVersion)
-        append("\n\n")
-        append(releaseNotes)
-      }
-
+    updateInfo?.let { release -> updateInstaller?.invoke(release) { updateInfo = null } }
+    updateMessage?.let { message ->
       AlertDialog(
-          onDismissRequest = { updateInfo = null },
-          title = { Text("发现新版本") },
-          text = {
-            Box(Modifier.heightIn(max = 320.dp).verticalScroll(rememberScrollState())) {
-              ReleaseNotesText(updateMessage)
-            }
-          },
-          confirmButton = {
-            TextButton(
-                onClick = {
-                  uriHandler.openUri(release.downloadUrl)
-                  updateInfo = null
-                }
-            ) {
-              Text("前往下载")
-            }
-          },
-          dismissButton = { TextButton(onClick = { updateInfo = null }) { Text("稍后再说") } },
+          onDismissRequest = { updateMessage = null },
+          title = { Text("软件更新") },
+          text = { Text(message) },
+          confirmButton = { TextButton(onClick = { updateMessage = null }) { Text("知道了") } },
       )
     }
 
@@ -207,7 +204,17 @@ fun App() {
             onRemove = authViewModel::removeAccount,
             onDismiss = { showAccounts = false },
         )
-    CompositionLocalProvider(LocalManageAccounts provides { showAccounts = true }) {
+    CompositionLocalProvider(
+        LocalManageAccounts provides { showAccounts = true },
+        LocalCheckForUpdates provides
+            if (updateInstaller == null) null
+            else {
+              {
+                appScope.launch { checkForUpdates(true) }
+                Unit
+              }
+            },
+    ) {
       // 视图切换状态机
       when {
         !modeResolved -> SplashScreen(modifier = Modifier.fillMaxSize())
@@ -298,7 +305,7 @@ internal fun launchStartupTasks(
 }
 
 internal fun shouldShowAnnouncementDialog(
-    updateInfo: AppVersionCheckResponse?,
+    updateInfo: AndroidRelease?,
     announcement: AppAnnouncement?,
 ): Boolean = updateInfo == null && announcement != null
 
