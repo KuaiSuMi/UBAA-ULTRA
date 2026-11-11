@@ -43,6 +43,7 @@ fun ClassroomQueryScreen(
   val availableBuildings by viewModel.availableBuildings.collectAsState()
   val filteredData by viewModel.filteredData.collectAsState()
   var showDatePicker by remember { mutableStateOf(false) }
+  val launchLive = LocalClassroomLiveLauncher.current
 
   LaunchedEffect(Unit) { if (uiState is ClassroomUiState.Idle) viewModel.query() }
 
@@ -74,6 +75,13 @@ fun ClassroomQueryScreen(
   }
 
   Column(modifier = modifier.fillMaxSize()) {
+    if (launchLive != null) {
+      TextButton(onClick = { launchLive(null, null) }, modifier = Modifier.align(Alignment.End)) {
+        Icon(Icons.Default.LiveTv, contentDescription = null)
+        Spacer(Modifier.width(8.dp))
+        Text("教室直播")
+      }
+    }
     Surface(tonalElevation = 2.dp, shadowElevation = 1.dp) {
       Row(Modifier.fillMaxWidth().padding(8.dp), Arrangement.SpaceEvenly) {
         CampusButton("学院路", 1, xqid == 1) { viewModel.setXqid(1) }

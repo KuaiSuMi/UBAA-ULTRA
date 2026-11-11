@@ -46,6 +46,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import cn.edu.ubaa.attendance.findAttendanceRecord
 import cn.edu.ubaa.model.dto.TodayClass
+import cn.edu.ubaa.ui.screens.classroom.CourseLiveButton
 import cn.edu.ubaa.ui.screens.grade.GradeScoreUpdateNotice
 import cn.edu.ubaa.ui.screens.schedule.CourseAttendanceBadge
 import cn.edu.ubaa.ui.screens.schedule.rememberAttendanceRecords
@@ -339,6 +340,7 @@ private fun TodayClassCard(
           }
         }
       }
+      CourseLiveButton(todayClass.place, todayClass.bizName)
     }
   }
 }

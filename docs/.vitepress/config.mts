@@ -28,6 +28,7 @@ export default defineConfig({
             { text: '成绩查询', link: '/features/grades' },
             { text: '博雅课程', link: '/features/bykc' },
             { text: '空教室查询', link: '/features/classroom' },
+            { text: '教室直播（Android）', link: '/features/classroom-live' },
             { text: 'SPOC 作业', link: '/features/spoc' },
             { text: '希冀作业', link: '/features/judge' },
             { text: '图书馆座位', link: '/features/libbook' },

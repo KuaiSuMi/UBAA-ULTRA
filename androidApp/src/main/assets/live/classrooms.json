@@ -1,0 +1,2669 @@
+[
+  {
+    "campus": "学院路",
+    "room": "(三)101",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCB220BC570BA5F0B1.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC60E24B48A37766F5.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC0449FF1CDC312F6F.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)102",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCE268D63916706F3D.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCF6BAB5D27253E6C9.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCB0E4010BCEA18E43.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)103",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC3368FF5FE23F6EAE.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC91231FD5534316EE.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCB9A80854E0DEDC67.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)104",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC895C95B3101E7974.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCC03FFF7B7984B72E.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC8AC9B151FC57AD44.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)105",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCA878BA501928942F.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCCC6437A7F60EEAA0.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCFFC369E2872DA7D8.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)106",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCCEFAAB1327EFE3CD.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCBB84D4B326904094.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC44BC820F2280C8D6.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)107",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCFE916CDF621E6ADC.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC0F3E2A7843BADE49.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC9CF2EA1CB3DAB105.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)113",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCCF48EE9CDB38E32A.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCAC17D4A610D7C959.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCA41ACC0E8BBCB8C9.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)117",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC93918318D5EF5EFB.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCF41092C9E14ADFCC.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCB31BFF288E5CB176.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)119",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCD92285820125013F.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCCFA066D6D52C06C8.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC88B6581CCF600EBE.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)120",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCB78E818EA2EC4A50.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCC0994014057164A0.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC24187AC3AA08FE03.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)123",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCD63AC7EA15E9F6A9.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC4595B696A77EFA69.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC66AA2E51B4B7B5A3.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)125",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC66F441CE25217770.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC7326E73979B4426E.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC668C25409AB7C88B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)126",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC0799E06D2B490729.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCAC70D0BD328BC747.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC0DD0A26C189EF243.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)127",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC925D88002DF715A1.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCF32BFC635142316D.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCDDBC778FD7885891.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)128",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCD2CCD64C10B98945.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC38B252EC6205E057.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCF85F56573A9A1F6D.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)129",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCDDFEC3207E9B54C1.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCD88BA170885BE642.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC7D685DAF0D018C1D.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)130",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCCF82856E952F6302.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC790C1AE3476790C7.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC9B88C4D5A34BD07A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)131",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC3621AE6A167C8C89.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC160435F50B0E479C.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC49EA75DE34E49505.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)301",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCCE899734DB346845.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC5435856A1FE1B4BC.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC15562774FD1B24C1.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)302",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC1A62AECAD39CEA08.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC52DE6D64B0E46E1E.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCBAA4A817574362A5.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)303",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC61C77F103AFB4FBF.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCC0BEF07788ED6CBD.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC515350BC1F4712BB.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)304",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCABEDF8B9C264705E.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC2288E2F6431105CD.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCEC85BDB80BA7AF43.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)308",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC733967261E550C42.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCF5B86FC186F5F01F.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCB44A44BAEF5DD9C6.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)310",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCCE6A4D3D39E63F57.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC531C5F2B5E398CC2.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC4EEC4C8B82739710.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)311",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCF0880B2E3ADEA7C7.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC770111AE3EF3AACA.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCC7432450595696D1.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)312",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCAA3FDAA7D8A1449D.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCEBEAAB5172631712.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCF5881F3DE1938DEB.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)313",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC037C9B347389CFC4.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC429BC5F6096643D1.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC16B7C2E94A6EF249.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)314",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC9EA4942AA369C036.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCD29ED130938327EB.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC52430994D961E6EF.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)201",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCDC76DBA55E99D3BC.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCCAC7162255E1A177.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC76864EF700C56B38.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)202",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCE099F4C6DDC446D8.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCED8E286AAD46935E.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC6C25EFFAAA093464.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)203",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC0D9BDF570E8C18F6.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC443900AAA3FF4817.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC45DB3FA47C83D5E7.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)204",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC9257E959E2B0660C.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC7AB2E74C01464D99.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC6216DE2375473370.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)205",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC9E94D449CA159912.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCCE73C25375136467.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCFEBEE980E4859F34.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)209",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCF81327A58A4E9A3A.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC13455281F594936B.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCF6F7E0C86EA65060.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)211",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC34988105E243D444.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC6CF7A69795F586C2.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCDCD8517AC8CE4113.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)213",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC4BDD7BA0A8F92A88.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC55E13D9A88CAA4E2.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC4D133ABF83C93E1F.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)214",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCC2AC09D39737B546.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCAE54143DF082136A.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCE4D8B93214F6ABFE.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)215",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC0B595924626E755D.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCB69DBD335820B44F.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCBD09A720E9F76F85.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)401",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC237A7D07C26635E6.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCD229B489DCF64F0D.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCBB27FCE73359A972.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)402",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCF2E6B700ECC67BF4.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCB5CD5ABED47725D3.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC110F48837111165E.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)406",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCEDADE2F0E6A59E59.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC71A1F61DC2B11211.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC490350730F0F94E5.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)408",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC2BED51D26DE966F1.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCBB388DE8D26D0CA1.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC80984CA9022090AD.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)409",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC62DFB18A371F6AE4.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC1BB9C803B7048466.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC681F408EABAE82D5.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "(三)410",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC114F49A5351D3086.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC13C6475B72956107.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC579C82F918814CCE.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主M101",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCC0B07A966FC51E77.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC10FCDB1D7E36EAA2.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCE54C23C995F365F3.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主M102",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC149294C6FBC5DCAE.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCC6240C0E5E2CABC7.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCE23555E274E18E70.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主M301",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC383416ADFBE9B188.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCBEAE12F856F9CAAD.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC5E45B84B6C80EC6C.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主M302",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC9356F8D82B424B65.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC9CCA707E8A6EEE74.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC8AF40D14F9FC5227.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主M304",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC364E44BB39C8FBED.stream/playlist.m3u8",
+    "student": "",
+    "screen": ""
+  },
+  {
+    "campus": "学院路",
+    "room": "主M201",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC74F267FB6D5A1A1D.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCFC9C523E1C8F1ED6.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCC6F2EB194E6025F0.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主M202",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCAA5FC4B1093CE317.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCEC4DCE82B532635E.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC4692AD79B40757F5.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主M203",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCD55CBF9DF4EF78EF.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCE9E75CE60B35D6E0.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC3F985532CA74C252.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主M204",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCD410313F8F638DAA.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCCFEB3FB3FBDE57FB.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC77F878FB78EAFC98.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主M401",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC2E1B781D0C283CF9.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC065C339A6B7E03D5.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCDD83C3783B7CA457.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主M402",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC007BE8EFD3F9E61A.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCB253BC23DB34D7D8.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC4281C85D1C76E0A0.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主M403",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC9D26615D38014C0D.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/08A64295B86CC14628AF5623A16ECAE9.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC858D929609B9977E.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主M404",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCEAF47A9E92EA0957.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC59387728D15956ED.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCD7A7D8774AA4DA16.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主102",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/53F159B2FAC7FC6A6D63F0BDCB600A8ECF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146DFF93EB946B6249B.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146F986A49AE371C8C8.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主103",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146F8DB78614EA0C7A1.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/F37A5B4CF0C94D530F4EA0C6F30DDB10CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC14646434E889C562D8F.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主109",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/6DC320F1DEC70413EB4661FD57216278CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/330625B3918660229896DB2A0B2196E7CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC1467498B53A1905AF30.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主112",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/23549CD8FA0EDBA45B490578BCD5466ECF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/2DBF3AAAB7E8045A546EB1C73760ABC7CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146B8B689BFD3A8262C.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主119",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/A76914DD771E9A3B36FDB9253579881ACF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/5A48C7496A0021EBACA4F625BF4D144BCF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC14619755C6D19E8EDDA.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主121",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/61C6C3CDC67D70CBC0AA6D71FC95729CCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/F12A942857920DFC88EB741468B3DC4BCF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB9206ED6674D655B14A0.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南103",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146738184C454B17BF0.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC14621C5FD3CA29C4620.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC14615028537AFAB48A6.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南105",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC14679ABEBF947C84AFF.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC14699AFC351D73B5517.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC1466215ABFC330A116B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南106",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146909C89782D9D164E.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146A669EAD4B4A29ED2.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146F7B314CD08DA45F7.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南108",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146DCFF83860B934FFB.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146FF980FF2FC851C3E.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC14664931738D6DEFF7B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主301",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/ACCC648C911C6E4DABE462B0B7356894CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/c49b2515aaf43fb6.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB920878C1C7CEB748BD2.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主302",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/F500F74A23942F0E2C2E4D627BA19620CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/1a315d7a66041ea7.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCC0052CE19E2CA82D.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主303",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/C86B7EE25E65ECE216270399A6F90B9BCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/2cda26cc447d197e.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/08A64295B86CC1467649E71F2D2CF370.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主305",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/3F50EC2A16E752963B2513EECD82DA7DCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/b94925e2f99355f7.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB92085F3C16443EE3844.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主309",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/16E5799B3512263B29C8B776893171CACF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/e50d6e4693c1eb11.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/08A64295B86CC146C23D566275ED3136.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主311",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/90F883D183973FBEB17690085F0F9E05CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/cfbe10db16235807.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/08A64295B86CC1465D4C26A79FC51DD4.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主313",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/D17D735D6D04E3C1A30F6BF1EF717E61CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/b5b368c4ccca2ff5.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/08A64295B86CC146F8D198D3451C912A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主321",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/08A64295B86CC146C9118D82A0B28683.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/08A64295B86CC14631A4E912EA7F6F03.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/08A64295B86CC1464656E33F4C1C3997.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主323",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/9B21A0B7BBE887BC927E1301BFDC4C8ACF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/6f87484ab75ba7d4.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB92027A8FA5562E1048D.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南301",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/326DCF11A457ECE8414BA7F1381B8957CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/C46F440B209935708CC5FA09118A55F6CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC5A34ED5097BFAC8F.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南302",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/B64BBE22E691147B01F0F0102E751DBACF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/2237901A2BC7D5091A4E1C8058369BB7CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB920D181C07262EDC34A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南303",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/F45213A8176AA459AEA0F5829555C8EECF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/3C029DE7BFDE239D530B4DEEB44221C9CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC2722C1081ABDD162.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南305",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB92075ED006B109F3677.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB9207F404262B56FA634.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146B05794028452D95F.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南306",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB920A50A9DF5D2E50160.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB9200211AD7354FF3976.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB9201DDAB432CA9E6200.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南308",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB92003F073A1676A737C.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB92019755C6D19E8EDDA.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB92002FED908ED6B0E10.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主201",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB920CAE42422B84E58A9.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/28BB515C8AD922817306E5AE225B1B2ACF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB920272B442F185E912D.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主202",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/297128D7239471288191E589873C8656CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/E91ACEEBF8F1ABD19751788E7E5A40E2CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146D17F616497FBF8E5.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主203",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/706C0AEBFF80A62B536A0B2F95BFDB7BCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/2EBCE62A99110BBC61F91D72F9EF136DCF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC1464AA86962EB675F8C.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主209",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/279888812C3CE7E71C3B81DCDCB8BC22CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/396C3624358F6EC3ACC77A0DF6D69CB5CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC14688807C7A098AE3F3.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主212",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/1AAD967628F8F9E487323360E622E4E8CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/A7CB18660647A53A17CE6E241FF472EBCF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC14609BEA242867BAB23.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主213",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/DC5D9F57E385FF832D89060C3D6BEB23CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/AAD31C7B93834FA340C2719D4C1F1A0CCF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB9207498B53A1905AF30.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主217",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/CDF0076A95A2C197D4DBC3447FF37022CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/BDD0906C148CBBDB2D42D9843D2C1097CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC1463ED018FEEE47F444.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主219",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/8AD013216D93A63ECD1B1A74A1D208B6CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/95CCD10D506B5A31DCC6D207BCF5A60CCF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB92099742C39CE909001.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主北201",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/EB0508179B3BDD320538942430439548CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/8739943C3F6780D7F4F2D382830941DCCF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB920461AF0CA5CB2D307.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主北202",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/965C099152143571CF87588ECEB55F31CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/A2C54F755312625271F92121C1D5B26ACF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB920B665CBC31DDD40D7.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主北203",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/3ADB2A3867553BEF3E57781B1BCAA7CFCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/5018EF5ACB4D93F6A44119DBA4A3FB0DCF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146977EF908CDAC0839.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主北204",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/64F526866BD677888EE86E3A2FF9E35CCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/CFE8C87D5A2547F34515A6BDBAA8F24FCF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB920528F2A39D60A3289.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主北205",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/F6A226BA25BBE47F253EF380740D5BF0CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/72B8C78B611EBA584386A977CF13EABBCF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC1466FD844C237C1908E.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主北206",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/4BE0395910A67BE473F5187B36FAEDCCCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/4749CD40111F4A82BF9EBC1A2CE00A3BCF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB920043C38470E8C5B98.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主北209",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/DACE86B53ED39F48B5FFB2C01C408615CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/49A1B55C3F58BDD2C5E19B1FF53BC4AECF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB9208A154EAA94290E7E.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南201",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/912DFA3036AA15A10E86F4E7A12D8EB4CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/7EC7D6164BC9C1F5F53760FAB7CE1FA4CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC1461138BD71B3B272A8.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南202",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/088DFCAD734690872EBD060F7236F82BCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/98D1AC00167C092EE75DF7F69F84568ECF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB9204600D4E796E35E21.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南203",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/5389F43CF8989AC6D321A781BD7EDFA9CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/7117B74F50D9DC1AF70BABA03E99A202CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC1468A154EAA94290E7E.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南205",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/B63C9B196D0FAC509C74F22CB3E1C2A1CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/6164699535F9D4C4D940EED56BB6D5D1CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC1468C590D3F5730A8BD.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南206",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/7D316801810F6EEB3045A26FF16BFB3BCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB920BC516D0BB42D24EC.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB9208FA208735B2F216F.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南208",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/AA4D9CAF999924E91E7EE04689D7C32BCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/048A23625D6B6C583DFE25F0639DD1A5CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB9208FF7436FDBAA0EA3.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主401",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC1462E1F7866B3027C54.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC1461DDAB432CA9E6200.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146C00F3A477ADF4C0A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主402",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC91A923C423653BD6.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC2BE1BF492421B1D5.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC3E9ADFC004C0871A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主403",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/7C8D5DBB0C4F4C16613911E38F8964A2CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB92061CC035D4D2FA6C1.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB92020253B535BA8885A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主405",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/D07F99DEB325B22070679ADAFB74D502CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146B285A9C0474E5EBE.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC1463E1CBAE273196AD5.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主409",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/8A424DBDEA121C7133EE5ECD42D55FA4CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/2A26684F488FDC4AA6825C13336E38A3CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC59C792D15D693A64.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主411",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/576A860975F90307EED7B322EF0BC688CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/8A5BE6E6531596EDC0979563484BDDECCF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC606E79593456A710.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南401",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/8F6CDC2E642C51B910B8CB9F91D0DEF2CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/D9610C50A3CF78D57C48AA27FDF4FBA5CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC3D8A308ACF27D1F4.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南402",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/083567EBD38A8C34FF0E722F99B7E046CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/AF35430E97B8FD2BBCAD12B349A5F612CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB9200B541A20CACDA2AB.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南403",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/F78718F178060E91D97BC34F0A4A2F76CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/0301D5B92526CAFEAE8F15BCB1316AF4CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCC76CE429F463CB08.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南405",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC146272B442F185E912D.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC1463C0A7F1BA2FDB3CA.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/08A64295B86CC1462C8EF5D079204191.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南408",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/68348DAD7981390C819A2E5FBC37D6BFCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/D47FED4A4763BC806296D1A03D80BA56CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB92011DCF36C5403E9B7.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "主南409",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/ABA27759A65776E06398C3AB761872B5CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/BBED5FDB69999AF7A9475F01DBB8BFFACF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/B22E6C730E8EB9202F6E003D09796540.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "（二）305",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC1A8F6180068C0235.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC8A7C8A79717359D9.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCDF9C0EECDF7ECED3.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "（二）309",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/67293BFECEC969BC7D6592DEC0BE5798.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCF6C1BC650D28214E.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/67293BFECEC969BCCC3A74EC15AE234C.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "A1028",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42D8549C934625DF9C.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4221374EBC5F5FD541.stream/playlist.m3u8",
+    "screen": ""
+  },
+  {
+    "campus": "学院路",
+    "room": "A1048",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4260677418DC95998F.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B429F2955DB330ACE54.stream/playlist.m3u8",
+    "screen": ""
+  },
+  {
+    "campus": "学院路",
+    "room": "A1148",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/60C656B599EDEC4148ED63E6737593CB.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/60C656B599EDEC41E9E75CE60B35D6E0.stream/playlist.m3u8",
+    "screen": ""
+  },
+  {
+    "campus": "学院路",
+    "room": "A208",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4201BB1669488D2122.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42BC0F9865E5CB5D36.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4218A219F14538EA08.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "A209",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B425D354998AEEBFE7E.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42AA05DE80DDA51079.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4240E0637D5E798EE9.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "A212",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42BFE919C77DCC1B59.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42BA954C3F10FA500A.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B420932BECB93106F33.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "A218",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42B9AB131ECEA5E8F9.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4221454B9649942136.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42E064636A7BB38550.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "A618",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42F547FE5B20188BE4.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/07B538FAB11E635F46434E889C562D8F.stream/playlist.m3u8",
+    "screen": ""
+  },
+  {
+    "campus": "学院路",
+    "room": "A949",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42C077D6DCD2179A54D72B2FA3AFFB21D4.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42C721A93A89E1830ED72B2FA3AFFB21D4.stream/playlist.m3u8",
+    "screen": ""
+  },
+  {
+    "campus": "学院路",
+    "room": "研究生公共实验室（新主楼A1128/1126）",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B424832CFAC267C7E36.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42783F2327C5F34E5E.stream/playlist.m3u8",
+    "screen": ""
+  },
+  {
+    "campus": "学院路",
+    "room": "B101",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42CE0FA16B58372B11.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42480CC331A619AA10.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42809A46DBCCBB5374.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B102",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42AD783C50D483EBBF.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B429700D6F0229105C2.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4232635593050C5A8A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B104",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42AC7F6FE79B4C7720.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B427642C1720C10DFAB.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42B72B93315FE89476.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B106",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42AF3006D6937EA5B8.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B428D20974054480A8B.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42030F1A700243FEF9.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B118",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42DA8D2BCD78B03287.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B425DEC1D529B064F3E.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42467DC1DB98C40EC2.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B119",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42DA8759B0071F2EAD.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B424DB78943087D513D.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42A7564956B6ABD218.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B121",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B424B142E0EE511572F.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42B46E30EC2D33B99D.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42A90F41E800C0C07E.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B122",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42C962E5B1077A504D.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42E0DA9F0F0248D80C.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4255A2628DEBE9CDC8.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B201",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B422E9AA2BCD2F9B52F.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42A8E5053CE72C81D9.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4244588BF182D17D86.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B202",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4209A1C6EE4D6CA6DA.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42DF365EC354C4491A.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42E2B4B849CCF63201.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B204",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4223643C010FAAFCD7.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42A81879697F0AF705.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B426A6FDC067E85776D.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B206",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B428A5B560EA294006E.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4255D90ADAF2B03EA4.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B428F21C1F8C46BB72C.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B208",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42A509AF237AF38E51.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42C07FB543539DF971.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42130B1ED836D6CB8B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B216",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4256B1648479479341.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42A65464867FDCB1A7.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42D57516662755305B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B221",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42A9F47824F2A3B693.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B429A4AF67E3B9186C3.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B428CEBBED73BDE6441.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B223",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42A47349B5426A2EB6.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42468AE14191B15316.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42D0B0E72FBE5CFDC5.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B225",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4221E2A583AFA6371B.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B428AE4A485A7F59F5E.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42575FC258A51A4C2C.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "B228",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B426516ECC3E9D7C7B5.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B424E37CCC3E9027356.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42F11FC2978B2C5241.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "C102",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B426524ADAE7F0EEED3.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B429860F28CB1FF2561.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42096269C3F1CC9677.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "C201",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B422DA51AC565F96B42.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B423AC23670BA0CDF89.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42D0FE13B5AE415B9B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "E207",
+    "teacher": "https://lmt1.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42148E438AAEE437CE.stream/playlist.m3u8",
+    "student": "https://lmt1.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42636202A53AF2B595.stream/playlist.m3u8",
+    "screen": "https://lmt1.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4298A66BAA79A609C0.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F101",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B420B72DF1FD029952E.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4226554B21D13C1B3D.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4279351908C92C0CAE.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F102",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4231F8F2293F3F56E0.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42369BEA1962C304F5.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B428B44CE4766631260.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F103",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42BF344C4C134CBFF9.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4254AB09229C428746.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B428733FAFEF7BE0F92.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F117",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B428BDB2CC2F51A9938.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B422C721412048B8F83.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4286E220EED4D5AA2B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F118",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42CF1D224DCF894DE0.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B424042A8512DAE01CE.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4244C1AA6CFAA983A3.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F121",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B423F588CA80B846408.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42A61E0FEAC4CF215C.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4280D61BD4780263B4.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F122",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42EA50F85F86366580.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B429681DC281C8B4518.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4236E7561D22C24A63.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F201",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B424A050451A3A14C84.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4282A459BBEC44FB88.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42403B618DDF046B85.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F203",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42D3B4E8C821FF0937.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B420020D63A0B032196.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B428316AAC6F895DFCB.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F205",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B421AA909D2B9FBA145.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B424E6BE0951A0D8005.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B420717B03D2323B989.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F207",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4281E29B018CA36170.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4277F92D727D4070A9.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42CDA8C82884744C55.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F213",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42B337E4D18AA86F7C.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42F56B813C79BFA958.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42777AD5A6C1F986DB.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F219",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42C6E423BB181A714F.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B422726814BCC6F4E21.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42BE2B7A043935D648.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F222",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42C5D7E02F8215B9A0.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4298DEBD9A4AC8FC48.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B426947FAB4D933E8E2.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F224",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B420EE52BCAA262A1B4.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B429715FE3A5D102CD3.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B429FC9423F3BAB3574.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F227",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42A4DF62DFF0CFB306.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42E593E98D7868A663.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4219145DA0580F2D3E.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "F228",
+    "teacher": "https://lmt9.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42BE41ED92D4C0DEAF.stream/playlist.m3u8",
+    "student": "https://lmt9.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4231DD1E0B560704EE.stream/playlist.m3u8",
+    "screen": "https://lmt9.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42B63A862F736F94C9.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "G101",
+    "teacher": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4251A103632EA66017.stream/playlist.m3u8",
+    "student": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B422CA89EA93AAC91CD.stream/playlist.m3u8",
+    "screen": "https://lmt5.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42400E5045AEB08959.stream/playlist.m3u8"
+  },
+  {
+    "campus": "学院路",
+    "room": "G201",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B420659EB320B03268D.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B42B0024D2CACC8FD1B.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/04D71DE2061A9B4223B3B8929D958598.stream/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼3001",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.101/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.100/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.99/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼3002",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.115/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.114/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.113/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼3003",
+    "teacher": "http://10.62.1.11:80/live/_definst_/1092D3C8280C3EECB13B6857432E2693.stream/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/1092D3C8280C3EEC4CEFD816B5F71FF7.stream/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/1092D3C8280C3EECFDC148EC50FF4A02.stream/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼3004",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.55/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.54/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.53/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼2001",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.31/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.30/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.29/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼2002",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.37/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.36/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.35/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼2003",
+    "teacher": "http://10.62.1.11:80/live/_definst_/1092D3C8280C3EEC86AB6063393BA797.stream/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/1092D3C8280C3EECB5FC8D01CA390A41.stream/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/1092D3C8280C3EEC7889D5F938FBBC90.stream/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼2004",
+    "teacher": "http://10.62.1.11:80/live/_definst_/1092D3C8280C3EECD38D3CEEFC30CB69.stream/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/1092D3C8280C3EEC1C36D94600F8D53E.stream/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/1092D3C8280C3EEC594A9AF17CC3DF49.stream/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼5001",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.4.5/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.4.4/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.4.3/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼5002",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.4.45/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.4.44/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.4.43/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼5003",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.4.57/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.4.56/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.4.55/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼5004",
+    "teacher": "http://10.62.1.11:80/live/_definst_/EE55E4A28D1CF55EB9A5177A37831A87.stream/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.4.11/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.4.10/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼5005",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.4.19/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.4.18/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.4.17/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼5006",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.4.26/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.4.25/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.4.24/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼5007",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.4.33/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.4.32/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.4.31/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼4001",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.122/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.121/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.120/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼4002",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.129/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.128/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.127/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼4003",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.136/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.135/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.134/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼4004",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.143/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.142/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.141/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼4005",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.150/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.149/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.148/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼4006",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.157/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.156/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.155/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学一号楼4007",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.164/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.163/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.162/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼3001",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.87/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.86/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.85/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼3002",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.81/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.80/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.79/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼3003",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.67/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.66/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.65/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼3004",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.75/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.73/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.72/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼2001",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.49/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.48/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.47/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼2002",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.43/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.42/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.41/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼2003",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.16/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.15/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.14/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼2004",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.25/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.23/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.22/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼4001",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.171/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.170/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.169/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼4002",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.178/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.177/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.176/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼4003",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.185/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.184/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.183/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼4004",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.192/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.191/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.190/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼4005",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.199/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.198/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.197/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼4006",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.206/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.205/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.204/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "教学二号楼4007",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.3.213/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.3.212/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.3.211/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研一号楼1001",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.6.7/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.6.3/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.6.2/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研一号楼1040",
+    "teacher": "http://10.62.1.11:80/live/_definst_/1086C3E5C48F546C846BDBE834FA04A0.stream/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.6.12/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.6.11/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研一号楼1043",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.6.43/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.6.41/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.6.40/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研一号楼1045",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.6.34/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.6.32/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.6.31/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研一号楼1055",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.6.25/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.6.21/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.6.20/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研一号楼5037",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.6.67/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.6.65/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.6.64/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研一号楼5058",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.6.59/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.6.57/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.6.56/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研一号楼4108",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.6.51/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.6.49/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.6.48/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研三号楼1032",
+    "teacher": "http://10.62.1.11:80/live/_definst_/CD5ACD899D4B9DABC28D68FA4A348026.stream/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.7.16/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.7.15/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研三号楼1049",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.7.9/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.7.5/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.7.4/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研三号楼5002",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.7.36/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.7.34/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.7.33/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研三号楼5019",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.7.28/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.7.26/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.7.25/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研二号楼1016",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.5.50/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.5.49/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.5.48/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研二号楼1017",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.5.38/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.5.37/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.5.36/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研二号楼1018",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.5.44/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.5.43/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.5.42/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研二号楼1019",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.5.32/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.5.31/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.5.30/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研二号楼1056",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.5.8/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.5.4/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.5.3/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研二号楼1065",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.5.17/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.5.15/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.5.14/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研二号楼1066",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.5.26/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.5.23/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.5.22/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研二号楼5017",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.5.65/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.5.63/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.5.62/playlist.m3u8"
+  },
+  {
+    "campus": "杭州国际创新研究院",
+    "room": "科研二号楼4028",
+    "teacher": "http://10.62.1.11:80/live/_definst_/10.62.5.57/playlist.m3u8",
+    "student": "http://10.62.1.11:80/live/_definst_/10.62.5.56/playlist.m3u8",
+    "screen": "http://10.62.1.11:80/live/_definst_/10.62.5.55/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-101",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C382A5E12D5A50390CE62D39D461FC574.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C555528E4C3E58C83.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C109F31276DCDA231CE62D39D461FC574.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-102",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CC4D46CE143D32122.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C972D0C1871016959.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C9B8EE855046D350A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-103",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/54945CD131E2DEBD6E03B27CB6475EBCCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FECE2CD1FC7A1E614D.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CCC92FB78D1846658.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-104",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/66B585871CE164EE73FBE7BC2B912445CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE4BAB0F94CDE75F9A.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C44B5AC3D738E1260.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-105",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/AA0428411C0347F4A9341620F05FA83BCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE27A8FA5562E1048D.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/80327519460022DA794D8C5D91E30B7C.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-106",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/93A9AFB1FA4FE7D5750EB82889DD3C90CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE3D92A4042DED03D1.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/80327519460022DAF199D45D96B453CE.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-107",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/689709EF500E0C6B65AA7E2F349D14CBCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE237652BF28ABD6DA.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C417E0515FFF3AF25.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-108",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/18CC94853FFE5A8E4E97990E1E7CEE47CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE7621363B663F246C.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C755D4F98B23D99FF.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-109",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/44D93FE738B8FA652F297D4BD376CE18CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE992E70F9AB263A45.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CE9B5CFD257B6673B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-110",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/0F75AC2932F61756564107061A95D824CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DA17A4FC7FB4225A07.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DA8FF7436FDBAA0EA3.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-301",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CEF487DDE12EB8AC4.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C48AA1520C186941C.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C0F225225EC0412A5.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-302",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CF06839153701E5E0.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CC6132A32D306662F.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C89322BDB29AE14C3.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-303",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C7666D78267983394.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C3A9512D732A09990.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CD75384AE301382F6.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-304",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C05F5213A0E82BEDD.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C8E0569C0CD3F0D73.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C9CFB703C105D2949.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-305",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C6320C51F0863FCE8.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CBFEBEA00CBBD05D1.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CB105E13FA31C5B8D.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-306",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C65222A820E00C6D8.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CAE1B5F856E88A835.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CAD3B498934C18B42.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-307",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CE47C84705646F509.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CB7943DF4AD6AF035.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CEE46733251B0B878.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-308",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C5ADA10B60BDDFF70.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CA8A10FC9BE8B600A.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C4C0E40315E19A459.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-309",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/C2E8E2749DD07F88528F2A39D60A3289.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/C2E8E2749DD07F8825CA6708AEB7802D.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/C2E8E2749DD07F88794D8C5D91E30B7C.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-310",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/C2E8E2749DD07F884EF08485713E8A84.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/C2E8E2749DD07F883E1CBAE273196AD5.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/C2E8E2749DD07F88F199D45D96B453CE.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-201",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/ED38DF79B30908401414AC199F21EEB1CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DA68AA774163F0644F.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DA43D7C820730EF7A4.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-202",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/80C0D8A38C5EC6CB6F9C1DB5881DAAD6CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/80327519460022DA70075D9F982D5373.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/80327519460022DA46434E889C562D8F.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-203",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/66CBE0D9FB5A052119EDB77783CDD4BDCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DA09190EF15448BD0E.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DAF7545AC63E6A3BFF.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-204",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/8B72ACF05DEDA14A0A0C1CB2BF6924D0CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DAC97795CACB0A1A02.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DA489BF6B06B1A9B82.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-205",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/B61186AE768C51533DF45DB3D215B217CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E738184C454B17BF0.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304EE90E21621E31A99A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-206",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/71CF77E4E96CBF43F7380F909715598ACF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/80327519460022DA3ED018FEEE47F444.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/80327519460022DA6968F21C4400BA5C.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-207",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/A1AA7FFAC583CA97892CB3D211C9A999CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DA51C200D5AAFFED84.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DA61EE113E921ABF93.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-208",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/1CACCABF32C99B8CE950D48883B5BF99CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DA8558F55233C89CF2.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DA1AD60559029085B6.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-209",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/BF8A94F6BA2237D9555A8D4BF59B0FE9CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DA0211AD7354FF3976.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DA1DDAB432CA9E6200.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-210",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C81FB9FE23F5A7CE4.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CA4A97448983BCA5F.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/80327519460022DAECCA4DA081EFDBAD.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-402",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C4D5AF44739F31DBE.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C883FD62F7DD71FC5.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C6BFB857C8E7B6CDE.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-403",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CDB2E499AB693B2B9.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CF3D458C31BA5E42B.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C3A73BDC72C59D3DC.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-404",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C88331D6FFE695A58.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CBC5E83765D3B7B36.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CED55394490CD6AAE.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-405",
+    "teacher": "",
+    "student": "",
+    "screen": ""
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-406",
+    "teacher": "",
+    "student": "",
+    "screen": ""
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-407",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C1226E09FB71F2CEC.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CA38D854106A5D555.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CD476666AC370BFC0.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-408",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CE07B1540CF0B7FE8.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CB6ADB1F08F04C8EC.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C6FD822ABA78F7C06.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-409",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CF6EB380450EC53BD.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C04002AA706878FDD.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C5FAA2FE6E4671D6A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J1-410",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C4D9A6F2F14C66E2F.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CE09B1FB51A105EAC.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C769E795416E5E264.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-101",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A17183ADBC1281490E.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1A5341D5841CD8A89.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1DBE7E33B59D6BA08.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-102",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1041998761E29D24F.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/DF5128461925A9A114F61329A4E41BA4.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/DF5128461925A9A17A81FAA0C7CBA18F.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-103",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/80327519460022DAF7B314CD08DA45F7.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE7CE15119F8CF63FA.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/80327519460022DACCDB9019F0C8AD28.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-104",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/80327519460022DAF6837428C8E24617.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FEC00F3A477ADF4C0A.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/80327519460022DA33204CC7CE5CBBB5.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-105",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/55EA597BCDBC7D65B5FAC24F047E8276CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/80327519460022DAD8D6FBDC81173699.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/80327519460022DA878C1C7CEB748BD2.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-106",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A12DE91EAB46503570.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1A772788421EF765E.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1B1BD39F6B70512C2.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-107",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1FEBE199F547ED8E3.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/DF5128461925A9A160D3AEA82066BD80.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/DF5128461925A9A14E384F7234852FE4.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-301",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1B0070031B6FF03AD.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1555528E4C3E58C83.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1F7099E88D26366B8.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-302",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1C4D46CE143D32122.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1972D0C1871016959.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF5128461925A9A19B8EE855046D350A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-303",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF5128461925A9A15FBFEBB7DDF2DD20.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF5128461925A9A11ACED926E815340D.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1A47611CDC65A8B06.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-304",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF5128461925A9A16CA521B4DD66F809.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1D7B03582C3094556.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF5128461925A9A15BF581A1DF4DABB5.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-305",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1188D44A7F8E3E21E.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE293A1725D73A3F29.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE82751AFCB25A8A42.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-306",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/4C3C68962338E60F60BB9F46FFC29E57CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FEAA48C353FB1C3160.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE50C797A7DD754074.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-308",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1E7E402ADE925C22C.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1567387D7427DBE38.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1C8741E6DF2E9878B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-309",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A10BAE2F1622F42A73.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A14549C5E8975DB8E0.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1A0A5648F95DCB3BA.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-310",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A12F6DC0F980027A9A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1D6E4AB6634ED1276.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1970FDB3920AE32CE.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-311",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/FA8AF524AA304F5E0546CE2E9E28851ECF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/1E2D9DC9DB22A6B841DE71F8200984FFCF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/C48F258B03A5D5CCE90E21621E31A99A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-312",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A10D5DF3CF7B569641.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A17391BF2DD5200A0D.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1F5ACD2DF70132231.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-201",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A12951A26F20B8D385.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1C9427E994430E9D4.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A15E0B6B98A8465218.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-202",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1224AD51C1DC7DB81.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A18EB6A566FDEAAB58.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1D986D8541EAB6E1F.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-203",
+    "teacher": "",
+    "student": "",
+    "screen": ""
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-204",
+    "teacher": "",
+    "student": "",
+    "screen": ""
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-205",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/9DEC0A8E514AAA6A06DE5267929404A9CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE2E1F7866B3027C54.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/80327519460022DA43E8C41847CCE682.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-206",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DEAA3573CD7B42D3B6D7399C53F2C31ACF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE1DDAB432CA9E6200.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/80327519460022DACAE42422B84E58A9.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-210",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/DF5128461925A9A132F14972CD9AA1AC.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1892C017D20F59E8F.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1BB0459CCCD8ABA6C.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-211",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A10DEE3921F07FFDC5.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A122139F61978DBFD2.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1144996894FBCDA89.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-212",
+    "teacher": "https://lmt2.buaa.edu.cn:443/live/_definst_/DF5128461925A9A13D4E9000A3B79B1D.stream/playlist.m3u8",
+    "student": "https://lmt2.buaa.edu.cn:443/live/_definst_/DF5128461925A9A14655490DE37A2BF5.stream/playlist.m3u8",
+    "screen": "https://lmt2.buaa.edu.cn:443/live/_definst_/DF5128461925A9A145CDC0167D7A70A1.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-401",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1295D2C18F6D4A551.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1067341502DB414AC.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1F3FF04B2BD109C75.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-402",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/763E1A7931D435D011D7A09FEE552969CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FEC315BB78E0B6303A.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FEF199D45D96B453CE.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-403",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1218AE32B5EB32A95.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A18EA0AC0E3C0A35BE.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1C30857513C086FE5.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-404",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A11EE989085314D00E.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A12ACE39A6B9A23BC2.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A15532EF73A2DF7977.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-405",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DAC517F321429242E9790302A38E71D7CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FEA50A9DF5D2E50160.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE9EFB2CD664D5FC61.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-406",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/6BC9ABB3B40A42EDDCD73B86CFC637F9CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE0211AD7354FF3976.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/14D4707FAA8922FE86D4DC2BCE806425.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-407",
+    "teacher": "",
+    "student": "",
+    "screen": ""
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-408",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1F58EC528885FDA0A.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A11CC1102B73EF4BBE.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1226066C1546BB29A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-409",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A175BBD0EE5B37D188.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1152E6898E515CC34.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1BEA8BD5437CF880A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-410",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A181FB9FE23F5A7CE4.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A135D45D6B3134A3AD.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A10039D76930FB73B1.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-411",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1F048F6A7E02FA745.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A18B96C369BAB197AF.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1215538AE38AC36DA.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J3-412",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A12610B5C7537E8C3F.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A128D4C5DB05546109.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1A169C949D7AE1557.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J2-207",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C7690B894F665DCE5.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C518AF662FFBDF18A.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C6B1B14C6B42A9D22.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-101",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A20D05F585059292A9.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A20698992EF96F63CA.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2B2770FD5018BA2E8.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-102",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A21D93AB9F285B2487.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A23D17EDC1BE83F300.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A273660D42A2B766AB.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-104",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/6DBE4870DCB91EEAD18C2E22FDF7AEAFCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304EF895A1CDFE1F2E4A.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304ED042C6B39566B3B3.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-105",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2F10451B93DB2DE12.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2AD6C5562E979479B.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A20745D605EA6618F1.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-106",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2C76CD2031408A188.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A291D40092BEFC8BCC.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2DC94B32A10B7C6FF.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-301",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/0DEDBC22B6571FA08FD8D60968DF4E25CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304EC97795CACB0A1A02.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304EF199D45D96B453CE.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-302",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/69D6A27A431487DD1A3587B9FD35897FCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304EF0274202ABE35286.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E9EFB2CD664D5FC61.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-303",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/5C9A7ABB7661E8FB7E8646A013717729CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/C2E8E2749DD07F885646E704C375DB6A.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/C2E8E2749DD07F88CAE42422B84E58A9.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-304",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2FBC381B70D71F1B3.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2E871F45B69E96746.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A23C7E17F9826F88D9.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-305",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A297C086C5E206EDBC.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A25F8511F0E0E55B38.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2FB1F025B5D9D0B40.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-306",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A22DE91EAB46503570.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2A772788421EF765E.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2B1BD39F6B70512C2.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-308",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2148F527BC74DF7C5.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A274F0062B7E945709.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A297CD45BD6512C22C.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-309",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A271392B73C97C3041.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2FB086C1EBA297F04.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A29149FD9235BCE2FB.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-310",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/F0CA604BF23142EB66179BD2036C4809CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304EB864D687513109BA.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E86D4DC2BCE806425.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-311",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/62E46BF36F6D30F5701DF10B1D2379C6CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E4AA86962EB675F8C.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C2B6C9FF7C05EAD12.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-201",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A245ABC8EC4328AFF7.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A285ED3D46A62493AA.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A295297AFF47DE5584.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-202",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A22CDEC9DEAE69D0DC.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A27FED5D2AAECAFA74.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A25519D2E47AB24A5E.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-203",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/3A09FC0FF93EEE3C61706D80950476CFCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E461AF0CA5CB2D307.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304ED7C2F6C3DFA43D95.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-204",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/4897DA83D5F173EADC800716EBE9CBB1CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E0FDF3888B4FB5007.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E88807C7A098AE3F3.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-205",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2CF318F576BEC83F1.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A29831C0D06C8DE82D.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2478B364DC63B3387.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-206",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2FAFB2DF9380F252E.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A231E81C8C65EEB356.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2A90ED062B0FD3526.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-208",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2B3E684143FE07986.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2E86F0F8A366755DF.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A29EE88F46048FBB6A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-209",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A23C1014017B38CF2E.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A239D7CA05343C12C2.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2F053F2429219CE43.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-210",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/180F1B9E097CCD83FA5832D51F2D887DCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E050E43B9DD21111B.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E7180F1D95D5C66B3.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-211",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/B00EEB32C2780B60FB5FC4DF115A1884CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304EE3D9E7100AB3063E.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E794D8C5D91E30B7C.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-401",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/BA4C2E1CB010987A636B4FBCC64A037FCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E1E6ED09C4F9F0CFE.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E8FF7436FDBAA0EA3.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-402",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/F54DAE2506A08A7D47F8516653FED7FCCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E614D278BEF96AC54.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E43D7C820730EF7A4.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-403",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2868CE4600A1303EA.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2849E8FF0FFD9C82F.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A25F09122D1E48A0DA.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-404",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A21D76A5E561AD141B.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2C891E41C9276AE67.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2BDC9A7139CA8ABFF.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-405",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2DE75EE5B858D6187.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A29463D9F78336B75C.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A25A83D76F70B042DB.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-406",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A27F065F35B50F0706.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A233ACC7420009679A.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A26D0E9827853C2D02.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-408",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2A1D864AA45C2B9FA.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A20AFE16A90BE8DA31.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2406E9E1FAD72BFE7.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-409",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A26C81E9A9D0A8ABDE.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A236ECFFB12824FC4A.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A278631D56CD5663E0.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-410",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304EF8DB78614EA0C7A1.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E7A1BBFCEA1353028.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E46434E889C562D8F.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J5-411",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/055A337ADFEDE4159D0E08FDD71050C2CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E2F6E003D09796540.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304EF7545AC63E6A3BFF.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-101",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1EF487DDE12EB8AC4.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A148AA1520C186941C.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A10F225225EC0412A5.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-103",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/1C3B19CF7D0FD97736131F93E1AAEBAFCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/D10FCDA862D757A8B087860CCBB31097CF299C45D4C0468A.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/6D78C4D3C488B56236693F9665EE96BE.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-104",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A105F5213A0E82BEDD.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A18E0569C0CD3F0D73.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A19CFB703C105D2949.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-106",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A165222A820E00C6D8.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1AE1B5F856E88A835.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1AD3B498934C18B42.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-301",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2D8CEAEF5C02D165C.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2329846CD881417E8.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2C0784C8806C56FFA.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-303",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2CA8DE58671A02D9A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A22722C1081ABDD162.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A289E49616520217AA.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-304",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A20A8BF5975B25A8C6.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2AB6F6409217EF1C4.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2C510E68865C33F5B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-306",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A2EE13E0DD5572AFD9.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A28934DE889B4ED2DF.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/43E9C966AD4738A23D8A308ACF27D1F4.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-201",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A178F7E496F27BC67A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1833D4C7244221E2B.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A13D13CDB0C802C32C.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-203",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1DB2E499AB693B2B9.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1F3D458C31BA5E42B.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A13A73BDC72C59D3DC.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-204",
+    "teacher": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A188331D6FFE695A58.stream/playlist.m3u8",
+    "student": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1BC5E83765D3B7B36.stream/playlist.m3u8",
+    "screen": "https://lmt4.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1AFF070EC3595AC04.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-206",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A1009F233834640DAB.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A13327490D1AA7052D.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/DF5128461925A9A106C194E6E5724625.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-401",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/F702015651F9200A0F86A76AB6E32C48CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/C2E8E2749DD07F88D8D6FBDC81173699.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/C2E8E2749DD07F88878C1C7CEB748BD2.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-403",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/D8F1D052C658F1F963B66E32402EF44CCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E489BF6B06B1A9B82.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/C2E8E2749DD07F88A53C5671D41D5B4A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-404",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/91E5834E5A14019328D20503C8E3F23CCF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304EDCD15A96E2185123.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/C2E8E2749DD07F88A4F688FC89C832AF.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J4-406",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/DF94D0B95E3F6D770379960C12C0C604CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/72B9C71B0B15304E0B541A20CACDA2AB.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/C2E8E2749DD07F8821C9743C1D5B3230.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J0-001",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/8EB0FEEED1556AA4F77B54F1676EED32CF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/6D78C4D3C488B562488F26A1E1D34F26.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/BFA1E744108601A4A53C5671D41D5B4A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J0-002",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/6D78C4D3C488B562BC409A2D1B39A981.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/6D78C4D3C488B56215028537AFAB48A6.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/6D78C4D3C488B56268AA774163F0644F.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J0-003",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/6D78C4D3C488B562A89628C8A42490B7.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/6D78C4D3C488B56246434E889C562D8F.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/6D78C4D3C488B5620DCD0E2C3D7EE484.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "J0-004",
+    "teacher": "https://lmt10.buaa.edu.cn:443/live/_definst_/B989E5CAF725E2CAE199D94020AA2EBECF299C45D4C0468A.stream/playlist.m3u8",
+    "student": "https://lmt10.buaa.edu.cn:443/live/_definst_/6D78C4D3C488B5622B77229B9494E072.stream/playlist.m3u8",
+    "screen": "https://lmt10.buaa.edu.cn:443/live/_definst_/BFA1E744108601A4CE2CD1FC7A1E614D.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH2-101",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CB2770FD5018BA2E8.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C0D05F585059292A9.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C96802BBB62F0A82A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH2-103",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C95D329D7BC312721.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CC4257E58676F33FC.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CD8CF6001DE14E5EF.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH2-104",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CC12A8CFD96BB42F2.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C9F126B6491E8B57E.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CF50C253431A18AD0.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH2-106",
+    "teacher": "",
+    "student": "",
+    "screen": ""
+  },
+  {
+    "campus": "沙河",
+    "room": "SH2-107",
+    "teacher": "",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C42021F74A8415E97D72B2FA3AFFB21D4.stream/playlist.m3u8",
+    "screen": ""
+  },
+  {
+    "campus": "沙河",
+    "room": "SH2-108",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CBF9F4DD3A9BBCBDC.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C7D5B6F6BCF17D45D.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C41D8012F31E3B602.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH2-109",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C747F74EDC6EA618A.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C76D0F0E6D5F5FFBA.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C21DDBC362191E585.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH2-110",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C987B49F7B52A06CC.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CCED7A6E699762FF2.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C2E2A6572B73031BF.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH2-111",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C24FB0062DBDE09C7.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CBA0FAA5AE28E81B2.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CD5B80F9DA6324AD3.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH2-112",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CA3D48F53FE33D983.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C5931700872B9797E.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C86076A262184A99B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH2-113",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C32CFBFE8198B5E93.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C6D0143B9C6275A4F.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CFB0F7F6FA4CF37A0.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH3-101",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C95297AFF47DE5584.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C45ABC8EC4328AFF7.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C818DAACF776CC5EB.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH3-102",
+    "teacher": "",
+    "student": "",
+    "screen": ""
+  },
+  {
+    "campus": "沙河",
+    "room": "SH3-103",
+    "teacher": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C4932404CA0319973D72B2FA3AFFB21D4.stream/playlist.m3u8",
+    "student": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C51064AED543AD107.stream/playlist.m3u8",
+    "screen": "https://lmt3.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C50893F74A491CB2A.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH3-105",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C478B364DC63B3387.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CCF318F576BEC83F1.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CBA62622D381C844B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH3-106",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CA90ED062B0FD3526.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CFAFB2DF9380F252E.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C3455630F8D546107.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH3-107",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C489D4FB4F2AD2D7B.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C5753BE91B2069D54.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C7D6D3B02C1DDFC7B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH3-108",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C9EE88F46048FBB6A.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CB3E684143FE07986.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C68D671D95C39FB1B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH3-109",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CF053F2429219CE43.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C3C1014017B38CF2E.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97CDEA5D7AB33600E2B.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH3-110",
+    "teacher": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C5F3BB8BE49FBF01D.stream/playlist.m3u8",
+    "student": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C3C07D3548D408344.stream/playlist.m3u8",
+    "screen": "https://lmt8.buaa.edu.cn:443/live/_definst_/8779E1F541A1D97C3413940D1252D361.stream/playlist.m3u8"
+  },
+  {
+    "campus": "沙河",
+    "room": "SH3-111",
+    "teacher": "",
+    "student": "",
+    "screen": ""
+  }
+]

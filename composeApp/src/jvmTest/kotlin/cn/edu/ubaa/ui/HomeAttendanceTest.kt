@@ -12,9 +12,11 @@ import androidx.compose.ui.unit.dp
 import cn.edu.ubaa.attendance.*
 import cn.edu.ubaa.model.dto.TodayClass
 import cn.edu.ubaa.repository.ScheduleStore
+import cn.edu.ubaa.ui.screens.classroom.LocalClassroomLiveLauncher
 import cn.edu.ubaa.ui.screens.menu.HomeScreen
 import cn.edu.ubaa.ui.screens.menu.LocalAttendanceSettings
 import com.russhwolf.settings.MapSettings
+import kotlin.test.assertEquals
 import kotlinx.coroutines.runBlocking
 import org.junit.Rule
 import org.junit.Test
@@ -24,6 +26,7 @@ class HomeAttendanceTest {
 
   @Test
   fun homeShowsSettingsAndAttendanceOnTodaysCourse() {
+    var live: Pair<String?, String?>? = null
     ScheduleStore.settings = MapSettings()
     AttendanceStore.settings = MapSettings()
     ScheduleStore.useAccount("111")
@@ -35,7 +38,10 @@ class HomeAttendanceTest {
     }
     compose.setContent {
       MaterialTheme {
-        CompositionLocalProvider(LocalAttendanceSettings provides { Text("自动签到设置") }) {
+        CompositionLocalProvider(
+            LocalAttendanceSettings provides { Text("自动签到设置") },
+            LocalClassroomLiveLauncher provides { place, course -> live = place to course },
+        ) {
           Box(Modifier.size(420.dp, 800.dp)) {
             HomeScreen(
                 todayClasses = listOf(TodayClass("软件工程", "主楼", "08:00-09:40", null)),
@@ -62,5 +68,7 @@ class HomeAttendanceTest {
     compose.onNodeWithText("自动签到设置").assertIsDisplayed()
     compose.onNodeWithText("软件工程").assertIsDisplayed()
     compose.onNodeWithText("已签到").assertIsDisplayed()
+    compose.onNodeWithText("观看直播").performClick()
+    assertEquals("主楼" to "软件工程", live)
   }
 }

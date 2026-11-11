@@ -17,6 +17,7 @@ android {
     targetSdk = libs.versions.android.targetSdk.get().toInt()
     versionCode = project.property("project.version.code").toString().toInt()
     versionName = project.property("project.version").toString()
+    testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
   }
 
   val localProperties =
@@ -63,4 +64,8 @@ dependencies {
   implementation(libs.androidx.activity.compose)
   implementation(compose.preview)
   debugImplementation(compose.uiTooling)
+  androidTestImplementation(libs.androidx.testExt.junit)
+  androidTestImplementation("androidx.test:runner:1.7.0")
+  androidTestImplementation(libs.media3.exoplayer)
+  androidTestImplementation(libs.media3.ui)
 }

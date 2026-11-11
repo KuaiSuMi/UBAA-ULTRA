@@ -52,6 +52,9 @@ kotlin {
       implementation(libs.androidx.activity.compose)
       implementation(libs.androidx.core.ktx)
       implementation(libs.ktor.client.core)
+      implementation(libs.media3.exoplayer)
+      implementation(libs.media3.hls)
+      implementation(libs.media3.ui)
       implementation("androidx.work:work-runtime-ktx:2.12.0")
     }
     commonMain.dependencies {
@@ -93,6 +96,7 @@ kotlin {
     jvmTest.dependencies {
       implementation("org.jetbrains.compose.ui:ui-test-junit4:$composeVersion")
     }
+    jvmTest.get().resources.srcDir(rootProject.file("androidApp/src/main/assets/live"))
   }
 }
 

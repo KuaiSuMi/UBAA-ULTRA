@@ -17,6 +17,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AssignmentTurnedIn
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Forum
+import androidx.compose.material.icons.filled.LiveTv
 import androidx.compose.material.icons.filled.MoreHoriz
 import androidx.compose.material.icons.filled.WbSunny
 import androidx.compose.material3.Card
@@ -32,6 +33,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import cn.edu.ubaa.ui.screens.classroom.LocalClassroomLiveLauncher
 
 val LocalTdLauncher = staticCompositionLocalOf<(() -> Unit)?> { null }
 val LocalHealthCloudLauncher = staticCompositionLocalOf<(() -> Unit)?> { null }
@@ -87,6 +89,7 @@ fun AdvancedFeaturesScreen(
 ) {
   val launchTd = LocalTdLauncher.current
   val launchHealth = LocalHealthCloudLauncher.current
+  val launchLive = LocalClassroomLiveLauncher.current
   val features =
       advancedFeatureItems().let { items ->
         if (launchTd == null) items
@@ -95,11 +98,16 @@ fun AdvancedFeaturesScreen(
                 AdvancedFeatureItem("td", "TD 打卡", "入口、出口打卡与执行记录", Icons.Default.AssignmentTurnedIn)
       }
 
-  val allFeatures =
+  val healthFeatures =
       if (launchHealth == null) features
       else
           features +
               AdvancedFeatureItem("health", "健康云", "TD 次数与体测成绩", Icons.Default.AssignmentTurnedIn)
+  val allFeatures =
+      if (launchLive == null) healthFeatures
+      else
+          healthFeatures +
+              AdvancedFeatureItem("live", "教室直播", "按校区搜索教室，切换直播视角", Icons.Default.LiveTv)
   Column(modifier = modifier.fillMaxSize().padding(16.dp)) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
@@ -113,6 +121,7 @@ fun AdvancedFeaturesScreen(
               when (feature.id) {
                 "td" -> launchTd?.invoke()
                 "health" -> launchHealth?.invoke()
+                "live" -> launchLive?.invoke(null, null)
                 "ihome" -> onIhomeClick()
                 "cgyy" -> onCgyyClick()
                 "ygdk" -> onYgdkClick()

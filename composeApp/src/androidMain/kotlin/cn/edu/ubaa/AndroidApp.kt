@@ -10,8 +10,10 @@ import androidx.compose.ui.platform.LocalContext
 import cn.edu.ubaa.api.storage.AccountStore
 import cn.edu.ubaa.attendance.AttendanceSettings
 import cn.edu.ubaa.health.HealthCloudActivity
+import cn.edu.ubaa.live.ClassroomLiveActivity
 import cn.edu.ubaa.repository.ScheduleStore
 import cn.edu.ubaa.td.TdActivity
+import cn.edu.ubaa.ui.screens.classroom.LocalClassroomLiveLauncher
 import cn.edu.ubaa.ui.screens.menu.LocalAttendanceSettings
 import cn.edu.ubaa.ui.screens.menu.LocalHealthCloudLauncher
 import cn.edu.ubaa.ui.screens.menu.LocalTdLauncher
@@ -67,6 +69,15 @@ fun AndroidApp() {
         }
       }
   CompositionLocalProvider(
+      LocalClassroomLiveLauncher provides
+          { place, course ->
+            context.startActivity(
+                Intent(context, ClassroomLiveActivity::class.java).apply {
+                  putExtra("place", place)
+                  putExtra("course", course)
+                }
+            )
+          },
       LocalUpdateInstaller provides { release, dismiss -> AndroidUpdateDialog(release, dismiss) },
       LocalHealthCloudLauncher provides
           {
