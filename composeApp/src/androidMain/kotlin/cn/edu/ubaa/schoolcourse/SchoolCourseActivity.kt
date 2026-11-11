@@ -1,5 +1,6 @@
 package cn.edu.ubaa.schoolcourse
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -27,7 +28,16 @@ class SchoolCourseActivity : ComponentActivity() {
           val model = viewModel { SchoolCourseViewModel(owner) }
           val state by model.state.collectAsState()
           LaunchedEffect(model) { if (state.result == null && !state.loading) model.search() }
-          SchoolCourseScreen(state, model::search, ::finish)
+          CompositionLocalProvider(
+              LocalCourseReplayLauncher provides
+                  { course ->
+                    startActivity(
+                        Intent(this, CourseReplayActivity::class.java).putExtra("course", course)
+                    )
+                  }
+          ) {
+            SchoolCourseScreen(state, model::search, ::finish)
+          }
         }
       }
     }

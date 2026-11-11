@@ -9,6 +9,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import cn.edu.ubaa.model.dto.CourseClass
 import cn.edu.ubaa.ui.screens.classroom.CourseLiveButton
+import cn.edu.ubaa.ui.screens.schoolcourse.CourseReplayButton
 
 @Composable
 fun CourseDetailScreen(course: CourseClass, modifier: Modifier = Modifier) {
@@ -58,6 +59,7 @@ fun CourseDetailScreen(course: CourseClass, modifier: Modifier = Modifier) {
           course.placeName?.let { place -> CourseInfoRow("上课地点", place) }
 
           CourseLiveButton(course.placeName, course.courseName)
+          CourseReplayButton(course.courseName)
 
           if (course.beginTime != null && course.endTime != null) {
             CourseInfoRow("上课时间", "${course.beginTime} - ${course.endTime}")

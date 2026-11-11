@@ -12,6 +12,7 @@ import cn.edu.ubaa.attendance.AttendanceSettings
 import cn.edu.ubaa.health.HealthCloudActivity
 import cn.edu.ubaa.live.ClassroomLiveActivity
 import cn.edu.ubaa.repository.ScheduleStore
+import cn.edu.ubaa.schoolcourse.CourseReplayActivity
 import cn.edu.ubaa.schoolcourse.SchoolCourseActivity
 import cn.edu.ubaa.td.TdActivity
 import cn.edu.ubaa.ui.screens.classroom.LocalClassroomLiveLauncher
@@ -20,6 +21,7 @@ import cn.edu.ubaa.ui.screens.menu.LocalHealthCloudLauncher
 import cn.edu.ubaa.ui.screens.menu.LocalTdLauncher
 import cn.edu.ubaa.ui.screens.menu.LocalUpdateInstaller
 import cn.edu.ubaa.ui.screens.schedule.LocalScheduleResponseExporter
+import cn.edu.ubaa.ui.screens.schoolcourse.LocalCourseReplayLauncher
 import cn.edu.ubaa.ui.screens.schoolcourse.LocalSchoolCourseLauncher
 import cn.edu.ubaa.update.AndroidUpdateDialog
 import cn.edu.ubaa.widget.ScheduleWidgetProvider
@@ -71,6 +73,12 @@ fun AndroidApp() {
         }
       }
   CompositionLocalProvider(
+      LocalCourseReplayLauncher provides
+          { course ->
+            context.startActivity(
+                Intent(context, CourseReplayActivity::class.java).putExtra("course", course)
+            )
+          },
       LocalSchoolCourseLauncher provides
           {
             context.startActivity(Intent(context, SchoolCourseActivity::class.java))

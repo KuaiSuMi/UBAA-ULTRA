@@ -274,12 +274,14 @@ private fun ColumnScope.ClassroomPicker(
 
 @androidx.annotation.OptIn(UnstableApi::class)
 @Composable
-private fun ClassroomPlayer(url: String, modifier: Modifier = Modifier) {
+internal fun ClassroomPlayer(url: String, modifier: Modifier = Modifier, replay: Boolean = false) {
   val context = LocalContext.current
   var player by remember { mutableStateOf<ExoPlayer?>(null) }
   var failure by remember(url) { mutableStateOf<String?>(null) }
   var attempt by remember(url) { mutableIntStateOf(0) }
   var playing by remember(url) { mutableStateOf(false) }
+  var position by rememberSaveable(url) { mutableLongStateOf(0L) }
+  var playWhenReady by rememberSaveable(url) { mutableStateOf(true) }
   LifecycleStartEffect(url, attempt) {
     failure = null
     val current = ExoPlayer.Builder(context).build()
@@ -297,21 +299,28 @@ private fun ClassroomPlayer(url: String, modifier: Modifier = Modifier) {
                     .filterIsInstance<HttpDataSource.InvalidResponseCodeException>()
                     .firstOrNull()
             failure =
-                when (http?.responseCode) {
-                  404,
-                  410 -> "当前视角暂无直播，可切换视角或重试"
-                  401,
-                  403 -> "直播服务未开放当前视频"
-                  else -> "直播连接失败，请检查网络后重试"
-                }
+                if (replay) "回放加载失败，请重试"
+                else
+                    when (http?.responseCode) {
+                      404,
+                      410 -> "当前视角暂无直播，可切换视角或重试"
+                      401,
+                      403 -> "直播服务未开放当前视频"
+                      else -> "直播连接失败，请检查网络后重试"
+                    }
           }
         }
     )
     current.setMediaItem(MediaItem.fromUri(url))
+    if (replay) current.seekTo(position)
     current.prepare()
-    current.playWhenReady = true
+    current.playWhenReady = if (replay) playWhenReady else true
     player = current
     onStopOrDispose {
+      if (replay) {
+        position = current.currentPosition
+        playWhenReady = current.playWhenReady
+      }
       player = null
       playing = false
       current.release()

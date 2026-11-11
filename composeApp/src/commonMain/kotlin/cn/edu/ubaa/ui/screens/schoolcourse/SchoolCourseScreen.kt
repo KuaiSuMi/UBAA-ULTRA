@@ -42,6 +42,7 @@ fun SchoolCourseScreen(
       TextButton(onClick = onBack) { Text("返回") }
     }
     Text("本研系统课程库", style = MaterialTheme.typography.labelMedium)
+    CourseReplayButton("", "全校排课时间与回放")
     Row(
         Modifier.horizontalScroll(rememberScrollState()),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
@@ -117,6 +118,7 @@ fun SchoolCourseScreen(
                       .joinToString(" · ")
               )
               Text("${course.credits} 学分 · ${course.hours} 学时")
+              CourseReplayButton(course.name, "上课时间与回放")
               if (course.teacher.isNotBlank()) Text("课程负责人：${course.teacher}")
               Text(
                   listOf(course.category, course.exam, course.language, course.level)

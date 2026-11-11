@@ -50,6 +50,7 @@ import cn.edu.ubaa.ui.screens.classroom.CourseLiveButton
 import cn.edu.ubaa.ui.screens.grade.GradeScoreUpdateNotice
 import cn.edu.ubaa.ui.screens.schedule.CourseAttendanceBadge
 import cn.edu.ubaa.ui.screens.schedule.rememberAttendanceRecords
+import cn.edu.ubaa.ui.screens.schoolcourse.CourseReplayButton
 import kotlin.time.Clock
 import kotlin.time.ExperimentalTime
 import kotlinx.datetime.TimeZone
@@ -341,6 +342,7 @@ private fun TodayClassCard(
         }
       }
       CourseLiveButton(todayClass.place, todayClass.bizName)
+      CourseReplayButton(todayClass.bizName)
     }
   }
 }
