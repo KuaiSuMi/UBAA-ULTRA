@@ -25,6 +25,7 @@ export default defineConfig({
             { text: '登录与连接模式', link: '/features/auth-and-connection' },
             { text: 'iHome', link: '/features/ihome' },
             { text: '课表与考试', link: '/features/schedule-and-exam' },
+            { text: '全校课程（Android）', link: '/features/school-courses' },
             { text: '成绩查询', link: '/features/grades' },
             { text: '博雅课程', link: '/features/bykc' },
             { text: '空教室查询', link: '/features/classroom' },

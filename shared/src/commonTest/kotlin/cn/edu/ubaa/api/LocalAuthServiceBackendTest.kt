@@ -568,7 +568,7 @@ class LocalAuthServiceBackendTest {
   }
 
   @Test
-  fun `getAuthStatus clears persisted local session when uc session is invalid`() = runTest {
+  fun `getAuthStatus preserves persisted account and cookies for SSO renewal`() = runTest {
     LocalAuthSessionStore.save(
         LocalAuthSession(
             username = "22373333",
@@ -592,7 +592,42 @@ class LocalAuthServiceBackendTest {
     val result = LocalAuthServiceBackend().getAuthStatus()
 
     assertTrue(result.isFailure)
-    assertNull(LocalAuthSessionStore.get())
+    assertNotNull(LocalAuthSessionStore.get())
+  }
+
+  @Test
+  fun `returned login forms distinguish captcha and expired flow from wrong password`() = runTest {
+    for (requiresCaptcha in listOf(false, true)) {
+      LocalUpstreamClientProvider.reset()
+      useMockUpstream(
+          MockEngine { request ->
+            when {
+              request.url.encodedPath == "/captcha" -> respond(byteArrayOf(1, 2, 3))
+              request.method.value == "POST" ->
+                  respond(
+                      "<input value='fresh-execution' type='hidden' name='execution'>" +
+                          if (requiresCaptcha)
+                              "<script>config.captcha = { type: 'image', id: 'new-captcha' }</script>"
+                          else "",
+                      HttpStatusCode.OK,
+                  )
+              else -> error("Unexpected request: ${request.url}")
+            }
+          }
+      )
+      val failure =
+          LocalAuthServiceBackend().login("test", "secret", "1234", "stale").exceptionOrNull()
+      if (requiresCaptcha) {
+        assertIs<CaptchaRequiredClientException>(failure)
+        assertEquals("fresh-execution", failure.execution)
+        assertEquals("new-captcha", failure.captcha.id)
+        assertNotNull(failure.captcha.base64Image)
+      } else {
+        assertIs<cn.edu.ubaa.api.auth.ApiCallException>(failure)
+        assertEquals("unauthenticated", failure.code)
+      }
+      assertTrue(failure.message?.contains("账号或密码错误") != true)
+    }
   }
 
   private fun useMockUpstream(engine: MockEngine) {

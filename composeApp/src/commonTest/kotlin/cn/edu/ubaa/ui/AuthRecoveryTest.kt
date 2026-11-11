@@ -101,10 +101,83 @@ class AuthRecoveryTest {
     vm.initializeApp()
     advanceUntilIdle()
     assertTrue(vm.uiState.value.isLoggedIn)
-    assertTrue(auth.cleared)
+    assertFalse(auth.cleared)
     assertEquals(listOf("status", "preload", "login"), auth.calls)
     assertEquals("saved-password", auth.password)
     assertEquals("new-execution", auth.execution)
+  }
+
+  @Test
+  fun backgroundCaptchaKeepsAccountAndCanBeSubmittedWithoutRestart() = runTest {
+    Dispatchers.setMain(UnconfinedTestDispatcher(testScheduler))
+    credentials()
+    AccountStore.save(
+        SavedAccount(UserData("乙", "222"), "222", "active-password", ConnectionMode.DIRECT)
+    )
+    val auth =
+        FakeAuth().apply {
+          persisted = true
+          statusError = ApiCallException("过期", HttpStatusCode.Unauthorized)
+          preload =
+              LoginPreloadResponse(
+                  true,
+                  captcha = CaptchaInfo(id = "captcha", imageUrl = "url"),
+                  execution = "fresh",
+              )
+        }
+    val vm = AuthViewModel(auth)
+    vm.initializeApp()
+    advanceUntilIdle()
+    assertTrue(vm.uiState.value.isLoggedIn)
+    assertTrue(vm.uiState.value.reauthenticationRequired)
+    assertEquals("222", vm.loginForm.value.username)
+    assertEquals("active-password", vm.loginForm.value.password)
+    assertEquals("222", AccountStore.active()?.user?.schoolid)
+    assertFalse(auth.cleared)
+    vm.updateCaptcha("1234")
+    vm.login()
+    advanceUntilIdle()
+    assertTrue(vm.uiState.value.isLoggedIn)
+    assertFalse(vm.uiState.value.reauthenticationRequired)
+    assertEquals("fresh", auth.execution)
+    assertEquals("active-password", auth.password)
+  }
+
+  @Test
+  fun failedRenewalKeepsAccountAndNextAttemptUsesFreshForm() = runTest {
+    Dispatchers.setMain(UnconfinedTestDispatcher(testScheduler))
+    credentials()
+    AccountStore.save(
+        SavedAccount(UserData("甲", "111"), "111", "saved-password", ConnectionMode.DIRECT)
+    )
+    val auth = FakeAuth().apply { persisted = true }
+    val vm = AuthViewModel(auth)
+    vm.initializeApp()
+    advanceUntilIdle()
+    auth.statusError = ApiCallException("过期", HttpStatusCode.Unauthorized)
+    auth.loginError =
+        CaptchaRequiredClientException(
+            CaptchaInfo(id = "new", imageUrl = "url"),
+            "captcha-execution",
+            "请输入验证码",
+        )
+    vm.validateSession()
+    advanceUntilIdle()
+    assertTrue(vm.uiState.value.isLoggedIn)
+    assertTrue(vm.uiState.value.captchaRequired)
+    assertEquals("captcha-execution", vm.uiState.value.execution)
+    vm.updateCaptcha("1234")
+    auth.loginError = ApiCallException("会话已过期")
+    vm.login()
+    advanceUntilIdle()
+    assertTrue(vm.uiState.value.isLoggedIn)
+    assertNull(vm.uiState.value.execution)
+    auth.loginError = null
+    vm.login()
+    advanceUntilIdle()
+    assertEquals("new-execution", auth.execution)
+    assertFalse(vm.uiState.value.reauthenticationRequired)
+    assertFalse(auth.cleared)
   }
 
   @Test
@@ -182,6 +255,7 @@ class AuthRecoveryTest {
     var hang = false
     var preload = LoginPreloadResponse(false, execution = "new-execution")
     var statusError: Exception? = null
+    var loginError: Exception? = null
     var password: String? = null
     var execution: String? = null
 
@@ -215,6 +289,9 @@ class AuthRecoveryTest {
       calls += "login"
       this.password = password
       this.execution = execution
+      loginError?.let {
+        return Result.failure(it)
+      }
       return Result.success(LoginResponse(UserData("测试", username), "access", "refresh", "", ""))
     }
   }

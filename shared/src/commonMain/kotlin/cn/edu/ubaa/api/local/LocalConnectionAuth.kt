@@ -103,6 +103,7 @@ object LocalAuthSessionStore {
 }
 
 internal object LocalCookieStore {
+  internal val mutex = Mutex()
   private const val KEY_LOCAL_COOKIES = "local_connection_cookies"
   private var _settings: Settings? = null
   var settings: Settings
@@ -155,7 +156,8 @@ internal data class StoredCookieRecord(
 )
 
 internal class PersistentLocalCookieStorage(private val mode: ConnectionMode) : CookiesStorage {
-  private val mutex = Mutex()
+  private val mutex
+    get() = LocalCookieStore.mutex
 
   override suspend fun addCookie(requestUrl: Url, cookie: Cookie) {
     mutex.withLock {
@@ -344,7 +346,7 @@ internal suspend fun validateLocalConnectionSession(): LocalConnectionSessionVal
         header("X-Requested-With", "XMLHttpRequest")
       }
   if (response.status != HttpStatusCode.OK) {
-    return if (response.status.value in 500..599) {
+    return if (response.status.value !in listOf(401, 403)) {
       LocalConnectionSessionValidationState.TransientError
     } else {
       LocalConnectionSessionValidationState.Invalid
@@ -379,7 +381,6 @@ internal suspend fun resolveLocalBusinessAuthenticationFailure(
 ): ApiCallException {
   val validation = runCatching { validateLocalConnectionSession() }.getOrNull()
   return if (validation == LocalConnectionSessionValidationState.Invalid) {
-    clearLocalConnectionSession()
     localUnauthenticatedApiException()
   } else {
     ApiCallException(
@@ -594,7 +595,6 @@ internal class LocalAuthServiceBackend : AuthServiceBackend {
           )
         }
         LocalConnectionSessionValidationState.Invalid -> {
-          clearStoredSession()
           Result.failure(
               ApiCallException(
                   message =
@@ -704,11 +704,20 @@ internal class LocalAuthServiceBackend : AuthServiceBackend {
       }
       val loginError =
           LocalCasParser.findLoginError(bodyText) ?: LocalCasParser.extractTipText(bodyText)
-      if (currentResponse.status == HttpStatusCode.Unauthorized || !loginError.isNullOrBlank()) {
-        throw ApiCallException(loginError ?: "账号或密码错误，请重试")
+      val execution = LocalCasParser.extractExecution(bodyText)
+      val captcha = LocalCasParser.detectCaptcha(bodyText, captchaUrl())
+      if (captcha != null && execution.isNotBlank()) {
+        throw CaptchaRequiredClientException(
+            captcha.copy(base64Image = fetchCaptchaImage(captcha.id)),
+            execution,
+            loginError ?: "请输入验证码",
+        )
       }
-      if (bodyText.contains("input name=\"execution\"")) {
-        throw ApiCallException("账号或密码错误，请重试")
+      if (currentResponse.status == HttpStatusCode.Unauthorized || !loginError.isNullOrBlank()) {
+        throw ApiCallException(loginError ?: "统一认证会话已过期，请重新验证")
+      }
+      if (execution.isNotBlank()) {
+        throw ApiCallException("统一认证会话已过期，请重新验证", code = "unauthenticated")
       }
       return
     }
@@ -800,7 +809,6 @@ internal class LocalUserServiceBackend : UserServiceBackend {
               .get(localUpstreamUrl("https://uc.buaa.edu.cn/api/uc/userinfo"))
       val body = response.bodyAsText()
       if (isUcSessionExpired(response, body)) {
-        clearLocalConnectionSession()
         return Result.failure(localUnauthenticatedApiException())
       }
       if (response.status != HttpStatusCode.OK) {
@@ -869,11 +877,6 @@ private fun CaptchaInfo.withBase64Image(encodedImage: String?): CaptchaInfo =
     copy(base64Image = encodedImage ?: base64Image)
 
 internal object LocalCasParser {
-  private val executionRegex =
-      Regex(
-          """<input[^>]*name=["']execution["'][^>]*value=["']([^"']+)["'][^>]*>""",
-          RegexOption.IGNORE_CASE,
-      )
   private val tipRegex =
       Regex(
           """<div[^>]*class=["'][^"']*tip-text[^"']*["'][^>]*>([\s\S]*?)</div>""",
@@ -885,7 +888,12 @@ internal object LocalCasParser {
   private val attrRegex = Regex("""([a-zA-Z_:][-a-zA-Z0-9_:.]*)\s*=\s*["']([^"']*)["']""")
 
   fun extractExecution(html: String): String =
-      executionRegex.find(html)?.groupValues?.getOrNull(1).orEmpty()
+      inputRegex
+          .findAll(html)
+          .map { parseAttributes(it.groupValues[1]) }
+          .firstOrNull { it["name"] == "execution" }
+          ?.get("value")
+          .orEmpty()
 
   fun detectCaptcha(html: String, captchaUrlBase: String): CaptchaInfo? {
     val match = captchaRegex.find(html) ?: return null

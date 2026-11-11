@@ -34,6 +34,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import cn.edu.ubaa.ui.screens.classroom.LocalClassroomLiveLauncher
+import cn.edu.ubaa.ui.screens.schoolcourse.LocalSchoolCourseLauncher
 
 val LocalTdLauncher = staticCompositionLocalOf<(() -> Unit)?> { null }
 val LocalHealthCloudLauncher = staticCompositionLocalOf<(() -> Unit)?> { null }
@@ -90,6 +91,7 @@ fun AdvancedFeaturesScreen(
   val launchTd = LocalTdLauncher.current
   val launchHealth = LocalHealthCloudLauncher.current
   val launchLive = LocalClassroomLiveLauncher.current
+  val launchCourses = LocalSchoolCourseLauncher.current
   val features =
       advancedFeatureItems().let { items ->
         if (launchTd == null) items
@@ -114,11 +116,22 @@ fun AdvancedFeaturesScreen(
         horizontalArrangement = Arrangement.spacedBy(12.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-      items(allFeatures) { feature ->
+      items(
+          if (launchCourses == null) allFeatures
+          else
+              allFeatures +
+                  AdvancedFeatureItem(
+                      "school-courses",
+                      "全校课程",
+                      "按课程名、课程号和负责人查询",
+                      Icons.Default.DateRange,
+                  )
+      ) { feature ->
         AdvancedFeatureCard(
             feature = feature,
             onClick = {
               when (feature.id) {
+                "school-courses" -> launchCourses?.invoke()
                 "td" -> launchTd?.invoke()
                 "health" -> launchHealth?.invoke()
                 "live" -> launchLive?.invoke(null, null)

@@ -304,7 +304,7 @@ private fun ConnectionModeMenuButton(
 
 /** 内部验证码展示组件。 */
 @Composable
-private fun CaptchaImage(
+internal fun CaptchaImage(
     captchaInfo: CaptchaInfo,
     onClick: () -> Unit,
     isRefreshing: Boolean,

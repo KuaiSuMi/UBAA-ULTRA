@@ -23,7 +23,7 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertIs
-import kotlin.test.assertNull
+import kotlin.test.assertNotNull
 import kotlin.test.assertTrue
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
@@ -123,7 +123,7 @@ class LocalClassroomApiBackendTest {
   }
 
   @Test
-  fun `classroom api clears local session when upstream redirects to sso and uc session is invalid`() =
+  fun `classroom api preserves local session when upstream redirects to sso and uc session is invalid`() =
       runTest {
         val engine = MockEngine { request ->
           when {
@@ -158,7 +158,7 @@ class LocalClassroomApiBackendTest {
         assertTrue(result.isFailure)
         val exception = assertIs<ApiCallException>(result.exceptionOrNull())
         assertEquals("unauthenticated", exception.code)
-        assertNull(LocalAuthSessionStore.get())
+        assertNotNull(LocalAuthSessionStore.get())
       }
 
   private fun useMockUpstream(engine: MockEngine) {

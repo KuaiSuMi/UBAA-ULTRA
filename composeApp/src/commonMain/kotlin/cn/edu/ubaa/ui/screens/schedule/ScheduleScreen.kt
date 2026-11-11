@@ -40,6 +40,7 @@ import cn.edu.ubaa.attendance.*
 import cn.edu.ubaa.model.dto.*
 import cn.edu.ubaa.repository.ScheduleStore
 import cn.edu.ubaa.ui.common.util.BackHandlerCompat
+import cn.edu.ubaa.ui.screens.schoolcourse.LocalSchoolCourseLauncher
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.drop
 
@@ -190,6 +191,9 @@ fun ScheduleScreen(
       modifier = modifier,
   ) { paddingValues ->
     Column(modifier = Modifier.fillMaxSize().padding(paddingValues)) {
+      LocalSchoolCourseLauncher.current?.let { launch ->
+        TextButton(onClick = launch, modifier = Modifier.align(Alignment.End)) { Text("全校课程查询") }
+      }
       Row(
           modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp),
           verticalAlignment = Alignment.CenterVertically,

@@ -2,8 +2,10 @@ package cn.edu.ubaa
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.AlertDialog
@@ -36,6 +38,7 @@ import cn.edu.ubaa.ui.screens.auth.AuthViewModel
 import cn.edu.ubaa.ui.screens.auth.ConnectionModeSelectionScreen
 import cn.edu.ubaa.ui.screens.auth.LocalManageAccounts
 import cn.edu.ubaa.ui.screens.auth.LoginScreen
+import cn.edu.ubaa.ui.screens.auth.SessionVerificationDialog
 import cn.edu.ubaa.ui.screens.menu.LocalCheckForUpdates
 import cn.edu.ubaa.ui.screens.menu.LocalUpdateInstaller
 import cn.edu.ubaa.ui.screens.schedule.OfflineScheduleScreen
@@ -191,6 +194,21 @@ fun App() {
     }
 
     var showAccounts by remember { mutableStateOf(false) }
+    var showSessionVerification by remember { mutableStateOf(false) }
+    LaunchedEffect(uiState.reauthenticationRequired) {
+      if (!uiState.reauthenticationRequired) showSessionVerification = false
+    }
+    if (uiState.isLoggedIn && uiState.reauthenticationRequired && showSessionVerification) {
+      SessionVerificationDialog(
+          uiState,
+          loginForm,
+          authViewModel::updatePassword,
+          authViewModel::updateCaptcha,
+          authViewModel::refreshCaptcha,
+          authViewModel::login,
+          onDismiss = { showSessionVerification = false },
+      )
+    }
     LaunchedEffect(Unit) {
       ConnectionRuntime.currentModeFlow.collect { if (it != null) selectedConnectionMode = it }
     }
@@ -238,20 +256,30 @@ fun App() {
             }
             DisposableEffect(accountOwner) { onDispose { accountOwner.viewModelStore.clear() } }
             CompositionLocalProvider(LocalViewModelStoreOwner provides accountOwner) {
-              MainAppScreen(
-                  userData = userData,
-                  userInfo = uiState.userInfo,
-                  connectionMode = requireNotNull(selectedConnectionMode),
-                  availableConnectionModes = availableConnectionModes,
-                  onEnsureUserInfo = { authViewModel.ensureUserInfoLoaded() },
-                  onConnectionModeSelected = { mode ->
-                    selectedConnectionMode = mode
-                    authViewModel.switchConnectionMode(mode)
-                    appScope.launch { checkStartupPrompts() }
-                  },
-                  onLogoutClick = { authViewModel.logout() },
-                  modifier = Modifier.fillMaxSize(),
-              )
+              Column(Modifier.fillMaxSize()) {
+                if (uiState.reauthenticationRequired) {
+                  TextButton(
+                      onClick = { showSessionVerification = true },
+                      modifier = Modifier.statusBarsPadding(),
+                  ) {
+                    Text("统一认证需要验证 · 点击继续")
+                  }
+                }
+                MainAppScreen(
+                    userData = userData,
+                    userInfo = uiState.userInfo,
+                    connectionMode = requireNotNull(selectedConnectionMode),
+                    availableConnectionModes = availableConnectionModes,
+                    onEnsureUserInfo = { authViewModel.ensureUserInfoLoaded() },
+                    onConnectionModeSelected = { mode ->
+                      selectedConnectionMode = mode
+                      authViewModel.switchConnectionMode(mode)
+                      appScope.launch { checkStartupPrompts() }
+                    },
+                    onLogoutClick = { authViewModel.logout() },
+                    modifier = Modifier.weight(1f),
+                )
+              }
             }
           }
         }

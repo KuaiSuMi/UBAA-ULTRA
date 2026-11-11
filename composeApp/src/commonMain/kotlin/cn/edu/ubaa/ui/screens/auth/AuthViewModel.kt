@@ -36,6 +36,18 @@ class AuthViewModel(
   }
 
   private fun loadSavedCredentials() {
+    AccountStore.active()
+        ?.takeIf { it.mode == ConnectionRuntime.currentMode() }
+        ?.let {
+          _loginForm.value =
+              LoginFormState(
+                  username = it.username,
+                  password = it.password.orEmpty(),
+                  rememberPassword = it.password != null,
+                  autoLogin = it.password != null,
+              )
+          return
+        }
     val remember = CredentialStore.isRememberPassword() || CredentialStore.getUsername() == null
     _loginForm.value =
         LoginFormState(
@@ -143,7 +155,7 @@ class AuthViewModel(
               captchaRequired = response.captchaRequired,
               captchaInfo = response.captcha,
               execution = response.execution,
-              isLoggedIn = _uiState.value.isLoggedIn && !response.captchaRequired,
+              reauthenticationRequired = _uiState.value.isLoggedIn,
           )
       _loginForm.value = _loginForm.value.copy(captcha = "")
     }
@@ -190,19 +202,26 @@ class AuthViewModel(
                     captchaInfo = error.captcha,
                     execution = error.execution,
                     error = error.message,
-                    isLoggedIn = false,
+                    reauthenticationRequired = _uiState.value.isLoggedIn,
                 )
             _loginForm.value = _loginForm.value.copy(captcha = "")
           } else {
             // execution 是一次性流程标识，失败后下次提交重新取登录页。
-            _uiState.value = _uiState.value.copy(execution = null, error = error.message ?: "登录失败")
+            _uiState.value =
+                _uiState.value.copy(
+                    execution = null,
+                    captchaRequired = false,
+                    captchaInfo = null,
+                    reauthenticationRequired = _uiState.value.isLoggedIn,
+                    error = error.message ?: "登录失败",
+                )
           }
         }
   }
 
   fun login() = authenticate {
-    if (_uiState.value.execution == null && !_uiState.value.captchaRequired) preload()
-    if (!_uiState.value.isLoggedIn) submitLogin()
+    val restored = if (_uiState.value.execution == null) preload() else false
+    if (!restored) submitLogin()
   }
 
   private suspend fun prepareLogin() {
@@ -242,7 +261,6 @@ class AuthViewModel(
                     ?.let { user -> acceptSession(user, AuthTokensStore.get()?.accessToken) }
                 throw it
               }
-              authService.clearStoredSession()
               prepareLogin()
             }
       }
@@ -334,12 +352,12 @@ class AuthViewModel(
           .getAuthStatus()
           .onSuccess {
             currentCoroutineContext().ensureActive()
-            _uiState.value = _uiState.value.copy(userData = it.user)
+            _uiState.value =
+                _uiState.value.copy(userData = it.user, reauthenticationRequired = false)
           }
           .onFailure {
             currentCoroutineContext().ensureActive()
             if (!it.isExpiredSession()) return@onFailure
-            authService.clearStoredSession()
             userInfoJob?.cancel()
             prepareLogin()
           }
@@ -357,6 +375,7 @@ data class AuthUiState(
     val isPreloading: Boolean = false,
     val isRefreshingCaptcha: Boolean = false,
     val isLoggedIn: Boolean = false,
+    val reauthenticationRequired: Boolean = false,
     val userData: UserData? = null,
     val userInfo: UserInfo? = null,
     val accessToken: String? = null,

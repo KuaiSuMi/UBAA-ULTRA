@@ -31,6 +31,7 @@
         </receiver>
         <activity android:name="cn.edu.ubaa.td.TdActivity" android:exported="false" />
         <activity android:name="cn.edu.ubaa.health.HealthCloudActivity" android:exported="false" />
+        <activity android:name="cn.edu.ubaa.schoolcourse.SchoolCourseActivity" android:exported="false" />
         <activity android:name="cn.edu.ubaa.live.ClassroomLiveActivity" android:exported="false"
             android:configChanges="orientation|screenSize|keyboardHidden" />
         <receiver android:name="cn.edu.ubaa.widget.ScheduleWidgetProvider"

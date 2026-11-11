@@ -258,7 +258,6 @@ class AttendanceWorker(context: Context, parameters: WorkerParameters) :
             val account = requireNotNull(AccountStore.active())
             val password =
                 account.password ?: return@withLock finish(owner, lesson, false, "请打开应用登录并开启记住密码")
-            auth.clearStoredSession()
             val preload = auth.preloadLoginState().getOrThrow()
             if (preload.captchaRequired)
                 return@withLock finish(owner, lesson, false, "需要验证码，请打开应用完成验证")

@@ -33,7 +33,6 @@ import kotlin.test.BeforeTest
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
-import kotlin.test.assertNull
 import kotlin.test.assertTrue
 import kotlinx.coroutines.test.runTest
 import kotlinx.serialization.json.Json
@@ -627,7 +626,7 @@ class LocalCgyyApiBackendTest {
       }
 
   @Test
-  fun `cgyy business auth failure clears global local session when uc session is invalid`() =
+  fun `cgyy business auth failure preserves global local session when uc session is invalid`() =
       runTest {
         val engine = MockEngine { request ->
           when (request.url.toString()) {
@@ -652,7 +651,7 @@ class LocalCgyyApiBackendTest {
 
         assertTrue(result.isFailure)
         assertEquals("unauthenticated", (result.exceptionOrNull() as? ApiCallException)?.code)
-        assertNull(LocalAuthSessionStore.get())
+        assertNotNull(LocalAuthSessionStore.get())
       }
 
   private fun useMockUpstream(engine: MockEngine) {

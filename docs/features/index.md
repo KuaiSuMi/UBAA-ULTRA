@@ -4,6 +4,8 @@ UBAA 把常用 BUAA 校园服务集中到一个跨平台客户端中。普通功
 
 ## 普通功能
 
+- [全校课程（Android）](/features/school-courses)：按学期、课程名、课程号和课程负责人查询本研系统课程库。
+
 - [课表与考试](/features/schedule-and-exam)：学期、周次、周课表、今日课程和考试安排。
 - [成绩查询](/features/grades)：按学期查询成绩，并支持全部学期并发加载。
 - [博雅课程](/features/bykc)：课程浏览、筛选、详情、已选课程、统计、选退课和签到签退。
