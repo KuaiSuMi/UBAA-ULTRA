@@ -98,6 +98,7 @@ internal fun normalizeRoom(value: String): String =
         .joinToString("")
         .replace(Regex("杭州国际创新研究院|学院路校区|沙河校区|杭州校区|学院路|沙河|杭州"), "")
         .replace("新主楼", "")
+        .replace(Regex("主楼\\s*(?=主)"), "")
         .replace("主楼", "主")
         .replace(Regex("第三教学楼|三号教学楼|三教"), "三")
         .replace(Regex("第二教学楼|二号教学楼|二教"), "二")

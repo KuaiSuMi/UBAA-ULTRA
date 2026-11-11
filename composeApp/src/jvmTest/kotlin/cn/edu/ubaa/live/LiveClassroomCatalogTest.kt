@@ -30,6 +30,21 @@ class LiveClassroomCatalogTest {
   }
 
   @Test
+  fun courseLocationsWithRepeatedMainBuildingPrefixMatchTheLiveCatalog() {
+    listOf("主楼主南201", "学院路校区主楼主南201", "学院路校区 主楼 主南２０１").forEach { place ->
+      assertEquals("主南201", catalog.matchCourse(place)?.room, place)
+      assertEquals(listOf("主南201"), catalog.search(place).map { it.room }, place)
+    }
+    catalog.rooms
+        .filter { it.room.startsWith("主") }
+        .forEach { room ->
+          assertEquals(room.id, catalog.matchCourse("主楼${room.room}")?.id, room.room)
+        }
+    assertNull(catalog.matchCourse("主楼主南2010"))
+    assertNull(catalog.matchCourse("沙河校区主楼主南201"))
+  }
+
+  @Test
   fun incompleteAndAmbiguousLocationsNeverOpenAnotherRoom() {
     listOf(null, "", "101", "J1", "J1-1010", "沙河", "沙河主M101", "体育场", "J1-101,J1-102").forEach {
       assertNull(catalog.matchCourse(it), it)
