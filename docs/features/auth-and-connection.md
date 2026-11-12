@@ -49,3 +49,5 @@
 - `server/src/main/kotlin/cn/edu/ubaa/auth/api/AuthRoutes.kt`
 - `server/src/test/kotlin/cn/edu/ubaa/auth/api/AuthRoutesTest.kt`
 - `shared/src/commonTest/kotlin/cn/edu/ubaa/api/ConnectionRuntimeTest.kt`
+
+业务会话和统一认证分别检查。待办、课表、签到或回放明确返回会话过期时，使用保存的账号恢复统一认证、更新业务客户端并重试一次；并发查询共用一次续登。需要验证码时在主页或回放页直接验证，完成后重新加载数据。网络超时不会触发重复提交。

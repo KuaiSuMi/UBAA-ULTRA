@@ -29,6 +29,7 @@ fun AttendanceSettings() {
   var notifications by remember {
     mutableStateOf(NotificationManagerCompat.from(context).areNotificationsEnabled())
   }
+  var preciseTiming by remember { mutableStateOf(AttendanceScheduler.canScheduleWakeup(context)) }
   var busy by remember { mutableStateOf(false) }
   var error by remember { mutableStateOf<String?>(null) }
   val scope = rememberCoroutineScope()
@@ -41,6 +42,7 @@ fun AttendanceSettings() {
     val observer = LifecycleEventObserver { _, event ->
       if (event == Lifecycle.Event.ON_RESUME) {
         notifications = NotificationManagerCompat.from(context).areNotificationsEnabled()
+        preciseTiming = AttendanceScheduler.canScheduleWakeup(context)
         AttendanceScheduler.reschedule(context)
       }
     }
@@ -59,7 +61,7 @@ fun AttendanceSettings() {
         }
         Switch(
             checked = enabled,
-            enabled = !busy && (enabled || notifications),
+            enabled = !busy && (enabled || (notifications && preciseTiming)),
             onCheckedChange = { value ->
               if (!value) {
                 AttendanceStore.setEnabled(owner, false)
@@ -103,6 +105,21 @@ fun AttendanceSettings() {
           ) {
             Text("允许通知")
           }
+      if (!preciseTiming && Build.VERSION.SDK_INT >= 31) {
+        Text("开启定时执行权限，按课前时间唤醒签到任务。提醒仍使用通知。", style = MaterialTheme.typography.bodySmall)
+        TextButton(
+            onClick = {
+              context.startActivity(
+                  Intent(
+                      Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM,
+                      android.net.Uri.parse("package:${context.packageName}"),
+                  )
+              )
+            }
+        ) {
+          Text("允许定时执行")
+        }
+      }
       error?.let { Text(it, color = MaterialTheme.colorScheme.error) }
     }
   }

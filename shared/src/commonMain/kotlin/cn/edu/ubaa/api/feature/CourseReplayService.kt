@@ -3,8 +3,10 @@ package cn.edu.ubaa.api.feature
 import cn.edu.ubaa.api.ConnectionMode
 import cn.edu.ubaa.api.ConnectionRuntime
 import cn.edu.ubaa.api.auth.ApiCallException
-import cn.edu.ubaa.api.auth.AuthSessionCoordinator
+import cn.edu.ubaa.api.auth.secureCasTransportUrl
+import cn.edu.ubaa.api.auth.withSessionRecovery
 import cn.edu.ubaa.api.local.*
+import cn.edu.ubaa.api.resolveSigninRedirectUrl
 import cn.edu.ubaa.api.storage.AccountStore
 import io.ktor.client.request.*
 import io.ktor.client.statement.bodyAsText
@@ -12,7 +14,6 @@ import io.ktor.http.*
 import kotlin.time.Instant
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.TimeoutCancellationException
-import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withTimeout
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
@@ -131,46 +132,62 @@ open class CourseReplayService {
       }
 
   private suspend fun <T> access(owner: String, block: suspend (String) -> T): Result<T> =
-      try {
-        withTimeout(30_000) {
-          AuthSessionCoordinator.mutex.withLock {
+      withSessionRecovery {
+        try {
+          withTimeout(30_000) {
             check(AccountStore.active()?.user?.schoolid == owner) { "当前账号已切换，请重新打开课程回放" }
             check(ConnectionRuntime.currentMode() != ConnectionMode.SERVER_RELAY) {
               "请使用直连或 WebVPN 查询课程回放"
             }
-            val login =
-                LocalUpstreamClientProvider.shared()
-                    .get(
-                        localUpstreamUrl(
-                            "https://yjapi.msa.buaa.edu.cn/casapi/index.php?r=auth/login&auType=cmc&tenant_code=21&forward=${"$COURSE_REPLAY_SITE/courseCenter".encodeURLParameter()}"
-                        )
-                    )
-            if (
-                login.status != HttpStatusCode.OK ||
-                    localIsSsoUrl(login.call.request.url.toString())
-            ) {
-              throw ApiCallException("请返回主页完成统一认证验证", code = "unauthenticated")
-            }
-            val cookie =
-                LocalCookieStore.storage()
-                    .get(Url(localUpstreamUrl("$COURSE_REPLAY_SITE/")))
-                    .firstOrNull { it.name == "_token" }
-                    ?.value
-                    .orEmpty()
-            val token = CourseReplayParser.token(cookie)
-            check(token.isNotBlank()) { "智学北航登录未完成，请返回主页完成统一认证验证" }
+            val token = loginToken()
             val data = block(token)
             check(AccountStore.active()?.user?.schoolid == owner) { "当前账号已切换" }
             Result.success(data)
           }
+        } catch (e: TimeoutCancellationException) {
+          Result.failure(ApiCallException("智学北航连接超时，请重试", cause = e))
+        } catch (e: CancellationException) {
+          throw e
+        } catch (e: Exception) {
+          Result.failure(e)
         }
-      } catch (e: TimeoutCancellationException) {
-        Result.failure(ApiCallException("智学北航连接超时，请重试", cause = e))
-      } catch (e: CancellationException) {
-        throw e
-      } catch (e: Exception) {
-        Result.failure(e)
       }
+
+  private suspend fun loginToken(): String {
+    val client = LocalUpstreamClientProvider.newNoRedirectClient()
+    try {
+      var target =
+          "https://yjapi.msa.buaa.edu.cn/casapi/index.php?r=auth/login&auType=cmc&tenant_code=21&forward=${"$COURSE_REPLAY_SITE/courseCenter".encodeURLParameter()}"
+      repeat(12) {
+        val response = client.get(localUpstreamUrl(target))
+        val location = response.headers[HttpHeaders.Location]
+        if (response.status.value in 300..399 && !location.isNullOrBlank()) {
+          val resolved =
+              requireNotNull(
+                  resolveSigninRedirectUrl(response.call.request.url.toString(), location)
+              )
+          target = secureReplayRedirect(LocalWebVpnSupport.fromWebVpnUrl(resolved))
+        } else {
+          if (
+              response.status == HttpStatusCode.Unauthorized ||
+                  localIsSsoUrl(response.call.request.url.toString())
+          )
+              throw replaySessionExpired()
+          check(response.status == HttpStatusCode.OK) { "智学北航连接失败，请重试" }
+          val cookie =
+              LocalCookieStore.storage()
+                  .get(Url(localUpstreamUrl("$COURSE_REPLAY_SITE/")))
+                  .firstOrNull { it.name == "_token" }
+                  ?.value
+                  .orEmpty()
+          return CourseReplayParser.token(cookie).ifBlank { throw replaySessionExpired() }
+        }
+      }
+      throw ApiCallException("智学北航认证跳转未完成，请重试")
+    } finally {
+      client.close()
+    }
+  }
 
   private suspend fun request(
       url: String,
@@ -188,15 +205,43 @@ open class CourseReplayService {
           }
           url { parameters.appendAll(query) }
         }
-    check(
-        response.status == HttpStatusCode.OK && !localIsSsoUrl(response.call.request.url.toString())
-    ) {
-      "智学北航请求失败，请重新验证登录"
-    }
+    if (
+        response.status == HttpStatusCode.Unauthorized ||
+            localIsSsoUrl(response.call.request.url.toString())
+    )
+        throw replaySessionExpired()
+    check(response.status == HttpStatusCode.OK) { "智学北航请求失败，请重试" }
     val body = response.bodyAsText()
-    check(body.trimStart().startsWith("{")) { "智学北航会话已过期，请返回主页完成验证" }
-    return Json.parseToJsonElement(body).jsonObject
+    if (!body.trimStart().startsWith("{")) throw replaySessionExpired()
+    val root = Json.parseToJsonElement(body).jsonObject
+    if (root.text("code") in setOf("5002", "401")) throw replaySessionExpired()
+    return root
   }
+}
+
+private fun replaySessionExpired() =
+    ApiCallException("智学北航登录已过期", code = "business_session_expired")
+
+internal fun secureReplayRedirect(url: String): String {
+  val parsed = Url(url)
+  check(parsed.host == "buaa.edu.cn" || parsed.host.endsWith(".buaa.edu.cn")) { "智学北航认证跳转地址无效" }
+  val secured = secureCasTransportUrl(url)
+  // 学校 CAS 接口返回旧 HTTP 地址；仅升级已确认支持 HTTPS 的智学北航域名。
+  if (
+      parsed.protocol == URLProtocol.HTTP &&
+          parsed.port == 80 &&
+          (parsed.host == "yjapi.msa.buaa.edu.cn" || parsed.host == "classroom.msa.buaa.edu.cn")
+  ) {
+    return url.replaceFirst(
+        Regex(
+            "^http://(?:yjapi|classroom)\\.msa\\.buaa\\.edu\\.cn(?::80)?(?=[/?#]|$)",
+            RegexOption.IGNORE_CASE,
+        ),
+        "https://${parsed.host}",
+    )
+  }
+  check(Url(secured).protocol == URLProtocol.HTTPS) { "智学北航认证连接需使用 HTTPS" }
+  return secured
 }
 
 internal object CourseReplayParser {

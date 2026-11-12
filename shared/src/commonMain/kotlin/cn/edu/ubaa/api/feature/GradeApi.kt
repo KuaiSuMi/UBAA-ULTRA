@@ -3,6 +3,7 @@ package cn.edu.ubaa.api.feature
 import cn.edu.ubaa.api.ConnectionRuntime
 import cn.edu.ubaa.api.auth.ApiClientProvider
 import cn.edu.ubaa.api.auth.safeApiCall
+import cn.edu.ubaa.api.auth.withSessionRecovery
 import cn.edu.ubaa.api.core.ApiClient
 import cn.edu.ubaa.model.dto.GradeData
 import io.ktor.client.request.get
@@ -23,7 +24,9 @@ class GradeApi(
 
   private fun currentBackend(): GradeApiBackend = backendProvider()
 
-  suspend fun getGrades(termCode: String): Result<GradeData> = currentBackend().getGrades(termCode)
+  suspend fun getGrades(termCode: String): Result<GradeData> = withSessionRecovery {
+    currentBackend().getGrades(termCode)
+  }
 }
 
 internal class RelayGradeApiBackend(private val apiClient: ApiClient = ApiClientProvider.shared) :

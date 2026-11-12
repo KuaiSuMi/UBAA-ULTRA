@@ -3,6 +3,7 @@ package cn.edu.ubaa.api.feature
 import cn.edu.ubaa.api.ConnectionRuntime
 import cn.edu.ubaa.api.auth.ApiClientProvider
 import cn.edu.ubaa.api.auth.safeApiCall
+import cn.edu.ubaa.api.auth.withSessionRecovery
 import cn.edu.ubaa.api.core.ApiClient
 import cn.edu.ubaa.model.dto.CgyyDayInfoResponse
 import cn.edu.ubaa.model.dto.CgyyLockCodeResponse
@@ -49,37 +50,37 @@ open class CgyyApi(
   private fun currentBackend(): CgyyApiBackend = backendProvider()
 
   open suspend fun getVenueSites(): Result<List<CgyyVenueSiteDto>> {
-    return currentBackend().getVenueSites()
+    return withSessionRecovery { currentBackend().getVenueSites() }
   }
 
   open suspend fun getPurposeTypes(): Result<List<CgyyPurposeTypeDto>> {
-    return currentBackend().getPurposeTypes()
+    return withSessionRecovery { currentBackend().getPurposeTypes() }
   }
 
   open suspend fun getDayInfo(venueSiteId: Int, date: String): Result<CgyyDayInfoResponse> {
-    return currentBackend().getDayInfo(venueSiteId, date)
+    return withSessionRecovery { currentBackend().getDayInfo(venueSiteId, date) }
   }
 
   open suspend fun submitReservation(
       request: CgyyReservationSubmitRequest
   ): Result<CgyyReservationSubmitResponse> {
-    return currentBackend().submitReservation(request)
+    return withSessionRecovery { currentBackend().submitReservation(request) }
   }
 
   open suspend fun getMyOrders(page: Int = 0, size: Int = 20): Result<CgyyOrdersPageResponse> {
-    return currentBackend().getMyOrders(page, size)
+    return withSessionRecovery { currentBackend().getMyOrders(page, size) }
   }
 
   open suspend fun getOrderDetail(orderId: Int): Result<CgyyOrderDto> {
-    return currentBackend().getOrderDetail(orderId)
+    return withSessionRecovery { currentBackend().getOrderDetail(orderId) }
   }
 
   open suspend fun cancelOrder(orderId: Int): Result<CgyyReservationSubmitResponse> {
-    return currentBackend().cancelOrder(orderId)
+    return withSessionRecovery { currentBackend().cancelOrder(orderId) }
   }
 
   open suspend fun getLockCode(): Result<CgyyLockCodeResponse> {
-    return currentBackend().getLockCode()
+    return withSessionRecovery { currentBackend().getLockCode() }
   }
 }
 

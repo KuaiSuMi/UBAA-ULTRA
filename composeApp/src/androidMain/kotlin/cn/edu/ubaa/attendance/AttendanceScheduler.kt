@@ -1,5 +1,6 @@
 package cn.edu.ubaa.attendance
 
+import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -88,11 +89,13 @@ object AttendanceScheduler {
     }
     if (owner == null || owner != ScheduleStore.account() || !AttendanceStore.enabled(owner)) {
       manager.cancelAllWorkByTag(WORK_TAG).await()
+      cancelWakeup(context)
       prefs.edit().remove("scheduled").commit()
       return
     }
     val now = System.currentTimeMillis()
     val lessons = attendanceLessons(ScheduleStore.read(owner)).filter { it.start > now }
+    var nextSignin: Triple<AttendanceLesson, String, Long>? = null
     val names = mutableSetOf<String>()
     for (lesson in lessons) {
       val key = id(owner + Json.encodeToString(lesson))
@@ -124,27 +127,83 @@ object AttendanceScheduler {
                 prefs.edit().putLong("signin_at_$key", it).commit()
               }
             }
-        val work =
-            OneTimeWorkRequestBuilder<AttendanceWorker>()
-                .setInputData(
-                    workDataOf(
-                        "owner" to owner,
-                        "lesson" to Json.encodeToString(lesson),
-                        "key" to key,
-                        "signinAt" to signinAt,
-                    )
-                )
-                .setInitialDelay(maxOf(0, signinAt - now), TimeUnit.MILLISECONDS)
-                .setBackoffCriteria(BackoffPolicy.LINEAR, 10, TimeUnit.SECONDS)
-                .addTag(WORK_TAG)
-                .build()
-        manager.enqueueUniqueWork(name, ExistingWorkPolicy.KEEP, work).await()
+        if (
+            !prefs.getBoolean("launched_$key", false) &&
+                (nextSignin == null || signinAt < nextSignin.third)
+        ) {
+          nextSignin = Triple(lesson, key, signinAt)
+        }
       }
     }
     val previous = prefs.getStringSet("scheduled", emptySet()).orEmpty()
     for (removed in previous - names) manager.cancelUniqueWork(removed).await()
     prefs.edit().putStringSet("scheduled", names).commit()
+    val next = nextSignin
+    if (next == null || !canScheduleWakeup(context)) {
+      cancelWakeup(context)
+    } else {
+      val intent =
+          Intent(context, AttendanceWakeReceiver::class.java)
+              .putExtra("owner", owner)
+              .putExtra("key", next.second)
+              .putExtra("lesson", Json.encodeToString(next.first))
+              .putExtra("signinAt", next.third)
+      context
+          .getSystemService(AlarmManager::class.java)
+          .setExactAndAllowWhileIdle(
+              AlarmManager.RTC_WAKEUP,
+              maxOf(now, next.third),
+              wakeupIntent(context, intent),
+          )
+    }
   }
+
+  fun canScheduleWakeup(context: Context): Boolean =
+      Build.VERSION.SDK_INT < 31 ||
+          context.getSystemService(AlarmManager::class.java).canScheduleExactAlarms()
+
+  private fun wakeupIntent(
+      context: Context,
+      intent: Intent = Intent(context, AttendanceWakeReceiver::class.java),
+  ) =
+      PendingIntent.getBroadcast(
+          context,
+          0,
+          intent,
+          PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
+      )
+
+  private fun cancelWakeup(context: Context) {
+    context.getSystemService(AlarmManager::class.java).cancel(wakeupIntent(context))
+  }
+
+  fun launchSignin(context: Context, intent: Intent) =
+      scope.async {
+        scheduleMutex.withLock {
+          val owner = intent.getStringExtra("owner") ?: return@withLock
+          val key = intent.getStringExtra("key") ?: return@withLock
+          if (!isCurrent(owner) || isFinished(context, key)) return@withLock
+          val builder =
+              OneTimeWorkRequestBuilder<AttendanceWorker>()
+                  .setInputData(
+                      workDataOf(
+                          "owner" to owner,
+                          "key" to key,
+                          "lesson" to intent.getStringExtra("lesson"),
+                          "signinAt" to intent.getLongExtra("signinAt", 0),
+                      )
+                  )
+                  .setBackoffCriteria(BackoffPolicy.LINEAR, 10, TimeUnit.SECONDS)
+                  .addTag(WORK_TAG)
+          if (Build.VERSION.SDK_INT >= 31)
+              builder.setExpedited(OutOfQuotaPolicy.RUN_AS_NON_EXPEDITED_WORK_REQUEST)
+          WorkManager.getInstance(context)
+              .enqueueUniqueWork("class_signin_$key", ExistingWorkPolicy.REPLACE, builder.build())
+              .await()
+          preferences(context).edit().putBoolean("launched_$key", true).commit()
+          schedule(context.applicationContext)
+        }
+      }
 
   fun isCurrent(owner: String) =
       AccountStore.active()?.user?.schoolid == owner &&
@@ -208,6 +267,15 @@ object AttendanceScheduler {
   }
 }
 
+class AttendanceWakeReceiver : BroadcastReceiver() {
+  override fun onReceive(context: Context, intent: Intent) {
+    val pending = goAsync()
+    AttendanceScheduler.launchSignin(context.applicationContext, intent).invokeOnCompletion {
+      pending.finish()
+    }
+  }
+}
+
 class AttendanceRestoreReceiver : BroadcastReceiver() {
   override fun onReceive(context: Context, intent: Intent) {
     val pending = goAsync()
@@ -246,54 +314,33 @@ class AttendanceWorker(context: Context, parameters: WorkerParameters) :
     if (System.currentTimeMillis() < plannedAt) return Result.retry()
     if (System.currentTimeMillis() >= lesson.start) return finish(owner, lesson, false, "课前签到时间已结束")
     return try {
-      withTimeout(60_000) {
-        AuthSessionCoordinator.mutex.withLock {
-          if (!isCurrent(owner)) return@withLock Result.success()
-          val auth = AuthService()
-          val status =
-              if (auth.hasPersistedSession()) auth.getAuthStatus()
-              else kotlin.Result.failure(ApiCallException("登录已失效", code = "unauthenticated"))
-          status.onFailure {
-            if (!it.isExpiredSession()) throw it
-            val account = requireNotNull(AccountStore.active())
-            val password =
-                account.password ?: return@withLock finish(owner, lesson, false, "请打开应用登录并开启记住密码")
-            val preload = auth.preloadLoginState().getOrThrow()
-            if (preload.captchaRequired)
-                return@withLock finish(owner, lesson, false, "需要验证码，请打开应用完成验证")
-            if (preload.userData == null) {
-              val logged =
-                  auth.login(account.username, password, execution = preload.execution).getOrThrow()
-              check(logged.user.schoolid == owner) { "登录账号不一致" }
-            } else check(preload.userData?.schoolid == owner) { "登录账号不一致" }
-          }
-          status.getOrNull()?.let { check(it.user.schoolid == owner) { "登录账号不一致" } }
-          val api = SigninApi()
-          val classes = api.getClasses(lesson.date).getOrThrow()
-          check(classes.code == 200) { classes.message }
-          AttendanceStore.sync(owner, classes.data, lesson.date)
-          val match = matchSigninClass(lesson, classes.data)
-          if (match == null) return@withLock retryOrFinish(owner, lesson, "尚未找到唯一匹配的签到任务")
-          val previous =
-              AttendanceStore.records(owner, lesson.date).firstOrNull {
-                it.courseId == match.courseId && it.beginTime == lesson.beginTime
-              }
-          if (match.signStatus == 1 || previous?.status == "success")
-              return@withLock finish(owner, lesson, true, "已签到", match.courseId)
-          if (!isCurrent(owner)) return@withLock Result.success()
-          if (!lesson.canSigninAt(plannedAt, System.currentTimeMillis()))
-              return@withLock finish(owner, lesson, false, "课前签到时间已结束", match.courseId)
-          val response = api.performSignin(match.courseId).getOrThrow()
-          if (response.success) finish(owner, lesson, true, response.message, match.courseId)
-          else retryOrFinish(owner, lesson, response.message, match.courseId)
-        }
+      withTimeout(minOf(60_000, lesson.start - System.currentTimeMillis()).coerceAtLeast(1)) {
+        if (!isCurrent(owner)) return@withTimeout Result.success()
+        val api = SigninApi()
+        val classes = api.getClasses(lesson.date).getOrThrow()
+        check(classes.code == 200) { classes.message }
+        AttendanceStore.sync(owner, classes.data, lesson.date)
+        val match = matchSigninClass(lesson, classes.data)
+        if (match == null) return@withTimeout retryOrFinish(owner, lesson, "尚未找到唯一匹配的签到任务")
+        val previous =
+            AttendanceStore.records(owner, lesson.date).firstOrNull {
+              it.courseId == match.courseId && it.beginTime == lesson.beginTime
+            }
+        if (match.signStatus == 1 || previous?.status == "success")
+            return@withTimeout finish(owner, lesson, true, "已签到", match.courseId)
+        if (!isCurrent(owner)) return@withTimeout Result.success()
+        if (!lesson.canSigninAt(plannedAt, System.currentTimeMillis()))
+            return@withTimeout finish(owner, lesson, false, "课前签到时间已结束", match.courseId)
+        val response = api.performSignin(match.courseId).getOrThrow()
+        if (response.success) finish(owner, lesson, true, response.message, match.courseId)
+        else retryOrFinish(owner, lesson, response.message, match.courseId)
       }
     } catch (e: kotlinx.coroutines.TimeoutCancellationException) {
       retryOrFinish(owner, lesson, "网络请求超时")
     } catch (e: CancellationException) {
       throw e
     } catch (e: CaptchaRequiredClientException) {
-      finish(owner, lesson, false, "需要验证码，请打开应用完成验证")
+      retryOrFinish(owner, lesson, "需要验证码，请打开应用完成验证")
     } catch (e: Exception) {
       retryOrFinish(owner, lesson, e.message ?: "签到失败")
     }

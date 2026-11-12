@@ -3,6 +3,7 @@ package cn.edu.ubaa.api.feature
 import cn.edu.ubaa.api.ConnectionRuntime
 import cn.edu.ubaa.api.auth.ApiClientProvider
 import cn.edu.ubaa.api.auth.safeApiCall
+import cn.edu.ubaa.api.auth.withSessionRecovery
 import cn.edu.ubaa.api.core.ApiClient
 import cn.edu.ubaa.model.dto.*
 import cn.edu.ubaa.repository.SemesterSchedule
@@ -53,7 +54,9 @@ class ScheduleApi(
   private fun currentBackend(): ScheduleApiBackend = backendProvider()
 
   suspend fun importSemester(termCode: String? = null): Result<SemesterSchedule> =
-      currentBackend().importSemester(termCode)
+      withSessionRecovery {
+        currentBackend().importSemester(termCode)
+      }
 
   /**
    * 获取所有可用学期列表。
@@ -61,7 +64,7 @@ class ScheduleApi(
    * @return 学期信息列表。
    */
   suspend fun getTerms(): Result<List<Term>> {
-    return currentBackend().getTerms()
+    return withSessionRecovery { currentBackend().getTerms() }
   }
 
   /**
@@ -71,7 +74,7 @@ class ScheduleApi(
    * @return 该学期的教学周列表。
    */
   suspend fun getWeeks(termCode: String): Result<List<Week>> {
-    return currentBackend().getWeeks(termCode)
+    return withSessionRecovery { currentBackend().getWeeks(termCode) }
   }
 
   /**
@@ -82,7 +85,7 @@ class ScheduleApi(
    * @return 包含该周所有排课信息的 WeeklySchedule。
    */
   suspend fun getWeeklySchedule(termCode: String, week: Int): Result<WeeklySchedule> {
-    return currentBackend().getWeeklySchedule(termCode, week)
+    return withSessionRecovery { currentBackend().getWeeklySchedule(termCode, week) }
   }
 
   /**
@@ -91,7 +94,7 @@ class ScheduleApi(
    * @return 今日课程列表。
    */
   suspend fun getTodaySchedule(): Result<List<TodayClass>> {
-    return currentBackend().getTodaySchedule()
+    return withSessionRecovery { currentBackend().getTodaySchedule() }
   }
 
   /**
@@ -101,7 +104,7 @@ class ScheduleApi(
    * @return 包含学生信息、已安排考试和未安排考试的数据汇总。
    */
   suspend fun getExamArrangement(termCode: String): Result<ExamArrangementData> {
-    return currentBackend().getExamArrangement(termCode)
+    return withSessionRecovery { currentBackend().getExamArrangement(termCode) }
   }
 }
 

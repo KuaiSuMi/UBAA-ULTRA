@@ -154,7 +154,7 @@ class LocalJudgeApiBackendTest {
     val result = fixedClockJudgeApi().getAssignments()
     assertTrue(result.isFailure)
     assertEquals(
-        "judge_auth_failed",
+        "business_session_expired",
         (result.exceptionOrNull() as? cn.edu.ubaa.api.auth.ApiCallException)?.code,
     )
     assertEquals(0, courseRequests)

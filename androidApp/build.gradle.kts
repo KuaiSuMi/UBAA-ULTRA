@@ -66,6 +66,10 @@ dependencies {
   debugImplementation(compose.uiTooling)
   androidTestImplementation(libs.androidx.testExt.junit)
   androidTestImplementation("androidx.test:runner:1.7.0")
+  androidTestImplementation(libs.multiplatform.settings)
+  androidTestImplementation(libs.multiplatform.settings.test)
+  androidTestImplementation(libs.kotlinx.coroutinesCore)
+  androidTestImplementation(libs.kotlinx.serialization.json)
   androidTestImplementation(libs.media3.exoplayer)
   androidTestImplementation(libs.media3.ui)
 }

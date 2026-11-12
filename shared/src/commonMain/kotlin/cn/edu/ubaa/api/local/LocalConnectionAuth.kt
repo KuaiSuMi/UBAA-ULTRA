@@ -375,21 +375,15 @@ internal suspend fun validateLocalConnectionSession(): LocalConnectionSessionVal
   return LocalConnectionSessionValidationState.Valid(session)
 }
 
-internal suspend fun resolveLocalBusinessAuthenticationFailure(
-    fallbackCode: String,
-    fallbackStatus: HttpStatusCode = HttpStatusCode.BadGateway,
-): ApiCallException {
-  val validation = runCatching { validateLocalConnectionSession() }.getOrNull()
-  return if (validation == LocalConnectionSessionValidationState.Invalid) {
-    localUnauthenticatedApiException()
-  } else {
+internal fun resolveLocalBusinessAuthenticationFailure(
+    code: String,
+    status: HttpStatusCode = HttpStatusCode.Unauthorized,
+): ApiCallException =
     ApiCallException(
-        message = userFacingMessageForCode(fallbackCode, fallbackStatus),
-        status = fallbackStatus,
-        code = fallbackCode,
+        message = userFacingMessageForCode(code, status),
+        status = status,
+        code = "business_session_expired",
     )
-  }
-}
 
 private suspend fun reportLocalLoginSuccess(username: String, successMode: LoginStatsSuccessMode) {
   val connectionMode =

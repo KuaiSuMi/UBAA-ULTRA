@@ -33,6 +33,28 @@ class AuthViewModel(
 
   init {
     loadSavedCredentials()
+    viewModelScope.launch {
+      AuthSessionCoordinator.verificationRequired.collect { pending ->
+        val account = AccountStore.active()
+        if (pending != null && account?.user?.schoolid == pending.owner) {
+          loadSavedCredentials()
+          val captcha = pending.error as? CaptchaRequiredClientException
+          _uiState.value =
+              _uiState.value.copy(
+                  isInitialized = true,
+                  isLoggedIn = true,
+                  userData = account.user,
+                  reauthenticationRequired = true,
+                  error = pending.error.message,
+                  captchaRequired = captcha != null,
+                  captchaInfo = captcha?.captcha,
+                  execution = captcha?.execution,
+              )
+        } else if (pending == null && _uiState.value.reauthenticationRequired) {
+          _uiState.value = _uiState.value.copy(reauthenticationRequired = false, error = null)
+        }
+      }
+    }
   }
 
   private fun loadSavedCredentials() {
@@ -149,6 +171,7 @@ class AuthViewModel(
     currentCoroutineContext().ensureActive()
     if (response.userData != null) {
       acceptSession(response.userData!!, response.accessToken)
+      AuthSessionCoordinator.sessionRestored(response.userData!!.schoolid)
     } else {
       _uiState.value =
           _uiState.value.copy(
@@ -187,6 +210,7 @@ class AuthViewModel(
         .onSuccess { response ->
           currentCoroutineContext().ensureActive()
           acceptSession(response.user, response.accessToken)
+          AuthSessionCoordinator.sessionRestored(response.user.schoolid)
           CredentialStore.setRememberPassword(form.rememberPassword)
           CredentialStore.setAutoLogin(form.autoLogin)
           if (form.rememberPassword)
@@ -239,6 +263,12 @@ class AuthViewModel(
   fun initializeApp() {
     if (ConnectionRuntime.currentMode() == null) return
     authenticate {
+      if (
+          AuthSessionCoordinator.verificationRequired.value?.owner ==
+              AccountStore.active()?.user?.schoolid &&
+              AuthSessionCoordinator.verificationRequired.value != null
+      )
+          return@authenticate
       loadSavedCredentials()
       AccountStore.active()
           ?.takeIf { it.mode == ConnectionRuntime.currentMode() }
@@ -347,7 +377,19 @@ class AuthViewModel(
 
   fun validateSession() {
     if (!_uiState.value.isLoggedIn) return
+    if (
+        AuthSessionCoordinator.verificationRequired.value?.owner ==
+            _uiState.value.userData?.schoolid &&
+            AuthSessionCoordinator.verificationRequired.value != null
+    )
+        return
     authenticate {
+      if (
+          AuthSessionCoordinator.verificationRequired.value?.owner ==
+              _uiState.value.userData?.schoolid &&
+              AuthSessionCoordinator.verificationRequired.value != null
+      )
+          return@authenticate
       authService
           .getAuthStatus()
           .onSuccess {

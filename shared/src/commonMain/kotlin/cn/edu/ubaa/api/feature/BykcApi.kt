@@ -6,6 +6,7 @@ import cn.edu.ubaa.api.auth.ApiClientProvider
 import cn.edu.ubaa.api.auth.safeApiCall
 import cn.edu.ubaa.api.auth.toApiCallException
 import cn.edu.ubaa.api.auth.toUserFacingApiException
+import cn.edu.ubaa.api.auth.withSessionRecovery
 import cn.edu.ubaa.api.core.ApiClient
 import cn.edu.ubaa.model.dto.*
 import io.ktor.client.call.body
@@ -51,7 +52,7 @@ class BykcApi(
    * @return 用户基本信息。
    */
   suspend fun getProfile(): Result<BykcUserProfileDto> {
-    return currentBackend().getProfile()
+    return withSessionRecovery { currentBackend().getProfile() }
   }
 
   /**
@@ -67,7 +68,7 @@ class BykcApi(
       size: Int = 20,
       all: Boolean = false,
   ): Result<BykcCoursesResponse> {
-    return currentBackend().getCourses(page, size, all)
+    return withSessionRecovery { currentBackend().getCourses(page, size, all) }
   }
 
   /**
@@ -77,7 +78,7 @@ class BykcApi(
    * @return 课程详细信息，包含签到配置等。
    */
   suspend fun getCourseDetail(courseId: Long): Result<BykcCourseDetailDto> {
-    return currentBackend().getCourseDetail(courseId)
+    return withSessionRecovery { currentBackend().getCourseDetail(courseId) }
   }
 
   /**
@@ -86,7 +87,7 @@ class BykcApi(
    * @return 已选课程列表。
    */
   suspend fun getChosenCourses(): Result<List<BykcChosenCourseDto>> {
-    return currentBackend().getChosenCourses()
+    return withSessionRecovery { currentBackend().getChosenCourses() }
   }
 
   /**
@@ -95,7 +96,7 @@ class BykcApi(
    * @return 各分类的统计结果。
    */
   suspend fun getStatistics(): Result<BykcStatisticsDto> {
-    return currentBackend().getStatistics()
+    return withSessionRecovery { currentBackend().getStatistics() }
   }
 
   /**
@@ -105,7 +106,7 @@ class BykcApi(
    * @return 操作成功响应。
    */
   suspend fun selectCourse(courseId: Long): Result<BykcSuccessResponse> {
-    return currentBackend().selectCourse(courseId)
+    return withSessionRecovery { currentBackend().selectCourse(courseId) }
   }
 
   /**
@@ -115,7 +116,7 @@ class BykcApi(
    * @return 操作成功响应。
    */
   suspend fun deselectCourse(courseId: Long): Result<BykcSuccessResponse> {
-    return currentBackend().deselectCourse(courseId)
+    return withSessionRecovery { currentBackend().deselectCourse(courseId) }
   }
 
   /**
@@ -133,7 +134,7 @@ class BykcApi(
       lng: Double? = null,
       signType: Int,
   ): Result<BykcSuccessResponse> {
-    return currentBackend().signCourse(courseId, lat, lng, signType)
+    return withSessionRecovery { currentBackend().signCourse(courseId, lat, lng, signType) }
   }
 }
 

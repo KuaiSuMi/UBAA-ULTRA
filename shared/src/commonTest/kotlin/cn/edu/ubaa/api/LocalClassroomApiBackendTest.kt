@@ -157,7 +157,7 @@ class LocalClassroomApiBackendTest {
 
         assertTrue(result.isFailure)
         val exception = assertIs<ApiCallException>(result.exceptionOrNull())
-        assertEquals("unauthenticated", exception.code)
+        assertEquals("business_session_expired", exception.code)
         assertNotNull(LocalAuthSessionStore.get())
       }
 

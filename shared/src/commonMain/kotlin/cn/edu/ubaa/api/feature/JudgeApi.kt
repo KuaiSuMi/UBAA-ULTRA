@@ -4,6 +4,7 @@ import cn.edu.ubaa.api.ConnectionMode
 import cn.edu.ubaa.api.ConnectionRuntime
 import cn.edu.ubaa.api.auth.ApiClientProvider
 import cn.edu.ubaa.api.auth.safeApiCall
+import cn.edu.ubaa.api.auth.withSessionRecovery
 import cn.edu.ubaa.api.core.ApiClient
 import cn.edu.ubaa.api.local.LocalJudgeHistoricalCourseStore
 import cn.edu.ubaa.api.local.resolveJudgeCourseSkipUserKey
@@ -52,7 +53,7 @@ open class JudgeApi(
       includeExpired: Boolean = false,
       userKey: String? = null,
   ): Result<JudgeAssignmentsResponse> {
-    return currentBackend().getAssignments(includeExpired, userKey)
+    return withSessionRecovery { currentBackend().getAssignments(includeExpired, userKey) }
   }
 
   /** 获取指定课程下的指定作业详情。 */
@@ -60,14 +61,14 @@ open class JudgeApi(
       courseId: String,
       assignmentId: String,
   ): Result<JudgeAssignmentDetailDto> {
-    return currentBackend().getAssignmentDetail(courseId, assignmentId)
+    return withSessionRecovery { currentBackend().getAssignmentDetail(courseId, assignmentId) }
   }
 
   /** 批量获取希冀作业详情，用于列表摘要的增量补全。 */
   open suspend fun getAssignmentDetails(
       keys: List<JudgeAssignmentDetailKeyDto>
   ): Result<JudgeAssignmentDetailsResponse> {
-    return currentBackend().getAssignmentDetails(keys)
+    return withSessionRecovery { currentBackend().getAssignmentDetails(keys) }
   }
 }
 

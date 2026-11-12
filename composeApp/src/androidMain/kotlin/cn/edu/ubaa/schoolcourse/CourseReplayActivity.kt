@@ -18,8 +18,11 @@ import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import androidx.lifecycle.viewmodel.compose.viewModel
+import cn.edu.ubaa.api.auth.AuthSessionCoordinator
 import cn.edu.ubaa.api.storage.AccountStore
 import cn.edu.ubaa.live.ClassroomPlayer
+import cn.edu.ubaa.ui.screens.auth.AuthViewModel
+import cn.edu.ubaa.ui.screens.auth.SessionVerificationDialog
 import cn.edu.ubaa.ui.screens.schoolcourse.*
 import cn.edu.ubaa.ui.theme.UBAATheme
 
@@ -43,6 +46,27 @@ class CourseReplayActivity : ComponentActivity() {
             CourseReplayViewModel(account, intent.getStringExtra("course").orEmpty())
           }
           val state by model.state.collectAsState()
+          val auth = viewModel { AuthViewModel() }
+          val authState by auth.uiState.collectAsState()
+          val loginForm by auth.loginForm.collectAsState()
+          val pending by AuthSessionCoordinator.verificationRequired.collectAsState()
+          val restored by AuthSessionCoordinator.restorations.collectAsState()
+          var showVerification by remember { mutableStateOf(false) }
+          LaunchedEffect(pending) { showVerification = pending?.owner == account }
+          LaunchedEffect(restored) { if (pending == null && state.error != null) model.retry() }
+          val verify: (() -> Unit)? =
+              if (pending?.owner == account) ({ showVerification = true }) else null
+          if (showVerification && authState.reauthenticationRequired) {
+            SessionVerificationDialog(
+                authState,
+                loginForm,
+                auth::updatePassword,
+                auth::updateCaptcha,
+                auth::refreshCaptcha,
+                auth::login,
+                { showVerification = false },
+            )
+          }
           var fullscreen by rememberSaveable { mutableStateOf(false) }
           LaunchedEffect(model) { if (state.result == null && !state.loading) model.search() }
           DisposableEffect(fullscreen) {
@@ -78,6 +102,7 @@ class CourseReplayActivity : ComponentActivity() {
                 model::play,
                 model::retry,
                 ::back,
+                verify,
             )
           } else {
             var selected by rememberSaveable(lesson.id) { mutableIntStateOf(0) }
@@ -97,7 +122,9 @@ class CourseReplayActivity : ComponentActivity() {
               if (state.loading) LinearProgressIndicator(Modifier.fillMaxWidth())
               state.error?.let {
                 Text(it, Modifier.padding(16.dp), color = MaterialTheme.colorScheme.error)
-                TextButton(onClick = model::retry) { Text("重试") }
+                TextButton(onClick = verify ?: model::retry) {
+                  Text(if (verify != null) "完成登录验证" else "重试")
+                }
               }
               state.videos?.let { videos ->
                 Row(

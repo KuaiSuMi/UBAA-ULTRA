@@ -5,6 +5,7 @@ import cn.edu.ubaa.api.ConnectionRuntime
 import cn.edu.ubaa.api.SIGNIN_LOGIN_REDIRECT_LIMIT
 import cn.edu.ubaa.api.SIGNIN_MY_CENTER_URL
 import cn.edu.ubaa.api.auth.ApiCallException
+import cn.edu.ubaa.api.auth.secureCasTransportUrl
 import cn.edu.ubaa.api.auth.toUserFacingApiException
 import cn.edu.ubaa.api.extractSigninLoginNameFromUrl
 import cn.edu.ubaa.api.feature.SigninApiBackend
@@ -71,12 +72,12 @@ internal class LocalSigninApiBackend : SigninApiBackend {
   private suspend fun getClasses(date: String, allowRetry: Boolean): Result<SigninStatusResponse> {
     val authSession =
         LocalAuthSessionStore.get() ?: return Result.failure(localUnauthenticatedApiException())
-    val signinSession = runCatching { currentSession(authSession.studentId()) }.getOrNull()
-    if (signinSession == null) {
-      return Result.failure(ApiCallException("签到信息获取失败，请重试", code = "signin_load_failed"))
-    }
-
     return try {
+      val signinSession =
+          currentSession(authSession.studentId())
+              ?: return Result.failure(
+                  ApiCallException("签到信息获取失败，请重试", code = "signin_load_failed")
+              )
       val response =
           LocalUpstreamClientProvider.shared().get(
               localUpstreamUrl(
@@ -87,6 +88,13 @@ internal class LocalSigninApiBackend : SigninApiBackend {
             parameter("id", signinSession.userId)
             parameter("dateStr", date.replace("-", ""))
           }
+      if (
+          response.status == HttpStatusCode.Unauthorized ||
+              response.status == HttpStatusCode.Forbidden
+      ) {
+        invalidateSession(authSession.studentId())
+        throw resolveLocalBusinessAuthenticationFailure("signin_load_failed")
+      }
       if (response.status != HttpStatusCode.OK) {
         return Result.failure(ApiCallException("签到信息获取失败，请重试", code = "signin_load_failed"))
       }
@@ -94,9 +102,11 @@ internal class LocalSigninApiBackend : SigninApiBackend {
       if (payload.containsKey("STATUS") && !isStatusSuccess(payload)) {
         if (allowRetry) {
           invalidateSession(authSession.studentId())
-          val refreshed = runCatching { currentSession(authSession.studentId()) }.getOrNull()
+          val refreshed = currentSession(authSession.studentId())
           if (refreshed != null) return getClasses(date, allowRetry = false)
         }
+        if (jsonStringValue(payload, "ERRMSG")?.contains("登录") == true)
+            throw resolveLocalBusinessAuthenticationFailure("signin_load_failed")
         return Result.failure(ApiCallException("签到信息获取失败，请重试", code = "signin_load_failed"))
       }
       val classes = payload["result"]?.jsonArray?.map(::mapSigninClass).orEmpty()
@@ -116,14 +126,12 @@ internal class LocalSigninApiBackend : SigninApiBackend {
   ): Result<SigninActionResponse> {
     val authSession =
         LocalAuthSessionStore.get() ?: return Result.failure(localUnauthenticatedApiException())
-    val signinSession = runCatching { currentSession(authSession.studentId()) }.getOrNull()
-    if (signinSession == null) {
-      val error = loginLastError ?: "iclass 登录失败"
-      loginLastError = null
-      return Result.success(SigninActionResponse(code = 400, success = false, message = error))
-    }
-
     return try {
+      val signinSession =
+          currentSession(authSession.studentId())
+              ?: return Result.failure(
+                  ApiCallException(loginLastError ?: "签到登录失败，请重试", code = "signin_load_failed")
+              )
       val timestamp =
           LocalUpstreamClientProvider.shared()
               .get(localSigninCheckinUrl("app/common/get_timestamp.action"))
@@ -151,6 +159,13 @@ internal class LocalSigninApiBackend : SigninApiBackend {
             parameter("courseSchedId", courseId)
             parameter("timestamp", timestamp)
           }
+      if (
+          response.status == HttpStatusCode.Unauthorized ||
+              response.status == HttpStatusCode.Forbidden
+      ) {
+        invalidateSession(authSession.studentId())
+        throw resolveLocalBusinessAuthenticationFailure("signin_failed")
+      }
       val payload = json.parseToJsonElement(response.bodyAsText()).jsonObject
       val success =
           isStatusSuccess(payload) &&
@@ -159,10 +174,12 @@ internal class LocalSigninApiBackend : SigninApiBackend {
       if (!success) {
         if (allowRetry && rawMessage?.contains("登录") == true) {
           invalidateSession(authSession.studentId())
-          val refreshed = runCatching { currentSession(authSession.studentId()) }.getOrNull()
+          val refreshed = currentSession(authSession.studentId())
           if (refreshed != null) return performSignin(courseId, allowRetry = false)
         }
       }
+      if (!success && rawMessage?.contains("登录") == true)
+          throw resolveLocalBusinessAuthenticationFailure("signin_failed")
       Result.success(
           SigninActionResponse(
               code = if (success) 200 else 400,
@@ -170,20 +187,15 @@ internal class LocalSigninApiBackend : SigninApiBackend {
               message = sanitizeLocalSigninMessage(success, rawMessage),
           )
       )
-    } catch (_: Exception) {
-      Result.success(SigninActionResponse(code = 400, success = false, message = "签到失败，请稍后重试"))
+    } catch (e: Exception) {
+      Result.failure(e.toUserFacingApiException("签到失败，请稍后重试"))
     }
   }
 
-  private suspend fun currentSession(studentId: String): LocalSigninSession? {
-    sessionMutex
-        .withLock { sessionCache[studentId] }
-        ?.let {
-          return it
-        }
-    val created = login(studentId) ?: return null
-    return sessionMutex.withLock { sessionCache.getOrPut(studentId) { created } }
-  }
+  private suspend fun currentSession(studentId: String): LocalSigninSession? =
+      sessionMutex.withLock {
+        sessionCache[studentId] ?: login(studentId)?.also { sessionCache[studentId] = it }
+      }
 
   private fun invalidateSession(studentId: String) {
     sessionCache.remove(studentId)
@@ -201,6 +213,11 @@ internal class LocalSigninApiBackend : SigninApiBackend {
           parameter("verificationType", "2")
           parameter("verificationUrl", "")
         }
+    if (
+        response.status == HttpStatusCode.Unauthorized ||
+            response.status == HttpStatusCode.Forbidden
+    )
+        throw resolveLocalBusinessAuthenticationFailure("signin_load_failed")
     if (response.status != HttpStatusCode.OK) {
       return null
     }
@@ -241,9 +258,11 @@ internal class LocalSigninApiBackend : SigninApiBackend {
           }
         }
         if (response.status.value !in 300..399 || location.isNullOrBlank()) {
+          if (localIsSsoUrl(finalUrl) || response.status == HttpStatusCode.Unauthorized)
+              throw resolveLocalBusinessAuthenticationFailure("signin_load_failed")
           return null
         }
-        rawUrl = resolveSigninRedirectUrl(finalUrl, location) ?: return null
+        rawUrl = secureCasTransportUrl(resolveSigninRedirectUrl(finalUrl, location) ?: return null)
         extractSigninLoginNameFromUrl(rawUrl)?.let { loginName ->
           return loginName
         }

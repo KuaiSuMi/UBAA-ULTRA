@@ -616,7 +616,10 @@ class LocalCgyyApiBackendTest {
         val cgyyResult = CgyyApi(LocalCgyyApiBackend()).getMyOrders(page = 1, size = 10)
 
         assertTrue(cgyyResult.isFailure)
-        assertEquals("cgyy_error", (cgyyResult.exceptionOrNull() as? ApiCallException)?.code)
+        assertEquals(
+            "business_session_expired",
+            (cgyyResult.exceptionOrNull() as? ApiCallException)?.code,
+        )
         assertNotNull(LocalAuthSessionStore.get())
 
         val scheduleResult = LocalScheduleApiBackend().getTerms()
@@ -650,7 +653,10 @@ class LocalCgyyApiBackendTest {
         val result = CgyyApi(LocalCgyyApiBackend()).getMyOrders(page = 1, size = 10)
 
         assertTrue(result.isFailure)
-        assertEquals("unauthenticated", (result.exceptionOrNull() as? ApiCallException)?.code)
+        assertEquals(
+            "business_session_expired",
+            (result.exceptionOrNull() as? ApiCallException)?.code,
+        )
         assertNotNull(LocalAuthSessionStore.get())
       }
 

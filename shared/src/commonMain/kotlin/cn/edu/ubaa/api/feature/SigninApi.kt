@@ -3,11 +3,15 @@ package cn.edu.ubaa.api.feature
 import cn.edu.ubaa.api.ConnectionRuntime
 import cn.edu.ubaa.api.auth.ApiCallException
 import cn.edu.ubaa.api.auth.ApiClientProvider
+import cn.edu.ubaa.api.auth.AuthSessionCoordinator
 import cn.edu.ubaa.api.auth.safeApiCall
+import cn.edu.ubaa.api.auth.withSessionRecovery
 import cn.edu.ubaa.api.core.ApiClient
+import cn.edu.ubaa.api.storage.AccountStore
 import cn.edu.ubaa.attendance.beijingDate
 import cn.edu.ubaa.model.dto.*
 import io.ktor.client.request.*
+import kotlinx.coroutines.sync.withLock
 
 interface SigninApiBackend {
   suspend fun getClasses(date: String): Result<SigninStatusResponse>
@@ -33,7 +37,7 @@ class SigninApi(
    * @return 签到状态响应，包含课堂列表。
    */
   suspend fun getClasses(date: String = beijingDate()): Result<SigninStatusResponse> {
-    return currentBackend().getClasses(date)
+    return withSessionRecovery { currentBackend().getClasses(date) }
   }
 
   /**
@@ -43,7 +47,14 @@ class SigninApi(
    * @return 签到操作执行结果。
    */
   suspend fun performSignin(courseId: String): Result<SigninActionResponse> {
-    return currentBackend().performSignin(courseId)
+    val owner = AccountStore.active()?.user?.schoolid
+    return withSessionRecovery {
+      AuthSessionCoordinator.mutex.withLock {
+        if (AccountStore.active()?.user?.schoolid != owner)
+            Result.failure(ApiCallException("账号已切换，请刷新页面"))
+        else currentBackend().performSignin(courseId)
+      }
+    }
   }
 }
 

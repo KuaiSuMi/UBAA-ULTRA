@@ -64,6 +64,37 @@ class LocalSigninApiBackendTest {
   }
 
   @Test
+  fun `expired SSO is propagated instead of swallowed as a generic signin error`() = runTest {
+    cn.edu.ubaa.api.storage.AccountStore.settings = MapSettings()
+    useMockUpstream(
+        MockEngine { request ->
+          if (request.url.host == "iclass.buaa.edu.cn")
+              respond(
+                  "",
+                  HttpStatusCode.Found,
+                  headersOf(HttpHeaders.Location, "http://sso.buaa.edu.cn/login?service=iclass"),
+              )
+          else {
+            assertEquals("https", request.url.protocol.name)
+            respond("<html><input name=execution value=fresh></html>")
+          }
+        }
+    )
+    val api = SigninApi(cn.edu.ubaa.api.local.LocalSigninApiBackend())
+    val failure = api.getClasses("2026-11-12").exceptionOrNull()
+    assertEquals(
+        "business_session_expired",
+        (failure as? cn.edu.ubaa.api.auth.ApiCallException)?.code,
+    )
+    assertTrue(LocalAuthSessionStore.get() != null)
+    assertEquals(
+        "business_session_expired",
+        (api.performSignin("test-only").exceptionOrNull() as? cn.edu.ubaa.api.auth.ApiCallException)
+            ?.code,
+    )
+  }
+
+  @Test
   fun `signin api queries today's and historical classes by date`() = runTest {
     var expectedDate = currentSigninDate()
     val queriedDates = mutableListOf<String>()

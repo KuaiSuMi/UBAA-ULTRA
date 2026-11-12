@@ -29,6 +29,7 @@ fun CourseReplayScreen(
     onPlay: (CourseLesson) -> Unit,
     onRetry: () -> Unit,
     onBack: () -> Unit,
+    onVerify: (() -> Unit)? = null,
 ) {
   var keyword by remember { mutableStateOf(state.keyword) }
   var term by remember { mutableStateOf(state.term) }
@@ -94,7 +95,7 @@ fun CourseReplayScreen(
     if (state.loading) LinearProgressIndicator(Modifier.fillMaxWidth())
     state.error?.let {
       Text(it, color = MaterialTheme.colorScheme.error)
-      TextButton(onClick = onRetry) { Text("重试") }
+      TextButton(onClick = onVerify ?: onRetry) { Text(if (onVerify != null) "完成登录验证" else "重试") }
     }
     if (state.course == null) {
       state.result?.let { result ->

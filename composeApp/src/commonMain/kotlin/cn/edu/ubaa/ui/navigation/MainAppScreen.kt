@@ -566,7 +566,8 @@ fun MainAppScreen(
   }
 
   // 连接模式切换后，重置所有 ViewModel 的加载标记与缓存数据，并强制刷新当前页面
-  LaunchedEffect(connectionMode, userData.schoolid) {
+  val restoredSession by cn.edu.ubaa.api.auth.AuthSessionCoordinator.restorations.collectAsState()
+  LaunchedEffect(connectionMode, userData.schoolid, restoredSession) {
     // 常驻 ViewModel
     scheduleViewModel.resetLoadedState()
     signinViewModel.resetLoadedState()

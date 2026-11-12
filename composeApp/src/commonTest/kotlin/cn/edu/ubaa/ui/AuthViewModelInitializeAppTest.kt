@@ -189,6 +189,57 @@ class AuthViewModelInitializeAppTest {
         assertFalse(state.isPreloading)
       }
 
+  @Test
+  fun businessCaptchaCanBeVerifiedWithoutLoggingOutOrReturningToHome() = runTest {
+    Dispatchers.setMain(UnconfinedTestDispatcher(testScheduler))
+    ConnectionModeStore.save(ConnectionMode.DIRECT)
+    val user = cn.edu.ubaa.model.dto.UserData("测试", "123")
+    cn.edu.ubaa.api.storage.AccountStore.save(
+        cn.edu.ubaa.api.storage.SavedAccount(user, "123", "secret", ConnectionMode.DIRECT)
+    )
+    val captcha =
+        cn.edu.ubaa.model.dto.CaptchaInfo("test", imageUrl = "https://sso.buaa.edu.cn/captcha")
+    val auth =
+        object : AuthService() {
+          override suspend fun login(
+              username: String,
+              password: String,
+              captcha: String?,
+              execution: String?,
+          ): Result<LoginResponse> {
+            assertEquals("answer", captcha)
+            assertEquals("fresh", execution)
+            return Result.success(LoginResponse(user, "", "", "", ""))
+          }
+
+          override suspend fun getAuthStatus(): Result<SessionStatusResponse> =
+              error("UC must not clear pending captcha")
+        }
+    val model = AuthViewModel(auth, StubUserService())
+    val store = androidx.lifecycle.ViewModelStore().also { it.put("auth", model) }
+    try {
+      cn.edu.ubaa.api.auth.AuthSessionCoordinator.requireVerification(
+          "123",
+          cn.edu.ubaa.api.auth.CaptchaRequiredClientException(captcha, "fresh", "验证码"),
+      )
+      advanceUntilIdle()
+      assertTrue(model.uiState.value.isLoggedIn)
+      assertTrue(model.uiState.value.reauthenticationRequired)
+      model.validateSession()
+      advanceUntilIdle()
+      assertTrue(model.uiState.value.captchaRequired)
+      model.updateCaptcha("answer")
+      model.login()
+      advanceUntilIdle()
+      assertTrue(model.uiState.value.isLoggedIn)
+      assertFalse(model.uiState.value.reauthenticationRequired)
+      assertNull(cn.edu.ubaa.api.auth.AuthSessionCoordinator.verificationRequired.value)
+    } finally {
+      store.clear()
+      cn.edu.ubaa.api.auth.AuthSessionCoordinator.clearVerification("123")
+    }
+  }
+
   private class TimeoutAuthService(
       private val hasPersistedSession: Boolean = AuthTokensStore.get() != null
   ) : AuthService() {
